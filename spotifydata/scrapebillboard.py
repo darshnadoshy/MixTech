@@ -1,4 +1,3 @@
-import spotipy
 import billboard
 import pandas as pd
 
