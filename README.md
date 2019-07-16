@@ -1,3 +1,3 @@
 # MixTech
 
-Group project for CS564
+Group project for CS564.
