@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("PlaylistService")
 public class PlaylistServiceImpl implements PlaylistService {
     @Autowired
@@ -20,6 +22,11 @@ public class PlaylistServiceImpl implements PlaylistService {
         Sort sort = new Sort(Sort.Direction.DESC, "pid");
         Pageable pageable = PageRequest.of(page, size, sort);
         return playlistRepo.findAll(pageable);
+    }
+
+    @Override
+    public List<PlaylistEntity> getAll() {
+        return playlistRepo.findAll();
     }
 
     @Override

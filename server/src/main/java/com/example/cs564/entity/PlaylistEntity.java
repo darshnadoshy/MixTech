@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "playlist")
-@Data // lombok plug-in; generate getter, setter and constructor
+@Data // lombok plug-in; generate getter and setter
 public class PlaylistEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +16,6 @@ public class PlaylistEntity {
 
     // need to use @Column annotation if name here differs from that in DB
     private String pname;
-    // NOTE: privacy is stored as a bit in db.
-    // So, when querying, need to use 0/1 rather than true/false
     private int privacy;
     private String description;
 

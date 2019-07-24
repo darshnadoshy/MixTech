@@ -15,15 +15,15 @@ public class LibraryController {
     @Autowired
     private PlaylistService playlistService;
 
-//    @Autowired
-//    public LibraryController(PlaylistRepo playlistRepo) {
-//        this.playlistRepo = playlistRepo;
+//    @RequestMapping(value = "/all", method = RequestMethod.GET)
+//    public Page<PlaylistEntity> getAllByPage(@RequestParam(value = "page", defaultValue = "0") int page,
+//                                             @RequestParam(value = "size", defaultValue = "10") int size) {
+//        return playlistService.getAllByPage(page, size);
 //    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public Page<PlaylistEntity> getAllByPage(@RequestParam(value = "page", defaultValue = "0") int page,
-                                             @RequestParam(value = "size", defaultValue = "10") int size) {
-        return playlistService.getAllByPage(page, size);
+    public List<PlaylistEntity> getAll() {
+        return playlistService.getAll();
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
