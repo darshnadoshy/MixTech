@@ -4,5 +4,7 @@ import lombok.Data;
 
 @Data
 public class MoodEntity {
-	
+	private String mname;
+	private String key;
+//	private
 }
