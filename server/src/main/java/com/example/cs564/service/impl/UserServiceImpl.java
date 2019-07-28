@@ -13,11 +13,8 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     @Override
-    public UserEntity getByEmail(String email) throws UserNotFoundException {
+    public UserEntity getByEmail(String email) {
         UserEntity userEntity = userRepo.findByEmail(email);
-        if (userEntity == null) {
-            throw new UserNotFoundException(email);
-        }
         return userEntity;
     }
 
