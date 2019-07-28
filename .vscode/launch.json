@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MixTechApplication",
+            "request": "launch",
+            "mainClass": "com.example.cs564.MixTechApplication",
+            "projectName": "mix-tech"
+        }
+    ]
+}
