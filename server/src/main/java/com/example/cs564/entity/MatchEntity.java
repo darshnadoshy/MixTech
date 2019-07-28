@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "matches")
 @Data
-public class MatchEntiry {
+public class MatchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mid;
