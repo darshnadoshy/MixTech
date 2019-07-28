@@ -7,14 +7,13 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "playlist")
+@Table(name = "playlists")
 @Data // lombok plug-in; generate getter and setter
 public class PlaylistEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pid;
 
-    // need to use @Column annotation if name here differs from that in DB
     private String pname;
     private int privacy;
     private String description;

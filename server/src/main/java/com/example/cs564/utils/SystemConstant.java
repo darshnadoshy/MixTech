@@ -3,7 +3,7 @@ package com.example.cs564.utils;
 public class SystemConstant {
 
     // token
-    public static final int RESCODE_REFTOKEN_MSG = 1006;		//refresh TOKEN(with message)
+    public static final int RESCODE_REFTOKEN_MSG = 1006;		// refresh TOKEN(with message)
     public static final int RESCODE_REFTOKEN = 1007;			// refresh TOKEN
 
     public static final int JWT_ERRCODE_NULL = 4000;			//Token not exist

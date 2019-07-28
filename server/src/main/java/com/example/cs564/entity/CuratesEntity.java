@@ -1,6 +1,7 @@
 package com.example.cs564.entity;
 
 import com.example.cs564.entity.key.ArtistKey;
+import com.example.cs564.entity.key.CuratesKey;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -9,12 +10,12 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
-@IdClass(ArtistKey.class)
-@Table(name = "artist")
+@IdClass(CuratesKey.class)
+@Table(name = "curates")
 @Data
-public class ArtistEntity {
-	@Id
-	private String aname;
-	@Id
-	private String spotify_uri;
+public class CuratesEntity {
+    @Id
+    private Long uid;
+    @Id
+    private Long pid;
 }
