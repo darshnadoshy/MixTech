@@ -16,9 +16,9 @@ public class MatchEntity {
     private String spotify_uri1;
     private String spotify_uri2;
 
-    public MatchEntiry() {}
+    public MatchEntity() {}
 
-    public MatchEntiry(String mname, String spotify_uri1, String spotify_uri2) {
+    public MatchEntity(String mname, String spotify_uri1, String spotify_uri2) {
         this.mname = mname;
         this.spotify_uri1 = spotify_uri1;
         this.spotify_uri2 = spotify_uri2;
