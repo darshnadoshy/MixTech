@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3940a8d2-e4b0-455b-b9be-e0b4a4f514b8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/RegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/WebAppConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/server/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +19,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+            <state relative-caret-position="94">
+              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,20 +28,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/RegisterResponse.java">
+      <file leaf-file-name="LoginResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+            <state relative-caret-position="204">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java">
+      <file leaf-file-name="SystemConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+            <state relative-caret-position="281">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -81,18 +72,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchEntiry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/MatchEntiry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,7 +147,6 @@
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/request/AdvanceSearchRequest.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/MoodEntity.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/UserEntity.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/SongEntity.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/MatchEntiry.java" />
@@ -199,6 +177,7 @@
         <option value="$PROJECT_DIR$/server/pom.xml" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/RegisterResponse.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" />
       </list>
     </option>
@@ -219,7 +198,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="20" />
     <option name="y" value="40" />
     <option name="width" value="2520" />
@@ -433,7 +412,7 @@
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.3417004" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3297491" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31003585" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2580645" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2580645" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24777327" />
@@ -568,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -839,15 +811,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        <state relative-caret-position="204">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+        <state relative-caret-position="94">
+          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

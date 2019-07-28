@@ -24,17 +24,26 @@ public class UserController {
 //    @Autowired
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @RequestMapping(value = "/login")
-    public LoginResponse login(String email, String password, HttpServletResponse response) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public LoginResponse login(String email, String password) {
+        LoginResponse loginResponse = new LoginResponse();
         UserEntity userEntity = userService.getByEmail(email);
-
+        if (userEntity == null) {
+            loginResponse.setRet(SystemConstant.RET_ERR);
+            loginResponse.setMsg(SystemConstant.MSG_USER_DNE);
+            return loginResponse;
+        }
         if (userEntity.getPassword().equals(password)) {
             String jwt = JwtUtils.createJWT(userEntity.getUid().toString(),
                     userEntity.getEmail(), SystemConstant.JWT_TTL);
+            loginResponse.setRet(SystemConstant.RET_SUC);
+            loginResponse.setToken(jwt);
+            loginResponse.setMsg(SystemConstant.MSG_SUCCESS);
         } else {
-
+            loginResponse.setRet(SystemConstant.RET_ERR);
+            loginResponse.setMsg(SystemConstant.MSG_FAIL);
         }
-        return null;
+        return loginResponse;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -42,12 +51,12 @@ public class UserController {
 //        userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
         RegisterResponse registerResponse = new RegisterResponse();
         if (userService.getByEmail(userEntity.getEmail()) != null) {
-            registerResponse.setRet(-1);
-            registerResponse.setMsg("Account has already existed.");
+            registerResponse.setRet(SystemConstant.RET_ERR);
+            registerResponse.setMsg(SystemConstant.MSG_USER_DUP);
         } else {
             userService.create(userEntity);
-            registerResponse.setRet(1);
-            registerResponse.setMsg("Success!");
+            registerResponse.setRet(SystemConstant.RET_SUC);
+            registerResponse.setMsg(SystemConstant.MSG_SUCCESS);
         }
         return registerResponse;
     }
