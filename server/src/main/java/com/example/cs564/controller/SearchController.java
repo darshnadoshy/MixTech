@@ -26,7 +26,7 @@ public class SearchController {
 
     @RequestMapping(value = "/advance", method = RequestMethod.GET)
     public List<SongEntity> getAllByAudioFeatures(@RequestBody AdvanceSearchRequest request) {
-        return null;
+        return songService.getAllByAudioFeatures(request);
     }
 
 }
