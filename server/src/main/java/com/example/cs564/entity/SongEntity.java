@@ -21,7 +21,7 @@ public class SongEntity {
     private Float loudness;
     private Integer smode;
     private Float speechiness;
-    private Float accousticness;
+    private Float acousticness;
     private Float instrumentalness;
     private Float liveness;
     private Float valence;
