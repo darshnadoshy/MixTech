@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SysInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(SysInterceptor.class);
 
+    // executed before actual handler is executed
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         if (handler instanceof HandlerMethod) {
@@ -41,6 +42,7 @@ public class SysInterceptor implements HandlerInterceptor {
         return true;
     }
 
+    // executed after handler is executed
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
         if(response.getStatus()==500){

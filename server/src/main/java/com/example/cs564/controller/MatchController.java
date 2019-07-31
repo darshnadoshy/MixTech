@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/library")
-public class LibraryController {
+@RequestMapping(value = "/match")
+public class MatchController {
     @Autowired
     private PlaylistService playlistService;
 

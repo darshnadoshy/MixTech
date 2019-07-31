@@ -6,16 +6,19 @@ import com.example.cs564.response.RegisterResponse;
 import com.example.cs564.service.UserService;
 import com.example.cs564.utils.JwtUtils;
 import com.example.cs564.utils.SystemConstant;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+=======
+>>>>>>> 16e41cdcfb119337d444f7226ceaa34a6d4bac78
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 @RestController
 @RequestMapping(value = "/user")
@@ -56,11 +59,22 @@ public class UserController {
         if (userService.getByEmail(userEntity.getEmail()) != null) {
             registerResponse.setRet(SystemConstant.RET_ERR);
             registerResponse.setMsg(SystemConstant.MSG_USER_DUP);
+        } else if(userEntity.getPassword() == null) {
+            registerResponse.setRet(SystemConstant.RET_ERR);
+            registerResponse.setMsg("password cannot be empty!");
+        } else if (userEntity.getUname() == null) {
+            registerResponse.setRet(SystemConstant.RET_ERR);
+            registerResponse.setMsg("username cannot be empty!");
         } else {
             userService.create(userEntity);
             registerResponse.setRet(SystemConstant.RET_SUC);
             registerResponse.setMsg(SystemConstant.MSG_SUCCESS);
         }
         return registerResponse;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public void logout(@RequestBody HttpSession httpSession) {
+        httpSession.invalidate();
     }
 }
