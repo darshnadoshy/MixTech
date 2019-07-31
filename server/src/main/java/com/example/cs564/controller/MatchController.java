@@ -21,6 +21,7 @@ public class MatchController {
 //        return playlistService.getAllByPage(page, size);
 //    }
 
+    @ResponseBody
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<PlaylistEntity> getAll() {
         return playlistService.getAll();
