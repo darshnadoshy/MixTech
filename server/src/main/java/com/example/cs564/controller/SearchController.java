@@ -5,6 +5,12 @@ import com.example.cs564.request.AdvanceSearchRequest;
 import com.example.cs564.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
@@ -15,6 +21,7 @@ public class SearchController {
     private SongService songService;
 
     @ResponseBody
+    @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
     public List<SongEntity> getAllByName(String sname) {
         return songService.getAllByName(sname);

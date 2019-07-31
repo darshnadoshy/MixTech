@@ -11,6 +11,7 @@ class Search extends Component {
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
+        console.log(this.state.sname)
     }
 
     handleSubmit = e => {
@@ -51,7 +52,7 @@ class Search extends Component {
                 <div className="container" style={style}>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group"> 
-                            <label for="search">Search</label>
+                            <label htmlFor="search">Search</label>
                             <input type="text" className="form-control" name="sname" placeholder="Enter song name"
                             onChange={this.handleChange}></input>
                             <button type="submit" className="btn btn-primary">Search</button>
