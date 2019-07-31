@@ -8,10 +8,7 @@ import com.example.cs564.utils.JwtUtils;
 import com.example.cs564.utils.SystemConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-<<<<<<< HEAD
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-=======
->>>>>>> 4d1b85e386e709c862011874a07ab60f3a914c41
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
