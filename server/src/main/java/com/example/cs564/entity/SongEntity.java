@@ -28,6 +28,8 @@ public class SongEntity {
     private Float tempo;
     private Integer duration_ms;
 
+    public SongEntity() {}
+
     public SongEntity(String spotify_uri) {
         this.spotify_uri = spotify_uri;
     }
