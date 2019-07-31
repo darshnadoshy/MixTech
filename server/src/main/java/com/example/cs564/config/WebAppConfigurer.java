@@ -1,5 +1,6 @@
-package com.example.cs564.utils;
+package com.example.cs564.config;
 
+import com.example.cs564.utils.SysInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
