@@ -8,6 +8,7 @@ import com.example.cs564.utils.JwtUtils;
 import com.example.cs564.utils.SystemConstant;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,9 +47,11 @@ public class UserController {
         return loginResponse;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public RegisterResponse register(@RequestBody UserEntity userEntity) {
 //        userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
+        System.out.println(userEntity);
         RegisterResponse registerResponse = new RegisterResponse();
         if (userService.getByEmail(userEntity.getEmail()) != null) {
             registerResponse.setRet(SystemConstant.RET_ERR);
