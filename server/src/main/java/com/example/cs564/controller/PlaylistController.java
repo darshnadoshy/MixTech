@@ -1,5 +1,6 @@
 package com.example.cs564.controller;
 
+import com.example.cs564.entity.PlaylistEntity;
 import com.example.cs564.entity.SongEntity;
 import com.example.cs564.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class PlaylistController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<SongEntity> getAll() {
         return null;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create (@RequestBody PlaylistEntity playlistEntity) {
+        playlistService.create(playlistEntity);
     }
 
     @RequestMapping(value = "/a", method = RequestMethod.GET)

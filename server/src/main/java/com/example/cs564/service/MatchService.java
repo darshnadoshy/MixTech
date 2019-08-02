@@ -9,6 +9,6 @@ public interface MatchService {
     Page<MatchEntity> getAllByPage(int page, int size);
     List<MatchEntity> getAll();
     void create(MatchEntity matchEntity);
-    void remove(Long pid);
+    void remove(Long mid);
 
 }

@@ -1,8 +1,8 @@
 package com.example.cs564.controller;
 
-import com.example.cs564.dao.PlaylistRepo;
-import com.example.cs564.entity.PlaylistEntity;
-import com.example.cs564.service.PlaylistService;
+import com.example.cs564.dao.MatchRepo;
+import com.example.cs564.entity.MatchEntity;
+import com.example.cs564.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -13,27 +13,23 @@ import java.util.List;
 @RequestMapping(value = "/match")
 public class MatchController {
     @Autowired
-    private PlaylistService playlistService;
-
-//    @RequestMapping(value = "/all", method = RequestMethod.GET)
-//    public Page<PlaylistEntity> getAllByPage(@RequestParam(value = "page", defaultValue = "0") int page,
-//                                             @RequestParam(value = "size", defaultValue = "10") int size) {
-//        return playlistService.getAllByPage(page, size);
-//    }
+    private MatchService matchService;
 
     @ResponseBody
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<PlaylistEntity> getAll() {
-        return playlistService.getAll();
+    public List<MatchEntity> getAll() {
+        return matchService.getAll();
     }
 
+    @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void create(@RequestBody PlaylistEntity playlistEntity) {
-        playlistService.create(playlistEntity);
+    public void create(@RequestBody MatchEntity matchEntity) {
+        matchService.create(matchEntity);
     }
 
+    //Delete a match by ID
     @RequestMapping(value = "/delete/{pid}", method = RequestMethod.DELETE)
-    public void remove(@PathVariable Long pid) {
-        playlistService.remove(pid);
+    public void remove(@PathVariable Long mid) {
+        matchService.remove(mid);
     }
 }
