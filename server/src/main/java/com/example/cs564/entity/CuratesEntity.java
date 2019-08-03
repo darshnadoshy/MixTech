@@ -18,4 +18,11 @@ public class CuratesEntity {
     private Long uid;
     @Id
     private Long pid;
+
+    public CuratesEntity() {}
+
+    public CuratesEntity(Long uid, Long pid) {
+        this.uid = uid;
+        this.pid = pid;
+    }
 }
