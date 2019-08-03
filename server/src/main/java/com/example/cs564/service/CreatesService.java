@@ -1,0 +1,13 @@
+package com.example.cs564.service;
+
+import com.example.cs564.entity.CreatesEntity;
+import com.example.cs564.entity.key.CreatesKey;
+
+
+import java.util.List;
+
+public interface CreatesService {
+    public void create(CreatesEntity createsEntity);
+    public void remove(CreatesKey key);
+
+}

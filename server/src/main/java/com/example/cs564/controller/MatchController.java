@@ -1,10 +1,11 @@
 package com.example.cs564.controller;
 
-import com.example.cs564.dao.MatchRepo;
 import com.example.cs564.entity.MatchEntity;
+import com.example.cs564.entity.key.CreatesKey;
+import com.example.cs564.service.CreatesService;
+import com.example.cs564.entity.CreatesEntity;
 import com.example.cs564.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
 public class MatchController {
     @Autowired
     private MatchService matchService;
+    @Autowired
+    private CreatesService createsService;
 
     @ResponseBody
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -22,14 +25,21 @@ public class MatchController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void create(@RequestBody MatchEntity matchEntity) {
+    @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
+    public void create(@RequestBody MatchEntity matchEntity, @PathVariable Long uid) {
         matchService.create(matchEntity);
+        CreatesEntity createsEntity = new CreatesEntity();
+        createsEntity.setMid(matchEntity.getMid());
+        createsEntity.setUid(uid);
+        createsService.create(createsEntity);
+
     }
 
     //Delete a match by ID
-    @RequestMapping(value = "/delete/{mid}", method = RequestMethod.DELETE)
-    public void remove(@PathVariable Long mid) {
+    @RequestMapping(value = "/delete/{mid}/{uid}", method = RequestMethod.DELETE)
+    public void remove(@PathVariable Long mid, @PathVariable long uid) {
         matchService.remove(mid);
+        CreatesKey key = new CreatesKey(uid, mid);
+        createsService.remove(key);
     }
 }

@@ -17,5 +17,5 @@ public class CreatesEntity {
     @Id
     private Long uid;
     @Id
-    private Long pid;
+    private Long mid;
 }
