@@ -19,9 +19,9 @@ public class MatchController {
     private CreatesService createsService;
 
     @ResponseBody
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<MatchEntity> getAll() {
-        return matchService.getAll();
+    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+    public List<MatchEntity> getAll(@PathVariable Long uid) {
+        return createsService.getAllByUid(uid);
     }
 
     @ResponseBody
