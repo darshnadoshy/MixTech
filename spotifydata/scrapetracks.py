@@ -12,27 +12,39 @@ album_ids = df['album_ids']
 track_ids = [] # track ids to search
 track_names = [] # track name for outputted dataframe
 popularity = [] # the popularity of tracks
+album_names = []
 bad_albums = []
 
 i, j = 0, 20
-while True:
-    try:
-        while i < len(album_ids):
-            album = sp.album(album_ids[i])
-            album_tracks = []
-            for track in album['tracks']['items']:
-                track_ids.append(track['id'])
-                album_tracks.append(track['id'])
-                track_names.append(track['name'])
-            popularity.extend(list(map(lambda x: x['popularity'], sp.tracks(album_tracks)['tracks'])))
-            i += 1
-    except spotipy.client.SpotifyException as err:
-        print(err)
-        bad_albums.append(album_ids[i])
-        i += 1
-        continue
 
-data = {'track_ids': track_ids, 'track_names': track_names, 'popularity': popularity}
+
+while i < len(album_ids):
+    album = sp.album(album_ids[i])
+    album_tracks = []
+    
+    for track in album['tracks']['items']:
+        album_names.append(album['name'])
+        track_ids.append(track['id'])
+        album_tracks.append(track['id'])
+        track_names.append(track['name'])
+    try:
+        popularity.extend(list(map(lambda x: x['popularity'], sp.tracks(album_tracks)['tracks'])))
+    except Exception as err:
+        print(album_names)
+        print("IDONTKNOWWHATTOPUTHERE")
+        print(track_names)
+        print(err)
+
+    i += 1
+
+
+    # except spotipy.client.SpotifyException as err:
+    #     print(err)
+    #     bad_albums.append(album_ids[i])
+    #     i += 1
+    #     continue
+
+data = {'track_ids': track_ids, 'track_names': track_names, 'album_names': album_names,'popularity': popularity}
 df = pd.DataFrame(data)
 df.drop_duplicates(subset=['track_ids'], inplace=True)
 grouped = df.groupby(['track_ids'], as_index=True).size()

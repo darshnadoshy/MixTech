@@ -1,0 +1,12 @@
+.title {
+    padding: 30px;
+}
+#asearchContent {
+    display: table-cell;
+    width: 85%;
+    vertical-align: top;
+}
+#form {
+    margin: 50px;
+    padding: 20px;
+}

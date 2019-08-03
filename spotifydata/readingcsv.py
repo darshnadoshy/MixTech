@@ -26,9 +26,9 @@ failed_albums = []
 
 for _, row in df.iterrows():
     try:
-        album_ids.append(sp.search(q=row[2], type="album", limit=3)['albums']['items'][0]['id'])
+        album_ids.append(sp.search(q=str(row[1]) + ' ' + str(row[2]), type="album", limit=3)['albums']['items'][0]['id'])
     except:
-        failed_albums.append(row[2])
+        failed_albums.append(str(row[1]) + ' ' + str(row[2]))
 
 
 a = pd.DataFrame({'album_ids': album_ids})

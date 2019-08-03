@@ -5,28 +5,34 @@ import '../css/Sidebar.css'
 class Sidebar extends Component {
     render() {
         return (
-            <div className="wrapper">
-                <nav id="sidebar">
-                    <div className="sidebar-header">
-                        <h3>MixTech</h3>
-                    </div>
-
-                    <ul className="list-unstyled components">
-                        <p>Username</p>
-                        
-                        <li>
+            <nav className="navbar" id="sidebar">
+                <div className="navbar-brand sidebar-header">
+                    <h1>MixTech</h1>
+                </div>
+                <ul className="navbar-nav">
+                    <h4>Username</h4>
+                    <li className="nav-item">
+                        <div className="container">
                             <Link to={'/home'}>Matches</Link>
-                        </li>
-                        <li>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="container">
                             <Link to={'/home/playlists'}>Playlists</Link>
-                        </li>
-                        <li>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <div className="container">
                             <Link to={'/home/search'}>Search</Link>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <div className="container">
+                            <Link to={'/home/advancedsearch'}>Advanced Search</Link>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         );
     }
 }

@@ -4,17 +4,48 @@ import spotipy
 client_credentials_manager = SpotifyClientCredentials(client_id="ae1c25b01ed94b4cb0b48cd1e679f051", client_secret="8a9d601440204112b46c1d3e4d0d26e4")
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-import requests as req
+#import requests as req
 
 # response = req.get('https://www.api.spotify.com')
 # print(response.status_code)
 # print(response.raise_for_status())
 
-try:
-    response = req.get('https://httpstat.us/429')
-    # If the response was successful, no Exception will be raised
-    response.raise_for_status()
-except req.HTTPError as e:
-    print(e.response.headers)
+#print(sp.album('3mvWfqa4cceoGyA7qECPWH')['name'])
+
+
+# df = pd.read_csv('./album_ids.csv')
+# print(df.duplicated(subset="album_ids").to_csv('duplicated_rows.csv'))
+
+
+# df = pd.read_csv('./billboard-200.csv')
+# print(df.duplicated(subset="album_name").to_csv('single.csv'))
+
+#print(sp.search(q="Step On Out The Oak Ridge Boys", type="album", limit=3)['albums']['items'][0])
+
+# df = pd.read_csv('./billboard-200.csv')
+
+# print(df.shape)
+
+# print(sp.album('2ACmsLwZxp7kFSWdxkl5qM')['name'])
+
+# df = pd.read_csv('./track_ids.csv')
+
+# tracks = df['track_ids'][0:4].values.flatten().tolist()
+# tracks.append(1.00)
+# nums = list(map(lambda x: str(x), df['track_ids'][0:4].values.flatten().tolist()))
+
+# print(type(nums))
+
+
+
+df = pd.DataFrame({'a': ['1', 4,4,4,4,4], 'b': ['2', 5,5,5,5,5], 'c': ['3', 6,6,6,6,6]})
+df2 = pd.DataFrame({'d': ['4', 7,7,7,7,7], 'e': ['5', 8,8,8,8,8], 'f': ['6', 9,9,9,9,9]})
+
+frames = [df, df2]
+
+print(type(pd.concat(frames, axis=1)))
+print(type(df))
+
+print(type(pd.read_csv('./album_ids.csv')))
 
 
