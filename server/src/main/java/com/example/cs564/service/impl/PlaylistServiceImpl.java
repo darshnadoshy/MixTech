@@ -1,6 +1,8 @@
 package com.example.cs564.service.impl;
 
+import com.example.cs564.dao.CuratesRepo;
 import com.example.cs564.dao.PlaylistRepo;
+import com.example.cs564.entity.CuratesEntity;
 import com.example.cs564.entity.PlaylistEntity;
 import com.example.cs564.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import java.util.List;
 public class PlaylistServiceImpl implements PlaylistService {
     @Autowired
     private PlaylistRepo playlistRepo;
+    @Autowired
+    private CuratesRepo curatesRepo;
 
     @Override
     public Page<PlaylistEntity> getAllByPage(int page, int size) {
@@ -25,13 +29,15 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public List<PlaylistEntity> getAll() {
-        return playlistRepo.findAll();
+    public List<PlaylistEntity> getAllById(Long uid) {
+        return null;
     }
 
     @Override
-    public void create(PlaylistEntity playlistEntity) {
-        playlistRepo.save(playlistEntity);
+    public void create(Long uid, PlaylistEntity playlistEntity) {
+        PlaylistEntity e = playlistRepo.save(playlistEntity);
+        CuratesEntity curatesEntity = new CuratesEntity(uid, e.getPid());
+        curatesRepo.save(curatesEntity);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.cs564.dao.Impl;
 import com.example.cs564.dao.SongDao;
 import com.example.cs564.entity.SongEntity;
 import com.example.cs564.request.AdvanceSearchRequest;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

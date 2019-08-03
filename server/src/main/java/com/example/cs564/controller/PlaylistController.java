@@ -2,7 +2,10 @@ package com.example.cs564.controller;
 
 import com.example.cs564.entity.PlaylistEntity;
 import com.example.cs564.entity.SongEntity;
+import com.example.cs564.entity.key.CuratesKey;
+import com.example.cs564.service.CuratesService;
 import com.example.cs564.service.PlaylistService;
+import com.example.cs564.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,8 @@ import java.util.List;
 public class PlaylistController {
     @Autowired
     private PlaylistService playlistService;
+    @Autowired
+    private CuratesService curatesService;
 
 //    @RequestMapping(value = "/all", method = RequestMethod.GET)
 //    public Page<SongEntity> getAllSongsByPage(@RequestParam(value = "page", defaultValue = "0") int page,
@@ -22,24 +27,21 @@ public class PlaylistController {
 //    }
 
     // get all songs from a playlist
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<SongEntity> getAll() {
-        return null;
+    @ResponseBody
+    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+    public List<PlaylistEntity> getAll(@PathVariable Long uid) {
+        return curatesService.getAllByUid(uid);
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void create (@RequestBody PlaylistEntity playlistEntity) {
-        playlistService.create(playlistEntity);
-    }
-
-    @RequestMapping(value = "/a", method = RequestMethod.GET)
-    public SongEntity getSongById(String spotify_uri) {
-        return null;
+    @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
+    public void create (@PathVariable Long uid, @RequestBody PlaylistEntity playlistEntity) {
+        playlistService.create(uid, playlistEntity);
     }
 
     // delete a song by id
-    @RequestMapping(value = "/delete/{pid}", method = RequestMethod.DELETE)
-    public void remove(@PathVariable Long sid) {
-
+    @RequestMapping(value = "/delete/{uid}/{pid}", method = RequestMethod.DELETE)
+    public void remove(@PathVariable Long uid, @PathVariable Long pid) {
+        curatesService.remove(uid, pid);
+        playlistService.remove(pid);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PlaylistService {
     Page<PlaylistEntity> getAllByPage(int page, int size);
-    List<PlaylistEntity> getAll();
-    void create(PlaylistEntity playlistEntity);
+    List<PlaylistEntity> getAllById(Long uid);
+    void create(Long uid, PlaylistEntity playlistEntity);
     void remove(Long pid);
 }
