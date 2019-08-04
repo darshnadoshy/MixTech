@@ -17,4 +17,11 @@ public class IncludesEntity {
     private String spotify_uri;
     @Id
     private Long pid;
+
+    public IncludesEntity() {}
+
+    public IncludesEntity(String spotify_uri, Long pid) {
+        this.spotify_uri = spotify_uri;
+        this.pid = pid;
+    }
 }
