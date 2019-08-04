@@ -25,7 +25,7 @@ public class MatchController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/follow/{uid}", method = RequestMethod.POST)
     public void create(@RequestBody MatchEntity matchEntity, @PathVariable Long uid) {
         matchService.create(matchEntity);
         CreatesEntity createsEntity = new CreatesEntity();

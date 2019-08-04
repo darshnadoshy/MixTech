@@ -1,9 +1,12 @@
 package com.example.cs564.service.impl;
 
 import com.example.cs564.dao.CuratesRepo;
+import com.example.cs564.dao.FollowsRepo;
 import com.example.cs564.dao.PlaylistRepo;
-import com.example.cs564.entity.CuratesEntity;
+import com.example.cs564.entity.FollowsEntity;
 import com.example.cs564.entity.PlaylistEntity;
+import com.example.cs564.service.CuratesService;
+import com.example.cs564.service.FollowsService;
 import com.example.cs564.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +23,12 @@ public class PlaylistServiceImpl implements PlaylistService {
     private PlaylistRepo playlistRepo;
     @Autowired
     private CuratesRepo curatesRepo;
+    @Autowired
+    private FollowsRepo followsRepo;
+    @Autowired
+    private CuratesService curatesService;
+    @Autowired
+    private FollowsService followsService;
 
     @Override
     public Page<PlaylistEntity> getAllByPage(int page, int size) {
@@ -29,19 +38,40 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public List<PlaylistEntity> getAllById(Long uid) {
-        return null;
+    public PlaylistEntity getByPid(Long pid) {
+        return playlistRepo.findByPid(pid);
     }
 
     @Override
-    public void create(Long uid, PlaylistEntity playlistEntity) {
-        PlaylistEntity e = playlistRepo.save(playlistEntity);
-        CuratesEntity curatesEntity = new CuratesEntity(uid, e.getPid());
-        curatesRepo.save(curatesEntity);
+    public boolean privacy(Long uid, Long pid, int privacy) {
+        // If not the creator, than operation denied.
+        if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
+            return false;
+        }
+        List<FollowsEntity> list = followsRepo.findAllByPid(pid);
+        for (FollowsEntity e : list) {
+            e.setAccess(privacy);
+        }
+        return true;
+    }
+
+
+    @Override
+    public Long create(Long uid, PlaylistEntity playlistEntity) {
+        Long pid = playlistRepo.save(playlistEntity).getPid();
+        curatesService.create(uid, pid);
+//        followsService.follow(pid, uid);
+        return pid;
     }
 
     @Override
-    public void remove(Long pid) {
+    public boolean remove(Long uid, Long pid) {
+        if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
+            return false;
+        }
+        curatesService.remove(uid, pid);
+//        followsService.unfollow(pid);
         playlistRepo.deleteById(pid);
+        return true;
     }
 }

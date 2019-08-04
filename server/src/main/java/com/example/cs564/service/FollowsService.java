@@ -4,8 +4,9 @@ import com.example.cs564.entity.PlaylistEntity;
 
 import java.util.List;
 
-public interface CuratesService {
+public interface FollowsService {
     List<PlaylistEntity> getAllByUid(Long uid);
-    void create(Long uid, Long pid);
-    void remove(Long uid, Long pid);
+    boolean follow(Long pid, Long uid);
+    boolean unfollow(Long pid, Long uid);
+    void unfollow(Long pid);
 }

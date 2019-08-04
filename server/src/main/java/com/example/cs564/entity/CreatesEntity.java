@@ -1,6 +1,5 @@
 package com.example.cs564.entity;
 
-import com.example.cs564.entity.key.ArtistKey;
 import com.example.cs564.entity.key.CreatesKey;
 import lombok.Data;
 

@@ -1,7 +1,10 @@
 package com.example.cs564.entity.key;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class CreatesKey implements Serializable {
     private Long uid;
     private Long mid;

@@ -24,4 +24,6 @@ public class SystemConstant {
     public static final String MSG_USER_DNE = "user not found!";
     public static final String MSG_USER_DUP = "user already existed!";
 
+    public static final String MSG_UNAUTH_ACCESS = "Sorry, operation denied!";
+
 }

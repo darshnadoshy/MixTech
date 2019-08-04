@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PlaylistRepo extends JpaRepository<PlaylistEntity, Long> {
-
+    PlaylistEntity findByPid(Long pid);
 }
