@@ -3,10 +3,7 @@ package com.example.cs564.entity;
 import com.example.cs564.entity.key.IncludesKey;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @IdClass(IncludesKey.class)
@@ -14,14 +11,15 @@ import javax.persistence.Table;
 @Data
 public class IncludesEntity {
     @Id
-    private String spotify_uri;
+    @Column(name = "spotifyUri")
+    private String spotifyUri;
     @Id
     private Long pid;
 
     public IncludesEntity() {}
 
     public IncludesEntity(String spotify_uri, Long pid) {
-        this.spotify_uri = spotify_uri;
+        this.spotifyUri = spotify_uri;
         this.pid = pid;
     }
 }

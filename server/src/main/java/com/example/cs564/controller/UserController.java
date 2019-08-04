@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Base64;
 
 
 @RestController
@@ -30,7 +31,8 @@ public class UserController {
             loginResponse.setMsg(SystemConstant.MSG_USER_DNE);
             return loginResponse;
         }
-        if (userEntity.getPassword().equals(password)) {
+        String decodedPassord = new String(Base64.getDecoder().decode(userEntity.getPassword()));
+        if (decodedPassord.equals(password)) {
             String jwt = JwtUtils.createJWT(userEntity.getUid().toString(),
                     userEntity.getEmail(), SystemConstant.JWT_TTL);
             loginResponse.setRet(SystemConstant.RET_SUC);
@@ -48,7 +50,6 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public RegisterResponse register(@RequestBody UserEntity userEntity) {
 //        userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
-        System.out.println(userEntity);
         RegisterResponse registerResponse = new RegisterResponse();
         if (userService.getByEmail(userEntity.getEmail()) != null) {
             registerResponse.setRet(SystemConstant.RET_ERR);
@@ -60,6 +61,7 @@ public class UserController {
             registerResponse.setRet(SystemConstant.RET_ERR);
             registerResponse.setMsg("username cannot be empty!");
         } else {
+            userEntity.setPassword(Base64.getEncoder().encodeToString(userEntity.getPassword().getBytes()));
             userService.create(userEntity);
             registerResponse.setRet(SystemConstant.RET_SUC);
             registerResponse.setMsg(SystemConstant.MSG_SUCCESS);

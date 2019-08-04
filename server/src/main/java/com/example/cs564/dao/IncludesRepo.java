@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IncludesRepo extends JpaRepository<IncludesEntity, IncludesKey> {
-
+    IncludesEntity findBySpotifyUriAndPid(String spotifyUri, Long pid);
 }

@@ -24,12 +24,15 @@ public class PlaylistSongServiceImpl implements PlaylistSongService {
     }
 
     @Override
-    public void add(String spotify_uri, Long pid) {
-        includesRepo.save(new IncludesEntity(spotify_uri, pid));
+    public void add(String spotifyUri, Long pid) {
+        if (includesRepo.findBySpotifyUriAndPid(spotifyUri, pid) != null) {
+//            // TODO: If already exist...
+        }
+        includesRepo.save(new IncludesEntity(spotifyUri, pid));
     }
 
     @Override
-    public void remove(String spotiry_uri, Long pid) {
-        includesRepo.deleteById(new IncludesKey(spotiry_uri, pid));
+    public void remove(String spotifyUri, Long pid) {
+        includesRepo.deleteById(new IncludesKey(spotifyUri, pid));
     }
 }
