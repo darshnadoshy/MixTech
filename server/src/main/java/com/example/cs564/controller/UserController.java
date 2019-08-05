@@ -23,7 +23,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public LoginResponse login(String email, String password) {
+    public LoginResponse login(@RequestParam String email, @RequestParam String password) {
         LoginResponse loginResponse = new LoginResponse();
         UserEntity userEntity = userService.getByEmail(email);
         if (userEntity == null) {
@@ -69,8 +69,8 @@ public class UserController {
         return registerResponse;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public void logout(@RequestBody HttpSession httpSession) {
-        httpSession.invalidate();
-    }
+//    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+//    public void logout(@RequestBody HttpSession httpSession) {
+//        httpSession.invalidate();
+//    }
 }
