@@ -10,7 +10,9 @@ import javax.persistence.*;
 public class SongEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String spotify_uri;
+
+    @Column(name = "spotify_uri")
+    private String spotifyID;
 
     private String sname;
     private String album_name;
@@ -30,16 +32,16 @@ public class SongEntity {
 
     public SongEntity() {}
 
-    public SongEntity(String spotify_uri) {
-        this.spotify_uri = spotify_uri;
+    public SongEntity(String spotifyID) {
+        this.spotifyID = spotifyID;
     }
 
-    public SongEntity(String spotify_uri, String sname, String album_name, String mname,
+    public SongEntity(String spotifyID, String sname, String album_name, String mname,
                       Float danceability, Float energy, Integer skey,
                       Float loudness, Integer smode, Float speechiness,
                       Float instrumentalness, Float liveness, Float valuence,
                       Float tempo, Integer duration_ms) {
-        this.spotify_uri = spotify_uri;
+        this.spotifyID = spotifyID;
         this.sname = sname;
         this.album_name = album_name;
         this.mname = mname;

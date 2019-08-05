@@ -16,7 +16,7 @@ public class IncludesDaoImpl implements IncludesDao {
     @Override
     public List<SongEntity> findAllByPid(Long pid) {
         return em.createNativeQuery("select s.* from song s, include i " +
-                "where i.pid = ?1 and i.spotifyUri = s.spotifyUri", SongEntity.class)
+                "where i.pid = ?1 and i.spotify_uri = s.spotify_uri", SongEntity.class)
                 .setParameter(1, pid).getResultList();
     }
 }
