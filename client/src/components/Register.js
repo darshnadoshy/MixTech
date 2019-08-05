@@ -16,7 +16,7 @@ class Register extends Component {
     }
 
     handleSubmit = e => {
-        
+        //fetch(url, object containing definitions)
         fetch('http://localhost:8080/user/register', {
             method: 'POST',
             crossDomain: true,
@@ -27,6 +27,7 @@ class Register extends Component {
         }).then(res => console.log(res.json))
         .catch(err => console.log(err));
     }
+
     render() {
         return (
             <div className="container">

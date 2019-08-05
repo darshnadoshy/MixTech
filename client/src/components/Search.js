@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import { songResults } from '../actions/BasicSearchAction'
+import { connect } from 'react-redux'
 import '../css/Search.css'
 
 
@@ -7,7 +10,6 @@ class Search extends Component {
         super()
         this.state = {
             sname: "",
-            results: []  
         }
     }
 
@@ -17,35 +19,8 @@ class Search extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        fetch(`http://localhost:8080/search/basic?sname=${this.state.sname}`, {
-            method: 'GET',
-            crossDomain: true,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(res => {return res.json()})
-        .then(res => {
-            this.setState({
-                results: res.map(song => ({
-                    name: song.sname,
-                    album_name: song.album_name,
-                    artist: song.mname,
-                    danceability: song.danceability,
-                    energy: song.energy,
-                    key: song.skey,
-                    loudness: song.loudness,
-                    mode: song.smode,
-                    speechiness: song.speechiness,
-                    acousticness: song.acousticness,
-                    instrumentalness: song.instrumentalness,
-                    liveness: song.liveness,
-                    valence: song.valence,
-                    tempo: song.tempo,
-                    duration: song.duration_ms
-                }))
-            })
-        }).catch(err => {console.log(err)})
-    
+        const query = {sname: this.state.sname}
+        this.props.songResults(query)
     }   
 
     render() {
@@ -63,7 +38,7 @@ class Search extends Component {
                     </form>
                 </div>
                 <div className="container" id="results">
-                    {this.state.results.map(song => 
+                    {this.props.results.map(song => 
                         <div>
                             <h3>Results</h3>
                             <div className="row align-items-start">
@@ -161,29 +136,13 @@ class Search extends Component {
     }
 }
 
+Search.propTypes = {
+    songResults: PropTypes.func.isRequired,
+    results: PropTypes.array
+}
 
+const mapStateToProps = state => ({
+    results: state.basicSearchResults.results
+})
 
-
-
-
-
-
-
-
-/* <li className="list-group-item">{song.name}</li>
-                                <li className="list-group-item">{song.album_name}</li> 
-                                <li className="list-group-item">{song.artist}</li> 
-                                <li className="list-group-item">{song.danceability}</li> 
-                                <li className="list-group-item">{song.energy}</li> 
-                                <li className="list-group-item">{song.key}</li> 
-                                <li className="list-group-item">{song.loudness}</li> 
-                                <li className="list-group-item">{song.mode}</li> 
-                                <li className="list-group-item">{song.speechiness}</li> 
-                                <li className="list-group-item">{song.acousticness}</li> 
-                                <li className="list-group-item">{song.instrumentalness}</li> 
-                                <li className="list-group-item">{song.liveness}</li> 
-                                <li className="list-group-item">{song.valence}</li> 
-                                <li className="list-group-item">{song.tempo}</li> 
-                                <li className="list-group-item">{song.duration}</li>   */
-
-export default Search;
+export default connect(mapStateToProps, { songResults })(Search);

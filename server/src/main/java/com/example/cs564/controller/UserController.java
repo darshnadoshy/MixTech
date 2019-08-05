@@ -20,7 +20,8 @@ public class UserController {
     private UserService userService;
 //    @Autowired
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    
+    @CrossOrigin(origins = "http://localhost:3000")
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public LoginResponse login(String email, String password) {
