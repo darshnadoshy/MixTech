@@ -2,6 +2,7 @@ package com.example.cs564.service.impl;
 
 import com.example.cs564.dao.MatchRepo;
 import com.example.cs564.entity.MatchEntity;
+import com.example.cs564.entity.SongEntity;
 import com.example.cs564.service.MatchService;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,11 @@ public class MatchServiceImpl implements MatchService{
     public void remove(Long mid) {
         matchRepo.deleteById(mid);
     }
+
+    @Override
+    public MatchEntity getByMid(Long mid) {
+        return matchRepo.findByMid(mid);
+    }
+
+
 }

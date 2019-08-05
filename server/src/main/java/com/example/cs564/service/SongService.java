@@ -8,4 +8,5 @@ import java.util.List;
 public interface SongService {
     List<SongEntity> getAllByName(String name);
     List<SongEntity> getAllByAudioFeatures(AdvanceSearchRequest request);
+    SongEntity getByID(String spotifyID);
 }

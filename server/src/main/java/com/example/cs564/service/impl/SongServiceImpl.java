@@ -19,7 +19,10 @@ public class SongServiceImpl implements SongService {
     @Autowired
     private SongDao songDao;
 
-
+    @Override
+    public SongEntity getByID(String spotifyID) {
+        return songRepo.findBySpotifyID(spotifyID);
+    }
     @Override
     public List<SongEntity> getAllByName(String sname) {
         return songRepo.findBySnameLike("%" + sname + "%");
