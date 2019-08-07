@@ -11,8 +11,7 @@ import java.util.Date;
 public class JwtUtils {
     public static String createJWT(String id, String subject, long ttlMillis) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        long nowMillis = System.currentTimeMillis();
-        Date now = new Date(nowMillis);
+        Date now = new Date();
         SecretKey secretKey = generalKey();
         JwtBuilder builder = Jwts.builder()
                 .setId(id)
@@ -21,8 +20,7 @@ public class JwtUtils {
                 .setIssuedAt(now)
                 .signWith(signatureAlgorithm, secretKey);
         if (ttlMillis >= 0) {
-            long expMillis = nowMillis + ttlMillis;
-            Date expDate = new Date(expMillis);
+            Date expDate = new Date(System.currentTimeMillis() + ttlMillis);
             builder.setExpiration(expDate); // expire time
         }
         return builder.compact();
@@ -36,13 +34,13 @@ public class JwtUtils {
             checkResult.setSuccess(true);
             checkResult.setClaims(claims);
         } catch (ExpiredJwtException e) {
-            checkResult.setErrCode(SystemConstant.JWT_ERRCODE_EXPIRE);
+            checkResult.setErrCode(SystemConstant.JWT_ERR_EXPIRE);
             checkResult.setSuccess(false);
         } catch (SignatureException e) {
-            checkResult.setErrCode(SystemConstant.JWT_ERRCODE_FAIL);
+            checkResult.setErrCode(SystemConstant.JWT_ERR_FAIL);
             checkResult.setSuccess(false);
         } catch (Exception e) {
-            checkResult.setErrCode(SystemConstant.JWT_ERRCODE_FAIL);
+            checkResult.setErrCode(SystemConstant.JWT_ERR_FAIL);
             checkResult.setSuccess(false);
         }
         return checkResult;
@@ -55,9 +53,8 @@ public class JwtUtils {
     }
 
     public static Claims parseJWT(String jwt) throws Exception {
-        SecretKey secretKey = generalKey();
         return Jwts.parser()
-                .setSigningKey(secretKey)
+                .setSigningKey(generalKey())
                 .parseClaimsJws(jwt)
                 .getBody();
     }

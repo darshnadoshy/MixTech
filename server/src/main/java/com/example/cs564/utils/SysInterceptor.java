@@ -28,10 +28,10 @@ public class SysInterceptor implements HandlerInterceptor {
                     return true;
                 }
                 switch (checkResult.getErrCode()) {
-                    case SystemConstant.JWT_ERRCODE_FAIL:
+                    case SystemConstant.JWT_ERR_FAIL:
                         logger.info("JWT validation failed.");
                         break;
-                    case SystemConstant.JWT_ERRCODE_EXPIRE:
+                    case SystemConstant.JWT_ERR_EXPIRE:
                         logger.info("JWT validation expired");
                     default:
                         break;
