@@ -23,7 +23,7 @@ public class SongDaoImpl implements SongDao {
         CriteriaQuery<SongEntity> criteriaQuery = criteriaBuilder.createQuery(SongEntity.class);
         Root<SongEntity> root = criteriaQuery.from(SongEntity.class);
 
-        Predicate p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
+        Predicate p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13;
 
         Path danceability = root.get("danceability");
         Path energy = root.get("energy");
@@ -37,6 +37,7 @@ public class SongDaoImpl implements SongDao {
         Path valence = root.get("valence");
         Path tempo = root.get("tempo");
         Path duration_ms = root.get("duration_ms");
+        Path time_signature = root.get("time_signature");
 
         p1 = criteriaBuilder.between(danceability, request.getDanceability0(), request.getDanceability1());
         p2 = criteriaBuilder.between(energy, request.getEnergy0(), request.getEnergy1());
@@ -50,8 +51,9 @@ public class SongDaoImpl implements SongDao {
         p10 = criteriaBuilder.between(valence, request.getValence0(), request.getValence1());
         p11 = criteriaBuilder.between(tempo, request.getTempo0(), request.getTempo1());
         p12 = criteriaBuilder.between(duration_ms, request.getDuration_ms0(), request.getDuration_ms1());
+        p13 = criteriaBuilder.between(time_signature, request.getTime_signature0(), request.getTime_signature1());
 
-        criteriaQuery.where(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        criteriaQuery.where(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12,p13);
 //        criteriaQuery.where(p1);
 
         TypedQuery<SongEntity> query = em.createQuery(criteriaQuery);
