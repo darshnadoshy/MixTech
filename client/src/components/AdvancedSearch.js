@@ -76,7 +76,7 @@ class AdvancedSearch extends Component {
             acousticness0: this.state.acousticness.min,
             acousticness1: this.state.acousticness.max,
             instrumentalness0: this.state.instrumentalness.min,
-            instrumentalness1: this.state.instrumentalness1.max,
+            instrumentalness1: this.state.instrumentalness.max,
             liveness0: this.state.liveness.min,
             liveness1: this.state.liveness.max,
             tempo0: this.state.tempo.min,

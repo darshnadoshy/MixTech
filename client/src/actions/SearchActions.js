@@ -33,7 +33,7 @@ export const basicResults = (query) => dispatch => {
 
 
 export const advancedResults = (query) => dispath => {
-    fetch(`http://localhost:8080/search/advance/`, {
+    fetch('http://localhost:8080/search/advance', {
         method: 'GET',
         crossDomain: true,
         body: JSON.stringify(query),
