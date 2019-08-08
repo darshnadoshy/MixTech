@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import basicSearchReducer from './BasicSearchReducer';
+import SearchReducer from './SearchReducer';
 import UserAuthReducer from './UserAuthReducer'
 
 
 export default combineReducers({
- basicSearchResults: basicSearchReducer,
+ SearchResults: SearchReducer,
  userAuth: UserAuthReducer
 });
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import '../css/Matches.css'
 
 class Matches extends Component {
     render() {
         return (
-            <div className="container">
+            <div id="matchesContent">
                 <div className="container" style={style}>
                     <h1>My Matches</h1>
                 </div>

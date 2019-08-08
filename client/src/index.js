@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import "bootstrap-slider/dist/css/bootstrap-slider.css"
 
-import './index.css';
+import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

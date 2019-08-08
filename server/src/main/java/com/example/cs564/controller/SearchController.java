@@ -28,6 +28,7 @@ public class SearchController {
     }
 
     @ResponseBody
+    @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(value = "/advance", method = RequestMethod.GET)
     public List<SongEntity> getAllByAudioFeatures(@RequestBody AdvanceSearchRequest request) {
         return songService.getAllByAudioFeatures(request);

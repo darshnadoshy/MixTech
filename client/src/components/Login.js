@@ -1,40 +1,32 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {authToken} from '../actions/UserActions'
+import { login } from '../actions/UserActions'
 import { connect } from 'react-redux'
-import Home from '../pages/Home'
 
 class Login extends Component {
     state = {
         email: "",
         password: "",
-        authenticated: false
     }
 
     handleChange = e => {
-        this.setState({[e.target.name]: e.target.value}) // event is a hashmap
+        this.setState({[e.target.name]: e.target.value}) 
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        const query = {
+        const creds = {
             email: this.state.email,
             password: this.state.password
         }
-        this.props.authToken(query)
-        console.log(this.props.success)
-
-        if (this.props.success === 1) {
-            this.setState({authenticated: true})
-        } else {
-            console.log('error')
-        }
+        this.props.login(creds)
     }
-
     render() {
-        if (this.state.authenticated) {
+        if (this.props.isAuthenticated) {
             return <Redirect to='/home'/>
+        } else if (this.props.isFetching) {
+            return <h1>Loading...</h1>
         } else {
             return (
                 <div className="container">
@@ -42,15 +34,16 @@ class Login extends Component {
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div className="form-group">
                                 <label htmlFor="username">Email</label>
-                                <input type="email" className="form-control" name="email" placeholder="Enter Username"
+                                <input type="email" className="form-control" name="email" placeholder="Enter Email"
                                 onChange={this.handleChange.bind(this)}></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
-                                <input type="text" className="form-control" name="password" placeholder="Enter Password"
+                                <input type="password" className="form-control" name="password" placeholder="Enter Password"
                                 onChange={this.handleChange.bind(this)}></input>
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
+                            <h2>{this.props.errorMessage}</h2>
                         </form>
                     </div>
                 </div>
@@ -68,12 +61,16 @@ const style = {
 }
 
 Login.propTypes = {
-    authToken: PropTypes.func.isRequired,
-    success: PropTypes.number
+    login: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool,
+    isAuthenticated: PropTypes.bool,
+    errorMessage: PropTypes.string
 }
 
 const mapStateToProps = state => ({
-    success: state.userAuth.success
+    isFetching: state.userAuth.isFetching,
+    isAuthenticated: state.userAuth.isAuthenticated,
+    errorMessage: state.userAuth.errorMessage
 })
 
-export default connect(mapStateToProps, { authToken })(Login);
+export default connect(mapStateToProps, { login })(Login);

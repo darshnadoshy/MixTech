@@ -8,3 +8,12 @@
     background: #7386D5;
     color: #fff;
 }
+
+li {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#logout {
+    margin-top: 460px;
+}

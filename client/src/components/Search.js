@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { songResults } from '../actions/BasicSearchAction'
+import { basicResults } from '../actions/SearchActions'
 import { connect } from 'react-redux'
 import '../css/Search.css'
 
@@ -20,7 +20,7 @@ class Search extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const query = {sname: this.state.sname}
-        this.props.songResults(query)
+        this.props.basicResults(query)
     }   
 
     render() {
@@ -47,7 +47,7 @@ class Search extends Component {
                                 <div className="col"><h4>Tempo</h4></div>
                             </div>
                             <div className="row align-items-start border bg-light">
-                                <div className="col"><button type="button" data-toggle="modal" data-target="#songmodal">{song.name}</button></div>
+                                <div className="col"><button className="btn btn-light btn-lg" data-toggle="modal" data-target="#songmodal">{song.name}</button></div>
                                 <div className="col"><h4>{song.key}</h4></div>
                                 <div className="col"><h4>{song.tempo}</h4></div>
                             </div>
@@ -137,12 +137,12 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    songResults: PropTypes.func.isRequired,
+    basicResults: PropTypes.func.isRequired,
     results: PropTypes.array
 }
 
 const mapStateToProps = state => ({
-    results: state.basicSearchResults.results
+    results: state.SearchResults.results
 })
 
-export default connect(mapStateToProps, { songResults })(Search);
+export default connect(mapStateToProps, { basicResults })(Search);
