@@ -46,7 +46,6 @@ public class SongEntity {
         this.spotifyID = spotifyID;
         this.sname = sname;
         this.albumName = albumName;
-        this.mname = mname;
         this.danceability = danceability;
         this.energy = energy;
         this.skey = skey;
@@ -58,5 +57,6 @@ public class SongEntity {
         this.valence = valuence;
         this.tempo = tempo;
         this.durationMs = durationMs;
+        this.timeSignature = timeSignature;
     }
 }
