@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { login } from '../actions/UserActions'
 import { connect } from 'react-redux'
@@ -29,7 +30,8 @@ class Login extends Component {
             return <h1>Loading...</h1>
         } else {
             return (
-                <div className="container">
+                <div>
+                    <div><Link to={'/'}><button className="btn btn-light">Back</button></Link></div>
                     <div className="container" style={style}>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div className="form-group">

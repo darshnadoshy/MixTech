@@ -10,8 +10,8 @@ const Front = () => {
             <div className="container" style={style}>
                 <h1>Welcome to MixTech</h1>
                 
-                <Link to={'/login'}><button type="button" className="btn btn-primary btn-lg">Login</button></Link>
-                <Link to= {'/register'}><button type="button" className="btn btn-secondary btn-lg">Register</button></Link>
+                <Link to={'/login'}><button type="button" className="btn btn-primary btn-lg" style={{marginRight: '5px'}}>Login</button></Link>
+                <Link to= {'/register'}><button type="button" className="btn btn-secondary btn-lg" style={{marginLeft: '5px'}}>Register</button></Link>
                 
             </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { basicResults } from '../actions/SearchActions'
+import { clearResults } from '../actions/SearchActions'
 import { connect } from 'react-redux'
 import '../css/Search.css'
 
@@ -11,6 +12,10 @@ class Search extends Component {
         this.state = {
             sname: "",
         }
+    }
+
+    componentWillUnmount() {
+        this.props.clearResults()
     }
 
     handleChange = e => {
@@ -138,6 +143,7 @@ class Search extends Component {
 
 Search.propTypes = {
     basicResults: PropTypes.func.isRequired,
+    clearResults: PropTypes.func.isRequired,
     results: PropTypes.array
 }
 
@@ -145,4 +151,4 @@ const mapStateToProps = state => ({
     results: state.SearchResults.results
 })
 
-export default connect(mapStateToProps, { basicResults })(Search);
+export default connect(mapStateToProps, { basicResults, clearResults })(Search);

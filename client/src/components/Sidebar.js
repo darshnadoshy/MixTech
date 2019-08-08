@@ -12,13 +12,13 @@ class Sidebar extends Component {
             <nav className="navbar" id="sidebar">
                 <div className="navbar-brand sidebar-header">
                     <Link to={'/home'}><h1>MixTech</h1></Link>
-                    <h5>username</h5>
+                    <h5>Logged in as: {localStorage.getItem('uname')}</h5>
                 </div>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link to={'/home'}><h4>Matches</h4></Link>
                     </li>
-                    <li>
+                    <li className="nav-item">
                         <Link to={'/home/playlists'}><h4>Playlists</h4></Link>
                     </li>
                     <li className="nav-item">

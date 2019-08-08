@@ -5,8 +5,9 @@ export const basicResults = (query) => dispatch => {
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then(res => {return res.json()})
+        }).then(res => res.json())
         .then(res => {
+            console.log(res)
             const results = res.map(song => ({
                 name: song.sname,
                 album_name: song.album_name,
@@ -33,8 +34,8 @@ export const basicResults = (query) => dispatch => {
 
 
 export const advancedResults = (query) => dispath => {
-    fetch(`http://localhost:8080/search/advance/`, {
-        method: 'GET',
+    fetch('http://localhost:8080/search/advance', {
+        method: 'POST',
         crossDomain: true,
         body: JSON.stringify(query),
         headers: {
@@ -42,6 +43,7 @@ export const advancedResults = (query) => dispath => {
         }
     }).then(res => res.json())
     .then(res => {
+        console.log(res)
         const results = res.map(song => ({
             name: song.sname,
             album_name: song.album_name,
@@ -62,5 +64,12 @@ export const advancedResults = (query) => dispath => {
             type: 'ADVANCED_SEARCH',
             payload: results
         })
+    }).catch(err => console.log(err))
+}
+
+export const clearResults = () => dispath => {
+    dispath({
+        type: 'CLEAR',
+        payload: []
     })
 }
