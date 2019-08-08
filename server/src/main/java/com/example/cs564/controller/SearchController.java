@@ -29,7 +29,7 @@ public class SearchController {
 
     @ResponseBody
     @CrossOrigin(origins="http://localhost:3000")
-    @RequestMapping(value = "/advance", method = RequestMethod.GET)
+    @RequestMapping(value = "/advance", method = RequestMethod.POST)
     public List<SongEntity> getAllByAudioFeatures(@RequestBody AdvanceSearchRequest request) {
         return songService.getAllByAudioFeatures(request);
     }

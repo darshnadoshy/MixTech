@@ -8,7 +8,7 @@ class Playlist extends Component {
     constructor() {
         super();
         this.state = {
-            uid: "",
+            uid: 1,
         }
     }
 

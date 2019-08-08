@@ -19,6 +19,7 @@ public class SongDaoImpl implements SongDao {
 
     @Override
     public List<SongEntity> findAllByAudioFeatures(String query) {
+        System.out.println(query);
         return em.createNativeQuery(query, SongEntity.class).getResultList();
     }
 
