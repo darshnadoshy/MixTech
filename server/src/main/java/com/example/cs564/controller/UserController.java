@@ -39,6 +39,8 @@ public class UserController {
             loginResponse.setRet(SystemConstant.RET_SUC);
             loginResponse.setToken(jwt);
             loginResponse.setMsg(SystemConstant.MSG_SUCCESS);
+            loginResponse.setUid(userEntity.getUid());
+            loginResponse.setUname(userEntity.getUname());
         } else {
             loginResponse.setRet(SystemConstant.RET_ERR);
             loginResponse.setMsg(SystemConstant.MSG_FAIL);
@@ -66,6 +68,8 @@ public class UserController {
             userService.create(userEntity);
             registerResponse.setRet(SystemConstant.RET_SUC);
             registerResponse.setMsg(SystemConstant.MSG_SUCCESS);
+            registerResponse.setUid(userEntity.getUid());
+            registerResponse.setUname(userEntity.getUname());
         }
         return registerResponse;
     }

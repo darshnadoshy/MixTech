@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux' 
 import { advancedResults } from '../actions/SearchActions'
+import { clearResults } from '../actions/SearchActions'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
 import '../css/AdvancedSearch.css'
-
 class AdvancedSearch extends Component {
     constructor(props) {
         super(props);
@@ -55,6 +55,10 @@ class AdvancedSearch extends Component {
           }
         }
     }
+    
+    componentWillUnmount() {
+        this.props.clearResults()
+    }
 
     handleSubmit = e => {
         e.preventDefault()
@@ -93,7 +97,7 @@ class AdvancedSearch extends Component {
                         <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                             <div className="form-row">
                                 <div className="col">
-                                    <label>Key</label>
+                                    <label className="alabel">Key</label>
                                     <select className="form-control" onChange={e => {this.setState({key: e.target.value})}}>
                                         <option value={0}>C</option>
                                         <option value={1}>C#/Db</option>
@@ -110,7 +114,7 @@ class AdvancedSearch extends Component {
                                     </select>
                                 </div>
                                 <div className="col">
-                                    <label>Modality</label>
+                                    <label className="alabel">Modality</label>
                                     <select className="form-control" onChange={e => {this.setState({mode: e.target.value})}}>
                                         <option value={1}>Major</option>
                                         <option value={0}>Minor</option>
@@ -119,7 +123,7 @@ class AdvancedSearch extends Component {
                             </div>  
                             <div className="form-row">
                                 <div className="col">
-                                    <label>Danceability</label>
+                                    <label className="alabel">Danceability</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -129,7 +133,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Energy</label>
+                                    <label className="alabel">Energy</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -139,7 +143,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Loudness</label>
+                                    <label className="alabel">Loudness</label>
                                     <InputRange
                                     minValue={-60.0}
                                     maxValue={0.0}
@@ -151,7 +155,7 @@ class AdvancedSearch extends Component {
                             </div>
                             <div className="form-row">
                                 <div className="col">
-                                    <label>Speechiness</label>
+                                    <label className="alabel">Speechiness</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -161,7 +165,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Acousticness</label>
+                                    <label className="alabel">Acousticness</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -171,7 +175,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Instrumentalness</label>
+                                    <label className="alabel">Instrumentalness</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -183,7 +187,7 @@ class AdvancedSearch extends Component {
                             </div>
                             <div className="form-row">
                                 <div className="col">
-                                    <label>Liveness</label>
+                                    <label className="alabel">Liveness</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -193,7 +197,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Valence</label>
+                                    <label className="alabel">Valence</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={1.0}
@@ -203,7 +207,7 @@ class AdvancedSearch extends Component {
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
                                 <div className="col">
-                                    <label>Tempo</label>
+                                    <label className="alabel">Tempo</label>
                                     <InputRange
                                     minValue={0.0}
                                     maxValue={250.0}
@@ -315,6 +319,7 @@ class AdvancedSearch extends Component {
 
 AdvancedSearch.propTypes = {
     advancedResults: PropTypes.func.isRequired,
+    clearResults: PropTypes.func.isRequired,
     results: PropTypes.array
 }
 
@@ -322,4 +327,4 @@ const mapStateToProps = state => ({
     results: state.SearchResults.results
 })
 
-export default connect(mapStateToProps, { advancedResults })(AdvancedSearch);
+export default connect(mapStateToProps, { advancedResults, clearResults })(AdvancedSearch);

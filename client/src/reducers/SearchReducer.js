@@ -22,6 +22,11 @@ export default (state=initialState, action) => {
           state,
           message: 'Loading...'
         }
+      case 'CLEAR':
+        return {
+          state,
+          results: []
+        }
       default:
         return state
     }

@@ -18,7 +18,7 @@ class Sidebar extends Component {
                     <li className="nav-item">
                         <Link to={'/home'}><h4>Matches</h4></Link>
                     </li>
-                    <li>
+                    <li className="nav-item">
                         <Link to={'/home/playlists'}><h4>Playlists</h4></Link>
                     </li>
                     <li className="nav-item">

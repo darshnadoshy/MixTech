@@ -6,6 +6,8 @@ import lombok.Data;
 public class RegisterResponse {
     private int ret;
     private String msg;
+    private Long uid;
+    private String uname;
 
     public RegisterResponse() {}
 

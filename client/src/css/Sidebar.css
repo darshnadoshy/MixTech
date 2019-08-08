@@ -9,11 +9,10 @@
     color: #fff;
 }
 
-li {
+.nav-item {
     padding-top: 20px;
-    padding-bottom: 10px;
 }
 
 #logout {
-    margin-top: 460px;
+    margin-top: 480px;
 }

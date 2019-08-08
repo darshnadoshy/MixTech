@@ -25,7 +25,8 @@ public class AdvanceSearchRequest {
     private Float valence1;
     private Float tempo0;
     private Float tempo1;
-    private Integer duration_ms0;
-    private Integer duration_ms1;
-
+    private Long duration_ms0;
+    private Long duration_ms1;
+    private Integer time_signature0;
+    private Integer time_signature1;
 }
