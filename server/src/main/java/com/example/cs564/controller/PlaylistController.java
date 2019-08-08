@@ -27,10 +27,12 @@ public class PlaylistController {
 //        return null;
 //    }
 
+
     // get all songs from a playlist
     @ResponseBody
     @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllPlaylists(@PathVariable Long uid) {
+        System.out.println("inside getAllPlaylists");
         return curatesService.getAllByUid(uid);
     }
 
@@ -42,6 +44,7 @@ public class PlaylistController {
 
     @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
     public void create (@PathVariable Long uid, @RequestBody PlaylistEntity playlistEntity) {
+        System.out.println("inside create, uid = " + uid);
         playlistService.create(uid, playlistEntity);
     }
 

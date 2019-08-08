@@ -45,6 +45,7 @@ public class SysInterceptor implements HandlerInterceptor {
     // executed after handler is executed
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
+        System.out.println(response == null);
         if(response.getStatus()==500){
             modelAndView.setViewName("/error/500");
         }else if(response.getStatus()==404){

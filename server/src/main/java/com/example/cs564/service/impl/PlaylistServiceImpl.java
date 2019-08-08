@@ -58,7 +58,9 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     public Long create(Long uid, PlaylistEntity playlistEntity) {
+        System.out.println("inside create service");
         Long pid = playlistRepo.save(playlistEntity).getPid();
+        System.out.println("pid =" + pid);
         curatesService.create(uid, pid);
 //        followsService.follow(pid, uid);
         return pid;

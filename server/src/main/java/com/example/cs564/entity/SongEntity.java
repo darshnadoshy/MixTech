@@ -13,10 +13,9 @@ public class SongEntity {
 
     @Column(name = "spotify_uri")
     private String spotifyID;
-
     private String sname;
-    private String album_name;
-    private String mname;
+    @Column(name = "album_name")
+    private String albumName;
     private Float danceability;
     private Float energy;
     private Integer skey;
@@ -28,7 +27,10 @@ public class SongEntity {
     private Float liveness;
     private Float valence;
     private Float tempo;
-    private Integer duration_ms;
+    @Column(name = "duration_ms")
+    private Integer durationMs;
+    @Column(name = "time_signature")
+    private Integer timeSignature;
 
     public SongEntity() {}
 
@@ -36,14 +38,14 @@ public class SongEntity {
         this.spotifyID = spotifyID;
     }
 
-    public SongEntity(String spotifyID, String sname, String album_name, String mname,
+    public SongEntity(String spotifyID, String sname, String albumName, String mname,
                       Float danceability, Float energy, Integer skey,
                       Float loudness, Integer smode, Float speechiness,
                       Float instrumentalness, Float liveness, Float valuence,
-                      Float tempo, Integer duration_ms) {
+                      Float tempo, Integer durationMs) {
         this.spotifyID = spotifyID;
         this.sname = sname;
-        this.album_name = album_name;
+        this.albumName = albumName;
         this.mname = mname;
         this.danceability = danceability;
         this.energy = energy;
@@ -55,6 +57,6 @@ public class SongEntity {
         this.liveness = liveness;
         this.valence = valuence;
         this.tempo = tempo;
-        this.duration_ms = duration_ms;
+        this.durationMs = durationMs;
     }
 }
