@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import { Link } from 'react-router-dom'
 class Register extends Component {
     constructor () {
         super()
@@ -29,7 +29,8 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
+                <div><Link to={'/'}><button className="btn btn-light">Back</button></Link></div>
                 <div className="container" style={style}>
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <div className="form-group">

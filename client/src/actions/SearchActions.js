@@ -64,3 +64,10 @@ export const advancedResults = (query) => dispath => {
         })
     })
 }
+
+export const clearResults = () => dispath => {
+    dispath({
+        type: 'CLEAR',
+        payload: []
+    })
+}
