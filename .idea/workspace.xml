@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3940a8d2-e4b0-455b-b9be-e0b4a4f514b8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/server/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,38 +19,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MixTech$MixTechApplication.ic" NAME="MixTechApplication Coverage Results" MODIFIED="1564874319228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MixTech$MixTechApplication.ic" NAME="MixTechApplication Coverage Results" MODIFIED="1565137423132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.cs564.*</FILTER>
     </SUITE>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Search.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="72" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Playlists.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Playlists.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,11 +34,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JwtUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java">
+      <file leaf-file-name="Search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="799">
+              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Register.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Register.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlaylistController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/PlaylistController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/SearchController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2">
+              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdvanceSearchRequest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/request/AdvanceSearchRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SongDaoImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="38" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,18 +91,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysInterceptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java">
+      <file leaf-file-name="IncludesDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/IncludesDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Matches.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Matches.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -97,6 +119,7 @@
       <find>thy</find>
       <find>sql</find>
       <find>FollowsService</find>
+      <find>props</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,9 +128,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/RegisterResponse.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/LoginResponse.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/WebAppConfigurer.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongRepoImpl.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/SongRepo.java" />
@@ -115,8 +136,6 @@
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/SongDao.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/SongServiceImpl.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/SongEntity.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/SearchController.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/MatchController.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/SongService.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/CuratesDao.java" />
@@ -131,7 +150,6 @@
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/CuratesServiceImpl.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/CuratesRepo.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/RemovePlaylistResponse.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/response/FollowPlaylistResponse.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/PlaylistService.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/FollowsEntity.java" />
@@ -156,6 +174,11 @@
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/PlaylistSongServiceImpl.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/PlaylistController.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/SearchController.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -186,8 +209,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,13 +310,34 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cs564" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MixTech" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MixTech" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs564" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MixTech" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MixTech" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs564" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,17 +454,18 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297491" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3297491" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.3417004" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3297491" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30824372" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30824372" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.2939068" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2582996" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26639676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4974093" weight="0.24939272" />
       <window_info id="UI Designer" order="4" />
@@ -434,7 +479,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297491" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3297491" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -454,58 +498,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/request/AdvanceSearchRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/MatchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/MatchServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/SongService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/key/CuratesKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/SongDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/entity/key/CreatesKey.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -660,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/IncludesDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/config/WebAppConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -726,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/MatchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/CuratesDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -750,12 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Matches.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Search.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/PlaylistSongController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -766,17 +738,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/PlaylistController.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/MatchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="17">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="73" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        <state relative-caret-position="499">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Matches.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -787,34 +809,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SystemConstant.java">
+    <entry file="file://$PROJECT_DIR$/client/src/components/Register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+        <state relative-caret-position="340">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/SysInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/service/impl/SongServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+        <state relative-caret-position="168">
+          <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/utils/JwtUtils.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/PlaylistController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="217">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/IncludesDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/request/AdvanceSearchRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="72" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
+        <state relative-caret-position="236">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/controller/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/com/example/cs564/dao/Impl/SongDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

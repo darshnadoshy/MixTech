@@ -7,13 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
 
 @Repository
 public class SongDaoImpl implements SongDao {
-    EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public List<SongEntity> findAllByAudioFeatures(AdvanceSearchRequest request) {
@@ -50,6 +52,7 @@ public class SongDaoImpl implements SongDao {
         p12 = criteriaBuilder.between(duration_ms, request.getDuration_ms0(), request.getDuration_ms1());
 
         criteriaQuery.where(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+//        criteriaQuery.where(p1);
 
         TypedQuery<SongEntity> query = em.createQuery(criteriaQuery);
         return query.getResultList();
