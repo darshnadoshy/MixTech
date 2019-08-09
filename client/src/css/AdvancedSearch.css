@@ -8,11 +8,12 @@
     width: 85%;
     vertical-align: top;
 }
+
 .alabel {
     padding-bottom: 30px;
 }
-.col {
-    margin: 30px;
+.pcol {
+    margin: 15px;
 }
 
 .form {

@@ -31,6 +31,7 @@ public class SongEntity {
     private Long durationMs;
     @Column(name = "time_signature")
     private Integer timeSignature;
+    private Integer popularity;
 
     public SongEntity() {}
 
@@ -42,7 +43,7 @@ public class SongEntity {
                       Float danceability, Float energy, Integer skey,
                       Float loudness, Integer smode, Float speechiness,
                       Float instrumentalness, Float liveness, Float valuence,
-                      Float tempo, Long durationMs, Integer timeSignature) {
+                      Float tempo, Long durationMs, Integer timeSignature, Integer popularity) {
         this.spotifyID = spotifyID;
         this.sname = sname;
         this.albumName = albumName;
@@ -58,5 +59,6 @@ public class SongEntity {
         this.tempo = tempo;
         this.durationMs = durationMs;
         this.timeSignature = timeSignature;
+        this.popularity = popularity;
     }
 }
