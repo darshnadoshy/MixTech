@@ -93,13 +93,9 @@ public class PlaylistController {
     @RequestMapping(value = "/unfollow/{uid}/{pid}", method = RequestMethod.DELETE)
     public StandardResponse unfollow(@PathVariable Long uid, @PathVariable Long pid) {
         StandardResponse response = new StandardResponse();
-        if ( !followsService.unfollow(pid, uid) ) {
-            response.setRet(SystemConstant.RET_ERR);
-            response.setMsg("You cannot unfollow the playlist your made!");
-        } else {
-            response.setRet(SystemConstant.RET_SUC);
-            response.setMsg(SystemConstant.MSG_SUCCESS);
-        }
+        followsService.unfollow(pid, uid);
+        response.setRet(SystemConstant.RET_SUC);
+        response.setMsg(SystemConstant.MSG_SUCCESS);
         return response;
     }
 }

@@ -49,10 +49,7 @@ public class FollowServiceImpl implements FollowsService {
 
     @Override
     public boolean unfollow(Long pid, Long uid) {
-        if (curatesRepo.findOneByUidAndPid(uid, pid) != null) {
-            return false;
-        }
-        followsRepo.updateAccessByPidAndUid(pid, uid, 0);
+        followsRepo.deleteById(new FollowsKey(pid, uid));
         return true;
     }
 
