@@ -3,6 +3,7 @@ package com.example.cs564.service.impl;
 import com.example.cs564.dao.CuratesRepo;
 import com.example.cs564.dao.FollowsRepo;
 import com.example.cs564.dao.PlaylistRepo;
+import com.example.cs564.dao.StoredProcedureDao;
 import com.example.cs564.entity.FollowsEntity;
 import com.example.cs564.entity.PlaylistEntity;
 import com.example.cs564.service.CuratesService;
@@ -29,6 +30,9 @@ public class PlaylistServiceImpl implements PlaylistService {
     private CuratesService curatesService;
     @Autowired
     private FollowsService followsService;
+    @Autowired
+    private StoredProcedureDao storedProcedureDao;
+
 
     @Override
     public Page<PlaylistEntity> getAllByPage(int page, int size) {
@@ -55,16 +59,19 @@ public class PlaylistServiceImpl implements PlaylistService {
         return true;
     }
 
-
     @Override
-    public Long create(Long uid, PlaylistEntity playlistEntity) {
-        System.out.println("inside create service");
-        Long pid = playlistRepo.save(playlistEntity).getPid();
-        System.out.println("pid =" + pid);
-        curatesService.create(uid, pid);
-//        followsService.follow(pid, uid);
-        return pid;
+    public void create(Long uid, PlaylistEntity playlistEntity) {
+        storedProcedureDao.createPlaylist(uid, playlistEntity);
     }
+
+
+//    @Override
+//    public Long create(Long uid, PlaylistEntity playlistEntity) {
+//        Long pid = playlistRepo.save(playlistEntity).getPid();
+//        curatesService.create(uid, pid);
+////        followsService.follow(pid, uid);
+//        return pid;
+//    }
 
     @Override
     public boolean remove(Long uid, Long pid) {
