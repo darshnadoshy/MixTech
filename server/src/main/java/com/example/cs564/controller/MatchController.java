@@ -55,8 +55,8 @@ public class MatchController {
     //Delete a match by ID
     @RequestMapping(value = "/delete/{mid}/{uid}", method = RequestMethod.DELETE)
     public void remove(@PathVariable Long mid, @PathVariable long uid) {
-        matchService.remove(mid);
         CreatesKey key = new CreatesKey(uid, mid);
         createsService.remove(key);
+        matchService.remove(mid);
     }
 }
