@@ -52,10 +52,7 @@ public class PlaylistServiceImpl implements PlaylistService {
         if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
             return false;
         }
-        List<FollowsEntity> list = followsRepo.findAllByPid(pid);
-        for (FollowsEntity e : list) {
-            e.setAccess(privacy);
-        }
+        storedProcedureDao.updatePlaylistPrivacy(pid, privacy);
         return true;
     }
 
@@ -65,22 +62,12 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
 
-//    @Override
-//    public Long create(Long uid, PlaylistEntity playlistEntity) {
-//        Long pid = playlistRepo.save(playlistEntity).getPid();
-//        curatesService.create(uid, pid);
-////        followsService.follow(pid, uid);
-//        return pid;
-//    }
-
     @Override
     public boolean remove(Long uid, Long pid) {
         if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
             return false;
         }
-        curatesService.remove(uid, pid);
-//        followsService.unfollow(pid);
-        playlistRepo.deleteById(pid);
+        storedProcedureDao.removePlaylist(uid, pid);
         return true;
     }
 }

@@ -29,4 +29,30 @@ public class StoredProcedureDaoImpl implements StoredProcedureDao {
 
         storedProcedureQuery.execute();
     }
+
+    @Override
+    public void removePlaylist(Long uid, Long pid) {
+        StoredProcedureQuery storedProcedureQuery = em.createStoredProcedureQuery("remove_playlist");
+        storedProcedureQuery.registerStoredProcedureParameter(1, Long.class, ParameterMode.IN);
+        storedProcedureQuery.registerStoredProcedureParameter(2, Long.class, ParameterMode.IN);
+
+        storedProcedureQuery.setParameter(1, uid);
+        storedProcedureQuery.setParameter(2, pid);
+
+        storedProcedureQuery.execute();
+    }
+
+    @Override
+    public void updatePlaylistPrivacy(Long pid, Integer privacy) {
+        StoredProcedureQuery storedProcedureQuery = em.createStoredProcedureQuery("change_privacy");
+        storedProcedureQuery.registerStoredProcedureParameter(1, Long.class, ParameterMode.IN);
+        storedProcedureQuery.registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN);
+
+        storedProcedureQuery.setParameter(1, pid);
+        storedProcedureQuery.setParameter(2, privacy);
+
+        storedProcedureQuery.execute();
+    }
+
+
 }
