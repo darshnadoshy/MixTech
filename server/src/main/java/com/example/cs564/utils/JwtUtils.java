@@ -54,7 +54,7 @@ public class JwtUtils {
 
     public static Claims parseJWT(String jwt) throws Exception {
         return Jwts.parser()
-                .setSigningKey(generalKey())
+                .setSigningKey(generalKey().getEncoded())
                 .parseClaimsJws(jwt)
                 .getBody();
     }

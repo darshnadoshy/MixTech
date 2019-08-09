@@ -15,10 +15,11 @@ public class WebAppConfigurer implements WebMvcConfigurer {
         return new SysInterceptor();
     }
 
-   @Override
+   /*@Override
     public void addInterceptors(InterceptorRegistry registry){
 //        String[] patterns = new String[] { "/playlist/**","/match/**","/playlist_song/**"};
 //        registry.addInterceptor(getLoginInterceptor())
 //                .addPathPatterns(patterns);
-    }
+    }*/
+
 }
