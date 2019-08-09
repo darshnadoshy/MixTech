@@ -20,6 +20,6 @@ public class WebAppConfigurer implements WebMvcConfigurer {
 //        String[] patterns = new String[] { "/playlist/**","/match/**","/playlist_song/**"};
 //        registry.addInterceptor(getLoginInterceptor())
 //                .addPathPatterns(patterns);
-    }
+    }*/
 
 }
