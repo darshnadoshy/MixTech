@@ -1,3 +1,4 @@
+import datetime
 import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy
@@ -36,16 +37,18 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # print(type(nums))
 
+#print(sp.track('3WVA0zwkm1sPI61vXPLvtl')['artists'][0]['name'])
 
+print(datetime.datetime.now())
 
-df = pd.DataFrame({'a': ['1', 4,4,4,4,4], 'b': ['2', 5,5,5,5,5], 'c': ['3', 6,6,6,6,6]})
-df2 = pd.DataFrame({'d': ['4', 7,7,7,7,7], 'e': ['5', 8,8,8,8,8], 'f': ['6', 9,9,9,9,9]})
+# df = pd.DataFrame({'a': ['1', 4,4,4,4,4], 'b': ['2', 5,5,5,5,5], 'c': ['3', 6,6,6,6,6]})
+# df2 = pd.DataFrame({'d': ['4', 7,7,7,7,7], 'e': ['5', 8,8,8,8,8], 'f': ['6', 9,9,9,9,9]})
 
-frames = [df, df2]
+# frames = [df, df2]
 
-print(type(pd.concat(frames, axis=1)))
-print(type(df))
+# print(type(pd.concat(frames, axis=1)))
+# print(type(df))
 
-print(type(pd.read_csv('./album_ids.csv')))
+# print(type(pd.read_csv('./album_ids.csv')))
 
 

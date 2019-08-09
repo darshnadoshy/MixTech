@@ -23,7 +23,9 @@ export const basicResults = (query) => dispatch => {
                 liveness: song.liveness,
                 valence: song.valence,
                 tempo: song.tempo,
-                duration: song.duration_ms }))
+                duration: song.duration_ms,
+                timesignature: song.time_signature
+            }))
 
             dispatch({
                 type: 'BASIC_SEARCH',

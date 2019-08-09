@@ -79,6 +79,8 @@ class AdvancedSearch extends Component {
             instrumentalness1: this.state.instrumentalness.max,
             liveness0: this.state.liveness.min,
             liveness1: this.state.liveness.max,
+            valence0: this.state.valence.min,
+            valence1: this.state.valence.max,
             tempo0: this.state.tempo.min,
             tempo1: this.state.tempo.max,
             duration_ms0: this.state.duration_ms.min,
@@ -96,7 +98,7 @@ class AdvancedSearch extends Component {
                     <div className="container">
                         <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                             <div className="form-row">
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Key</label>
                                     <select className="form-control" onChange={e => {this.setState({key: e.target.value})}}>
                                         <option value={0}>C</option>
@@ -113,7 +115,7 @@ class AdvancedSearch extends Component {
                                         <option value={11}>B</option>
                                     </select>
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Modality</label>
                                     <select className="form-control" onChange={e => {this.setState({mode: e.target.value})}}>
                                         <option value={1}>Major</option>
@@ -122,7 +124,7 @@ class AdvancedSearch extends Component {
                                 </div>
                             </div>  
                             <div className="form-row">
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Danceability</label>
                                     <InputRange
                                     minValue={0.0}
@@ -132,7 +134,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ danceability: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Energy</label>
                                     <InputRange
                                     minValue={0.0}
@@ -142,7 +144,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ energy: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Loudness</label>
                                     <InputRange
                                     minValue={-60.0}
@@ -154,7 +156,7 @@ class AdvancedSearch extends Component {
                                 </div>
                             </div>
                             <div className="form-row">
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Speechiness</label>
                                     <InputRange
                                     minValue={0.0}
@@ -164,7 +166,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ speechiness: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Acousticness</label>
                                     <InputRange
                                     minValue={0.0}
@@ -174,7 +176,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ acousticness: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Instrumentalness</label>
                                     <InputRange
                                     minValue={0.0}
@@ -186,7 +188,7 @@ class AdvancedSearch extends Component {
                                 </div>
                             </div>
                             <div className="form-row">
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Liveness</label>
                                     <InputRange
                                     minValue={0.0}
@@ -196,7 +198,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ liveness: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Valence</label>
                                     <InputRange
                                     minValue={0.0}
@@ -206,7 +208,7 @@ class AdvancedSearch extends Component {
                                     onChange={value => this.setState({ valence: value })}
                                     onChangeComplete={value => console.log(value)} />
                                 </div>
-                                <div className="col">
+                                <div className="col pcol">
                                     <label className="alabel">Tempo</label>
                                     <InputRange
                                     minValue={0.0}
@@ -230,7 +232,7 @@ class AdvancedSearch extends Component {
                                     <div className="col"><h4>Tempo</h4></div>
                                 </div>
                                 <div className="row align-items-start border bg-light">
-                                    <div className="col"><button type="button" data-toggle="modal" data-target="#songmodal">{song.name}</button></div>
+                                    <div className="col"><button className="btn btn-light btn-lg" data-toggle="modal" data-target="#songmodal">{song.name}</button></div>
                                     <div className="col"><h4>{song.key}</h4></div>
                                     <div className="col"><h4>{song.tempo}</h4></div>
                                 </div>
