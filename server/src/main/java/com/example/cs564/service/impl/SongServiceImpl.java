@@ -88,7 +88,7 @@ public class SongServiceImpl implements SongService {
         if (request.getTempo1() != 250) {
             stringBuilder.append(" AND tempo <= ").append(request.getTempo1().toString());
         }
-        stringBuilder.append(";");
+        stringBuilder.append(" order by popularity desc;");
         System.out.println(stringBuilder.toString());
         return songDao.findAllByAudioFeatures(stringBuilder.toString());
     }

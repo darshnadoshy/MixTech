@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f776fb0-666b-42b8-b969-b05806371590" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/PlaylistReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/PlaylistReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/rootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/config/WebAppConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/config/WebAppConfigurer.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f776fb0-666b-42b8-b969-b05806371590" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -249,15 +244,15 @@
       <option name="presentableId" value="Default" />
       <updated>1565300380391</updated>
       <workItem from="1565300381967" duration="6219000" />
-      <workItem from="1565378762727" duration="603000" />
+      <workItem from="1565378762727" duration="1439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6822000" />
+    <option name="totallyTimeSpent" value="7658000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
+    <frame x="-6" y="-6" width="1293" height="693" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17104216" />

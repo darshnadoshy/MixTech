@@ -3,6 +3,7 @@ package com.example.cs564.service.impl;
 import com.example.cs564.dao.CuratesRepo;
 import com.example.cs564.dao.FollowsRepo;
 import com.example.cs564.dao.PlaylistRepo;
+import com.example.cs564.dao.StoredProcedureDao;
 import com.example.cs564.entity.FollowsEntity;
 import com.example.cs564.entity.PlaylistEntity;
 import com.example.cs564.service.CuratesService;
@@ -29,6 +30,9 @@ public class PlaylistServiceImpl implements PlaylistService {
     private CuratesService curatesService;
     @Autowired
     private FollowsService followsService;
+    @Autowired
+    private StoredProcedureDao storedProcedureDao;
+
 
     @Override
     public Page<PlaylistEntity> getAllByPage(int page, int size) {
@@ -48,32 +52,22 @@ public class PlaylistServiceImpl implements PlaylistService {
         if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
             return false;
         }
-        List<FollowsEntity> list = followsRepo.findAllByPid(pid);
-        for (FollowsEntity e : list) {
-            e.setAccess(privacy);
-        }
+        storedProcedureDao.updatePlaylistPrivacy(pid, privacy);
         return true;
     }
 
-
     @Override
-    public Long create(Long uid, PlaylistEntity playlistEntity) {
-        System.out.println("inside create service");
-        Long pid = playlistRepo.save(playlistEntity).getPid();
-        System.out.println("pid =" + pid);
-        curatesService.create(uid, pid);
-//        followsService.follow(pid, uid);
-        return pid;
+    public void create(Long uid, PlaylistEntity playlistEntity) {
+        storedProcedureDao.createPlaylist(uid, playlistEntity);
     }
+
 
     @Override
     public boolean remove(Long uid, Long pid) {
         if (curatesRepo.findOneByUidAndPid(uid, pid) == null) {
             return false;
         }
-        curatesService.remove(uid, pid);
-//        followsService.unfollow(pid);
-        playlistRepo.deleteById(pid);
+        storedProcedureDao.removePlaylist(uid, pid);
         return true;
     }
 }
