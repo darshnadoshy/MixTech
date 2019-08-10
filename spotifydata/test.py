@@ -29,7 +29,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # print(sp.album('2ACmsLwZxp7kFSWdxkl5qM')['name'])
 
-# df = pd.read_csv('./track_ids.csv')
+df = pd.read_csv('./track_ids.csv')
 
 # tracks = df['track_ids'][0:4].values.flatten().tolist()
 # tracks.append(1.00)
@@ -37,9 +37,9 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # print(type(nums))
 
-#print(sp.track('3WVA0zwkm1sPI61vXPLvtl')['artists'][0]['name'])
+print(sp.track('5P0EYQ86TF7gC2WzZXcAGz')['artists'][0]['name'])
 
-print(datetime.datetime.now())
+#print(datetime.datetime.now())
 
 # df = pd.DataFrame({'a': ['1', 4,4,4,4,4], 'b': ['2', 5,5,5,5,5], 'c': ['3', 6,6,6,6,6]})
 # df2 = pd.DataFrame({'d': ['4', 7,7,7,7,7], 'e': ['5', 8,8,8,8,8], 'f': ['6', 9,9,9,9,9]})
@@ -50,5 +50,19 @@ print(datetime.datetime.now())
 # print(type(df))
 
 # print(type(pd.read_csv('./album_ids.csv')))
+
+
+
+
+
+df1 = pd.read_csv('./failed_artists.csv', dtype='str')['spotify_uri']
+
+df2 = pd.read_csv('./failed_artists.csv', dtype='str')['artists']
+frames = [df1, df2]
+pd.concat(frames, axis=1).to_csv('use.csv')
+#print(df2['artists'])
+#artists = df['artists']
+
+#print(df['track_ids'][27104])
 
 
