@@ -5,10 +5,15 @@ import { completeMatches, incompleteMatches } from '../actions/MatchActions'
 import '../css/Matches.css'
 
 class Matches extends Component {
-    // componentWillMount() {
-    //     this.props.completeMatches()
-    //     this.props.incompleteMatches()
-    // }
+    componentWillMount() {
+        this.props.completeMatches()
+        //this.props.incompleteMatches()
+    }
+
+    componentDidMount() {
+        console.log(this.props.completeResults)
+        console.log(this.props.incompleteResults)
+    }
     render() {
         return (
             <div id="matchesContent">
@@ -26,13 +31,13 @@ class Matches extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {this.props.completeResults.map(match => 
+                            {this.props.completeResults.map(match => 
                                 <tr>
                                     <td>{match.matchName}</td>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
                                 </tr>  
-                            )} */}
+                            )}
                         </tbody>
                     </table>
                 </div>
@@ -63,15 +68,15 @@ class Matches extends Component {
 }
 
 Matches.propType = {
-    allMatches: PropTypes.func.isRequired,
+    completeMatches: PropTypes.func.isRequired,
+    incompleteMatches: PropTypes.func.isRequired,
     completeResults: PropTypes.array,
     incompleteResults: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-    completeResults: state.matches.results,
-    incompleteResults: state.matches.results
-
+    completeResults: state.matches.completeResults,
+    incompleteResults: state.matches.incompleteResults
 })
 
 

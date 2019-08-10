@@ -9,7 +9,7 @@ export default (state=initialState, action) => {
         case 'COMPLETE_MATCHES':
             return {
                 state,
-                completeResults: action.payload
+                completeResults: action.payload,
             };
         case 'INCOMPLETE_MATCHES':
             return {
