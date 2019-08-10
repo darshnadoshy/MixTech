@@ -67,8 +67,9 @@ public class MatchController {
         createsEntity.setMid(matchEntity.getMid());
         createsEntity.setUid(uid);
         createsService.create(createsEntity);
-
     }
+
+
 
     @ResponseBody
     @RequestMapping(value = "/follow/{uid}/{mid}", method = RequestMethod.POST)
