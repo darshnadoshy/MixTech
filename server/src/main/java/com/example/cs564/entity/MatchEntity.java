@@ -13,14 +13,16 @@ public class MatchEntity {
     private Long mid;
 
     private String mname;
-    private String spotify_uri1;
-    private String spotify_uri2;
+    @Column(name = "spotify_uri1")
+    private String spotifyUri1;
+    @Column(name = "spotify_uri2")
+    private String spotifyUri2;
 
     public MatchEntity() {}
 
     public MatchEntity(String mname, String spotify_uri1, String spotify_uri2) {
         this.mname = mname;
-        this.spotify_uri1 = spotify_uri1;
-        this.spotify_uri2 = spotify_uri2;
+        this.spotifyUri1 = spotify_uri1;
+        this.spotifyUri2 = spotify_uri2;
     }
 }

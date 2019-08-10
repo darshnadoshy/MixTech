@@ -36,8 +36,8 @@ public class MatchController {
     public List<SongEntity> getAllByMid(@PathVariable Long mid) {
         MatchEntity matchEntity = matchService.getByMid(mid);
         List<SongEntity> songs = new ArrayList<>();
-        songs.add(songService.getByID(matchEntity.getSpotify_uri1()));
-        songs.add(songService.getByID(matchEntity.getSpotify_uri2()));
+        songs.add(songService.getByID(matchEntity.getSpotifyUri1()));
+        songs.add(songService.getByID(matchEntity.getSpotifyUri2()));
         return songs;
     }
 

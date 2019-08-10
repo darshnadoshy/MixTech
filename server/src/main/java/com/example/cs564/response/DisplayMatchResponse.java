@@ -2,6 +2,8 @@ package com.example.cs564.response;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+
 @Data
 public class DisplayMatchResponse {
     private String sname1;
