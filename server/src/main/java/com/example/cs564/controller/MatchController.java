@@ -73,7 +73,7 @@ public class MatchController {
     @ResponseBody
     @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
     public void create(@RequestBody CreateMatchRequest createMatchRequest, @PathVariable Long uid) {
-
+        matchService.create(createMatchRequest, uid);
     }
 
 
