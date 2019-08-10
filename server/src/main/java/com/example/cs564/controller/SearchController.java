@@ -4,6 +4,7 @@ import com.example.cs564.entity.SongEntity;
 import com.example.cs564.request.AdvanceSearchRequest;
 import com.example.cs564.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,10 +21,17 @@ public class SearchController {
     @Autowired
     private SongService songService;
 
+    @RequestMapping(value = "/basic_page", method = RequestMethod.GET)
+    public List<SongEntity> getAllSongsInPage(String name,
+                                              @RequestParam(value = "page", defaultValue = "0") int page,
+                                              @RequestParam(value = "size", defaultValue = "10") int size) {
+        return songService.getAllByNameInPage(name, page, size);
+    }
+
     @ResponseBody
     @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
-    public List<SongEntity> getAllByName(String sname) {
+    public List<SongEntity> getAllByName(@RequestParam String sname) {
         return songService.getAllByName(sname);
     }
 
