@@ -26,7 +26,7 @@ class Playlist extends Component {
                         <tbody>
                             {this.props.results.map(playlist => 
                                 <tr>
-                                    <td>{playlist.name}</td>
+                                    <td>{playlist.pname}</td>
                                     <td>{playlist.description}</td>
                                 </tr>     
                             )}

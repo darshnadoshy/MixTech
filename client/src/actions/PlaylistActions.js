@@ -7,6 +7,7 @@ export const allPlaylists = () => dispatch => {
         }
     }).then(res => res.json())
         .then(res => {
+            console.log(res)
             const results = res.map(playlist => ({
                 pid: playlist.pid,
                 pname: playlist.pname,
