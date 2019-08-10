@@ -9,4 +9,6 @@ public interface MatchDao {
 
     List<DisplayMatchResponse> displayMatch(Long uid);
     void addSongTwo(String spotifyUri2, Long mid);
+    List<DisplayMatchResponse> displayCompleteMatch(Long uid);
+    List<DisplayMatchResponse> displayIncompleteMatch(Long uid);
 }

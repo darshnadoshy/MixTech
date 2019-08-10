@@ -15,4 +15,7 @@ public interface MatchService {
     void addSong(String spotifyUri2, Long mid);
     MatchEntity getByMid(Long mid);
     List<DisplayMatchResponse> displayMatchByUid(Long uid);
+    List<DisplayMatchResponse> displayCompleteMatchByUid(Long uid);
+    List<DisplayMatchResponse> displayIncompleteMatchByUid(Long uid);
+
 }

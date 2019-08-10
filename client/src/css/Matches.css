@@ -9,7 +9,7 @@
     margin: 30px;
 }
 
-#matchesTable {
+.matchesTable {
     padding: 50px;
     overflow: auto;
 }

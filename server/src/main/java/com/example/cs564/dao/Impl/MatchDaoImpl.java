@@ -29,9 +29,25 @@ public class MatchDaoImpl implements MatchDao {
     @Override
     @Transactional
     public void addSongTwo(String spotifyUri2, Long mid) {
-        int ret = em.createNativeQuery("update matches set spotify_uri2 = ?1 where mid = ?2")
+        em.createNativeQuery("update matches set spotify_uri2 = ?1 where mid = ?2")
                 .setParameter(1, spotifyUri2)
                 .setParameter(2, mid).executeUpdate();
-        System.out.println(ret);
+    }
+
+    public List<DisplayMatchResponse> displayCompleteMatch(Long uid) {
+        return em.createQuery("select New com.example.cs564.response.DisplayMatchResponse(s1.sname, s2.sname)" +
+                " from MatchEntity m, SongEntity s1, SongEntity s2, CreatesEntity c " +
+                "where m.spotifyUri1 = s1.spotifyID and m.spotifyUri2 = s2.spotifyID " +
+                "and m.mid = c.mid and c.uid = ?1", DisplayMatchResponse.class)
+                .setParameter(1, uid).getResultList();
+    }
+
+    @Override
+    public List<DisplayMatchResponse> displayIncompleteMatch(Long uid) {
+        return em.createQuery("select New com.example.cs564.response.DisplayMatchResponse(s.sname)" +
+                " from MatchEntity m, SongEntity s, CreatesEntity c " +
+                "where m.spotifyUri1 = s.spotifyID and m.spotifyUri2 IS NULL " +
+                "and m.mid = c.mid and c.uid = ?1", DisplayMatchResponse.class)
+                .setParameter(1, uid).getResultList();
     }
 }

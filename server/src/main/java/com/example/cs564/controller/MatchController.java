@@ -25,11 +25,11 @@ public class MatchController {
     @Autowired
     private SongService songService;
 
-   @ResponseBody
-   @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-   public List<MatchEntity> getAll(@PathVariable Long uid) {
-       return createsService.getAllByUid(uid);
-   }
+//    @ResponseBody
+//    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+//    public List<MatchEntity> getAll(@PathVariable Long uid) {
+//        return createsService.getAllByUid(uid);
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/getsongs/{mid}", method = RequestMethod.GET)
@@ -41,12 +41,23 @@ public class MatchController {
         return songs;
     }
 
-    // @ResponseBody
-    // @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-    // public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
-    //     return matchService.displayMatchByUid(uid);
-    // }
+    @ResponseBody
+    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
+        return matchService.displayMatchByUid(uid);
+    }
 
+    @ResponseBody
+    @RequestMapping(value = "/incomplete/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayIncompleteMatchByUid(@PathVariable Long uid) {
+        return matchService.displayIncompleteMatchByUid(uid);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/complete/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayCompleteMatchByUid(@PathVariable Long uid) {
+        return matchService.displayCompleteMatchByUid(uid);
+    }
 
     @ResponseBody
     @RequestMapping(value = "/follow/{uid}", method = RequestMethod.POST)
@@ -56,8 +67,9 @@ public class MatchController {
         createsEntity.setMid(matchEntity.getMid());
         createsEntity.setUid(uid);
         createsService.create(createsEntity);
-
     }
+
+
 
     @ResponseBody
     @RequestMapping(value = "/follow/{uid}/{mid}", method = RequestMethod.POST)

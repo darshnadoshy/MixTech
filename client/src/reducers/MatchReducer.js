@@ -1,19 +1,20 @@
 const initialState = {
-    results: []
+    completeResults: [],
+    incompleteResults: []
 };
 
 
 export default (state=initialState, action) => {
     switch (action.type) {
-        case 'ALL_MATCHES':
+        case 'COMPLETE_MATCHES':
             return {
                 state,
-                results: action.payload
+                completeResults: action.payload
             };
-        case 'CLEAR':
+        case 'INCOMPLETE_MATCHES':
             return {
                 state,
-                results: []
+                incompleteResults: action.payload
             };
         default:
             return state
