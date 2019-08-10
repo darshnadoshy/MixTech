@@ -1,11 +1,11 @@
-export const allPlaylists = (query) => dispatch => {
-    fetch(`http://localhost:8080/playlists/all/${query.uid}`, {
+export const allPlaylists = () => dispatch => {
+    fetch(`http://localhost:8080/playlist/all/${localStorage.getItem('uid')}`, {
         method: 'GET',
         crossDomain: true,
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(res => {return res.json()})
+    }).then(res => res.json())
         .then(res => {
             const results = res.map(playlist => ({
                 pid: playlist.pid,

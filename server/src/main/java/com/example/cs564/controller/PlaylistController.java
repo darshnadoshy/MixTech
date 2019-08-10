@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/playlist")
 public class PlaylistController {
@@ -23,7 +24,6 @@ public class PlaylistController {
     private FollowsService followsService;
 
     // get all songs from a playlist
-    @CrossOrigin(origins = "http://localhost:3000")
     @ResponseBody
     @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllPlaylists(@PathVariable Long uid) {

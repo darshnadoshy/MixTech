@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { allMatches } from '../actions/MatchActions'
 import '../css/Matches.css'
 
 class Matches extends Component {
+    
     render() {
         return (
             <div id="matchesContent">
@@ -12,27 +16,19 @@ class Matches extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">Match Name</th>
+                                <th scope="col">Song 1</th>
+                                <th scope="col">Song 2</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                            </tr>
+                            {this.props.results.map(match => 
+                                <tr>
+                                    <td>{match.mname}</td>
+                                    <td>{match.song1}</td>
+                                    <td>{match.song2}</td>
+                                </tr>  
+                            )}
                         </tbody>
                     </table>
                 </div>
@@ -41,11 +37,14 @@ class Matches extends Component {
     }
 }
 
-// const style = {
-//     position: 'absolute',
-//     left: '50%',
-//     top: '25%',
-//     transform: 'translate(-50%, -50%)'
-// }
+Matches.propType = {
+    allPlaylists: PropTypes.func.isRequired,
+    results: PropTypes.array
+};
 
-export default Matches;
+const mapStateToProps = state => ({
+    results: state.matches.results
+})
+
+
+export default connect(mapStateToProps, { allMatches })(Matches);
