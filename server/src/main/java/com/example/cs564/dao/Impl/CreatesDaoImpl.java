@@ -1,6 +1,7 @@
 package com.example.cs564.dao.Impl;
 import com.example.cs564.dao.CreatesDao;
 import com.example.cs564.entity.MatchEntity;
+import com.example.cs564.response.DisplayMatchResponse;
 import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,5 @@ public class CreatesDaoImpl implements CreatesDao{
         return em.createNativeQuery("SELECT m.* FROM creates c, matches m " +
                 "WHERE c.uid=?1 AND c.mid = m.mid", MatchEntity.class).setParameter(1, uid).getResultList();
     }
+
 }

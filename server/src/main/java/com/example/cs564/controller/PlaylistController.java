@@ -7,6 +7,7 @@ import com.example.cs564.service.FollowsService;
 import com.example.cs564.service.PlaylistService;
 import com.example.cs564.utils.SystemConstant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,19 +23,21 @@ public class PlaylistController {
     @Autowired
     private FollowsService followsService;
 
-//    @RequestMapping(value = "/all", method = RequestMethod.GET)
-//    public Page<SongEntity> getAllSongsByPage(@RequestParam(value = "page", defaultValue = "0") int page,
-//                                         @RequestParam(value = "size", defaultValue = "10") int size) {
-//        return null;
-//    }
-
-
     // get all songs from a playlist
     @ResponseBody
     @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllPlaylists(@PathVariable Long uid) {
         return curatesService.getAllByUid(uid);
     }
+
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    @ResponseBody
+//    @RequestMapping(value = "/all_page/{uid}")
+//    public List<PlaylistEntity> getAllPlaylistsInPage(@PathVariable Long uid,
+//                                                      @RequestParam(value = "page", defaultValue = "0") int page,
+//                                                      @RequestParam(value = "size", defaultValue = "10") int size) {
+//        return playlistService.getAllByPage(uid, page, size);
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/all/following/{uid}", method = RequestMethod.GET)
