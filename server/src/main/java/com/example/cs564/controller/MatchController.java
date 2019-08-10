@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/match")
 public class MatchController {
@@ -24,11 +25,11 @@ public class MatchController {
     @Autowired
     private SongService songService;
 
-//    @ResponseBody
-//    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-//    public List<MatchEntity> getAll(@PathVariable Long uid) {
-//        return createsService.getAllByUid(uid);
-//    }
+   @ResponseBody
+   @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+   public List<MatchEntity> getAll(@PathVariable Long uid) {
+       return createsService.getAllByUid(uid);
+   }
 
     @ResponseBody
     @RequestMapping(value = "/getsongs/{mid}", method = RequestMethod.GET)
@@ -40,11 +41,11 @@ public class MatchController {
         return songs;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-    public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
-        return matchService.displayMatchByUid(uid);
-    }
+    // @ResponseBody
+    // @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+    // public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
+    //     return matchService.displayMatchByUid(uid);
+    // }
 
 
     @ResponseBody
@@ -55,6 +56,13 @@ public class MatchController {
         createsEntity.setMid(matchEntity.getMid());
         createsEntity.setUid(uid);
         createsService.create(createsEntity);
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/follow/{uid}/{mid}" method = RequestMethod.POST)
+    public void addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
+        matchService.addSong(spotifyUri2);
 
     }
 

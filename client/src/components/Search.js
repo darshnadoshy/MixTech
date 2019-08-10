@@ -49,6 +49,9 @@ class Search extends Component {
                                 <th scope="col">Song</th>
                                 <th scope="col">Key</th>
                                 <th scope="col">Tempo (BPM)</th>
+                                <th scope="col">Popularity</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                             <tbody>
@@ -57,6 +60,9 @@ class Search extends Component {
                                         <td><button className="btn btn-light btn-lg" data-toggle="modal" data-target="#songmodal">{song.name}</button></td>
                                         <td>{whichKey(song.key)}</td>
                                         <td>{song.tempo}</td>
+                                        <td>{song.popularity}</td>
+                                        <td><button className="btn btn-light btn-sm">Add to Match</button></td>
+                                        <td><button className="btn btn-light btn-sm">Add to Playlist</button></td>
                                         <Modal song={song}/>
                                     </tr>
                                 )}

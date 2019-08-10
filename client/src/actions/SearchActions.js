@@ -25,7 +25,8 @@ export const basicResults = (query) => dispatch => {
                 valence: song.valence,
                 tempo: song.tempo,
                 duration: song.durationMs,
-                timesignature: song.timeSignature
+                timesignature: song.timeSignature,
+                popularity: song.popularity
             }))
 
             dispatch({
@@ -64,7 +65,8 @@ export const advancedResults = (query) => dispath => {
             valence: song.valence,
             tempo: song.tempo,
             duration: song.durationMs,
-            timesignature: song.timeSignature
+            timesignature: song.timeSignature,
+            popularity: song.popularity
          }))
         dispath({
             type: 'ADVANCED_SEARCH',

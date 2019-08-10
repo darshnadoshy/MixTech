@@ -5,7 +5,9 @@ import { allMatches } from '../actions/MatchActions'
 import '../css/Matches.css'
 
 class Matches extends Component {
-    
+    componentWillMount() {
+        this.props.allMatches()
+    }
     render() {
         return (
             <div id="matchesContent">
@@ -24,7 +26,7 @@ class Matches extends Component {
                         <tbody>
                             {this.props.results.map(match => 
                                 <tr>
-                                    <td>{match.mname}</td>
+                                    <td>{match.matchName}</td>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
                                 </tr>  
@@ -38,7 +40,7 @@ class Matches extends Component {
 }
 
 Matches.propType = {
-    allPlaylists: PropTypes.func.isRequired,
+    allMatches: PropTypes.func.isRequired,
     results: PropTypes.array
 };
 
