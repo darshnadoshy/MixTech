@@ -34,12 +34,12 @@ public class PlaylistServiceImpl implements PlaylistService {
     private StoredProcedureDao storedProcedureDao;
 
 
-    @Override
-    public Page<PlaylistEntity> getAllByPage(int page, int size) {
-        Sort sort = new Sort(Sort.Direction.DESC, "pid");
-        Pageable pageable = PageRequest.of(page, size, sort);
-        return playlistRepo.findAll(pageable);
-    }
+//    @Override
+//    public List<PlaylistEntity> getAllByPage(Long uid, int page, int size) {
+//        Sort sort = new Sort(Sort.Direction.DESC, "pid");
+//        Pageable pageable = PageRequest.of(page, size, sort);
+//        return playlistRepo.findAllByUid(uid, pageable);
+//    }
 
     @Override
     public PlaylistEntity getByPid(Long pid) {

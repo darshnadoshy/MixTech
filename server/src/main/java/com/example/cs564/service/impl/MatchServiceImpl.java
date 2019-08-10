@@ -1,8 +1,10 @@
 package com.example.cs564.service.impl;
 
+import com.example.cs564.dao.MatchDao;
 import com.example.cs564.dao.MatchRepo;
 import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.entity.SongEntity;
+import com.example.cs564.response.DisplayMatchResponse;
 import com.example.cs564.service.MatchService;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import java.util.List;
 public class MatchServiceImpl implements MatchService{
     @Autowired
     private MatchRepo matchRepo;
+    @Autowired
+    private MatchDao matchDao;
 
     @Override
     public Page<MatchEntity> getAllByPage(int page, int size) {
@@ -50,6 +54,11 @@ public class MatchServiceImpl implements MatchService{
     @Override
     public MatchEntity getByMid(Long mid) {
         return matchRepo.findByMid(mid);
+    }
+
+    @Override
+    public List<DisplayMatchResponse> displayMatchByUid(Long uid) {
+        return matchDao.displayMatch(uid);
     }
 
 

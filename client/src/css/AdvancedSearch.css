@@ -1,24 +1,26 @@
-#title {
-    margin: auto;
-    padding-top: 30px;
-}
-
 #asearchContent {
     display: table-cell;
     width: 85%;
     vertical-align: top;
 }
 
-.alabel {
-    padding-bottom: 30px;
+#form {
+    margin: 50px;
+    padding: 20px;
 }
-.pcol {
-    margin: 15px;
+#results {
+    margin: 50px;
+    padding: 25px;
+    width: 100%
 }
 
-.form {
-    margin: 0 auto;
-    width: 100%
+.alabel {
+    padding-bottom: 10px;
+}
+.pcol {
+    padding: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
   
 .input-range {

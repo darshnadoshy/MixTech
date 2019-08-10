@@ -9,8 +9,9 @@ export const basicResults = (query) => dispatch => {
         .then(res => {
             console.log(res)
             const results = res.map(song => ({
+                id: song.spotifyID,
                 name: song.sname,
-                album_name: song.album_name,
+                album_name: song.albumName,
                 artist: song.mname,
                 danceability: song.danceability,
                 energy: song.energy,
@@ -23,8 +24,9 @@ export const basicResults = (query) => dispatch => {
                 liveness: song.liveness,
                 valence: song.valence,
                 tempo: song.tempo,
-                duration: song.duration_ms,
-                timesignature: song.time_signature
+                duration: song.durationMs,
+                timesignature: song.timeSignature,
+                popularity: song.popularity
             }))
 
             dispatch({
@@ -47,8 +49,9 @@ export const advancedResults = (query) => dispath => {
     .then(res => {
         console.log(res)
         const results = res.map(song => ({
+            id: song.spotifyID,
             name: song.sname,
-            album_name: song.album_name,
+            album_name: song.albumName,
             artist: song.mname,
             danceability: song.danceability,
             energy: song.energy,
@@ -61,7 +64,10 @@ export const advancedResults = (query) => dispath => {
             liveness: song.liveness,
             valence: song.valence,
             tempo: song.tempo,
-            duration: song.duration_ms }))
+            duration: song.durationMs,
+            timesignature: song.timeSignature,
+            popularity: song.popularity
+         }))
         dispath({
             type: 'ADVANCED_SEARCH',
             payload: results

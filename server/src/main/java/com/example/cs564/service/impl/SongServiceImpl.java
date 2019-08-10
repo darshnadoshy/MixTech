@@ -6,6 +6,9 @@ import com.example.cs564.entity.SongEntity;
 import com.example.cs564.request.AdvanceSearchRequest;
 import com.example.cs564.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +28,15 @@ public class SongServiceImpl implements SongService {
     }
     @Override
     public List<SongEntity> getAllByName(String sname) {
-        return songRepo.findBySnameLike("%" + sname + "%");
+        Sort sort = new Sort(Sort.Direction.DESC, "popularity");
+        return songRepo.findBySnameLike("%" + sname + "%",sort);
+    }
+
+    @Override
+    public List<SongEntity> getAllByNameInPage(String name, int page, int size) {
+        Sort sort = new Sort(Sort.Direction.DESC, "popularity");
+        Pageable pageable = PageRequest.of(page, size, sort);
+        return songRepo.findBySnameLike("%" + name + "%", pageable);
     }
 
     @Override
@@ -92,6 +103,8 @@ public class SongServiceImpl implements SongService {
         System.out.println(stringBuilder.toString());
         return songDao.findAllByAudioFeatures(stringBuilder.toString());
     }
+
+
 
 //    @Override
 //    public List<SongEntity> getAllByAudioFeatures(AdvanceSearchRequest request) {
