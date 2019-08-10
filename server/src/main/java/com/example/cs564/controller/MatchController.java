@@ -25,11 +25,11 @@ public class MatchController {
     @Autowired
     private SongService songService;
 
-   @ResponseBody
-   @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-   public List<MatchEntity> getAll(@PathVariable Long uid) {
-       return createsService.getAllByUid(uid);
-   }
+//    @ResponseBody
+//    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+//    public List<MatchEntity> getAll(@PathVariable Long uid) {
+//        return createsService.getAllByUid(uid);
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/getsongs/{mid}", method = RequestMethod.GET)
@@ -41,11 +41,11 @@ public class MatchController {
         return songs;
     }
 
-    // @ResponseBody
-    // @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
-    // public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
-    //     return matchService.displayMatchByUid(uid);
-    // }
+    @ResponseBody
+    @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayMatchByUid(@PathVariable Long uid) {
+        return matchService.displayMatchByUid(uid);
+    }
 
 
     @ResponseBody

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Modal from './Modal'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux' 
 import { advancedResults } from '../actions/SearchActions'
@@ -237,7 +236,6 @@ class AdvancedSearch extends Component {
                                     <td>{whichKey(song.key)}</td>
                                     <td>{song.tempo}</td>
                                     <td>{song.popularity}</td>
-                                    <Modal song={song}/>
                                 </tr>
                             </tbody>
                         )}
