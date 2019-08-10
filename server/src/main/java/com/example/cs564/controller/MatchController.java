@@ -60,9 +60,9 @@ public class MatchController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/follow/{uid}/{mid}" method = RequestMethod.POST)
+    @RequestMapping(value = "/follow/{uid}/{mid}", method = RequestMethod.POST)
     public void addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
-        matchService.addSong(spotifyUri2);
+        matchService.addSong(spotifyUri2, mid);
 
     }
 

@@ -46,9 +46,9 @@ public class MatchServiceImpl implements MatchService{
     }
 
     @Override
-    public void addSong(String spotifyUri2)
+    public void addSong(String spotifyUri2, Long mid)
     {
-
+        matchDao.addSongTwo(spotifyUri2, mid);
     }
 
     @Override
