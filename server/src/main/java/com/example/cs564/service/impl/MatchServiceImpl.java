@@ -42,6 +42,12 @@ public class MatchServiceImpl implements MatchService{
     }
 
     @Override
+    public void addSong(String spotifyUri2)
+    {
+
+    }
+
+    @Override
     public MatchEntity getByMid(Long mid) {
         return matchRepo.findByMid(mid);
     }

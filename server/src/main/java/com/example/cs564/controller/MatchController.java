@@ -52,6 +52,13 @@ public class MatchController {
 
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/follow/{uid}/{mid}" method = RequestMethod.POST)
+    public void addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
+        matchService.addSong(spotifyUri2);
+
+    }
+
     //Delete a match by ID
     @RequestMapping(value = "/delete/{mid}/{uid}", method = RequestMethod.DELETE)
     public void remove(@PathVariable Long mid, @PathVariable long uid) {
