@@ -55,5 +55,15 @@ public class MatchServiceImpl implements MatchService{
         return matchDao.displayMatch(uid);
     }
 
+    @Override
+    public List<DisplayMatchResponse> displayCompleteMatchByUid(Long uid) {
+        return matchDao.displayCompleteMatch(uid);
+    }
+
+    @Override
+    public List<DisplayMatchResponse> displayIncompleteMatchByUid(Long uid) {
+        return matchDao.displayIncompleteMatch(uid);
+    }
+
 
 }

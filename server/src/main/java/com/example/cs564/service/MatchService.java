@@ -14,4 +14,7 @@ public interface MatchService {
     void remove(Long mid);
     MatchEntity getByMid(Long mid);
     List<DisplayMatchResponse> displayMatchByUid(Long uid);
+    List<DisplayMatchResponse> displayCompleteMatchByUid(Long uid);
+    List<DisplayMatchResponse> displayIncompleteMatchByUid(Long uid);
+
 }

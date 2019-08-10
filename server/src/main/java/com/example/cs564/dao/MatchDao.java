@@ -8,4 +8,6 @@ import java.util.List;
 public interface MatchDao {
 
     List<DisplayMatchResponse> displayMatch(Long uid);
+    List<DisplayMatchResponse> displayCompleteMatch(Long uid);
+    List<DisplayMatchResponse> displayIncompleteMatch(Long uid);
 }

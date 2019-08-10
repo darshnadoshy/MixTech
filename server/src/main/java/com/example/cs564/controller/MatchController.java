@@ -46,6 +46,17 @@ public class MatchController {
         return matchService.displayMatchByUid(uid);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/incomplete/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayIncompleteMatchByUid(@PathVariable Long uid) {
+        return matchService.displayIncompleteMatchByUid(uid);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/complete/{uid}", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> displayCompleteMatchByUid(@PathVariable Long uid) {
+        return matchService.displayCompleteMatchByUid(uid);
+    }
 
     @ResponseBody
     @RequestMapping(value = "/follow/{uid}", method = RequestMethod.POST)
