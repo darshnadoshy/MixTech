@@ -4,6 +4,7 @@ import com.example.cs564.dao.MatchDao;
 import com.example.cs564.dao.MatchRepo;
 import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.entity.SongEntity;
+import com.example.cs564.request.CreateMatchRequest;
 import com.example.cs564.response.DisplayMatchResponse;
 import com.example.cs564.service.MatchService;
 import org.hibernate.validator.constraints.URL;
@@ -38,6 +39,11 @@ public class MatchServiceImpl implements MatchService{
     @Override
     public void create(MatchEntity matchEntity) {
         matchRepo.save(matchEntity);
+    }
+
+    @Override
+    public void create(CreateMatchRequest createMatchRequest, Long uid) {
+        matchRepo.save(new MatchEntity(createMatchRequest.getMname(), createMatchRequest.getSpotifyUri1()));
     }
 
     @Override

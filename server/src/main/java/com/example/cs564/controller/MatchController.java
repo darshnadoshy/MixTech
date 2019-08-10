@@ -3,6 +3,7 @@ package com.example.cs564.controller;
 import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.entity.SongEntity;
 import com.example.cs564.entity.key.CreatesKey;
+import com.example.cs564.request.CreateMatchRequest;
 import com.example.cs564.response.DisplayMatchResponse;
 import com.example.cs564.service.CreatesService;
 import com.example.cs564.entity.CreatesEntity;
@@ -69,10 +70,16 @@ public class MatchController {
         createsService.create(createsEntity);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
+    public void create(@RequestBody CreateMatchRequest createMatchRequest, @PathVariable Long uid) {
+
+    }
+
 
 
     @ResponseBody
-    @RequestMapping(value = "/follow/{uid}/{mid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/addsong/{uid}/{mid}", method = RequestMethod.POST)
     public void addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
         matchService.addSong(spotifyUri2);
 
