@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from './Modal'
+import ModalWrapper from './ModalWrapper'
 import PropTypes from 'prop-types'
 import { basicResults } from '../actions/SearchActions'
 import { clearResults } from '../actions/SearchActions'
@@ -11,7 +11,9 @@ class Search extends Component {
     constructor() {
         super()
         this.state = {
-            sname: ""
+            sname: "",
+            modalOpen: false,
+            selected: null
         }
     }
 
@@ -27,6 +29,16 @@ class Search extends Component {
         e.preventDefault()
         const query = {sname: this.state.sname}
         this.props.basicResults(query)
+    }
+
+    onOpenModal = async e => {
+        await this.setState({ selected: e.target.selected })
+        this.setState({modalOpen: true})
+        console.log(this.state.selected)
+    }
+
+    onCloseModal = () => {
+        this.setState({ modalOpen: false });
     }
 
     render() {
@@ -50,25 +62,21 @@ class Search extends Component {
                                 <th scope="col">Key</th>
                                 <th scope="col">Tempo (BPM)</th>
                                 <th scope="col">Popularity</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
-                            <tbody>
-                                {this.props.results.map((song, i) =>
-                                    <tr key={i}>
-                                        <td><button className="btn btn-light btn-lg" data-toggle="modal" data-target="#songmodal">{song.name}</button></td>
-                                        <td>{whichKey(song.key)}</td>
-                                        <td>{song.tempo}</td>
-                                        <td>{song.popularity}</td>
-                                        <td><button className="btn btn-light btn-sm">Add to Match</button></td>
-                                        <td><button className="btn btn-light btn-sm">Add to Playlist</button></td>
-                                        <Modal song={song}/>
-                                    </tr>
-                                )}
-                            </tbody>
+                        <tbody>
+                            {this.props.results.map((song, i) =>
+                                <tr key={i}>
+                                    <td><button className="btn btn-light btn-lg" selected={song} onClick={(e) => this.onOpenModal(e)}>{song.name}</button></td>
+                                    <td>{whichKey(song.key)}</td>
+                                    <td>{song.tempo}</td>
+                                    <td>{song.popularity}</td>
+                                </tr>
+                            )}
+                        </tbody>
                     </table>
                 </div>
+                <ModalWrapper open={this.state.modalOpen} onClose={this.onCloseModal} song={this.state.selected}/>
             </div>
         );
     }
