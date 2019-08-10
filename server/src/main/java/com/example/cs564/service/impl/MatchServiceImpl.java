@@ -52,9 +52,10 @@ public class MatchServiceImpl implements MatchService{
     }
 
     @Override
-    public void addSong(String spotifyUri2)
+    public void addSong(String spotifyUri2, Long mid)
     {
-
+//        if (matchRepo.findBySpotifyUri1AndSpotifyUri2())
+        matchDao.addSongTwo(spotifyUri2, mid);
     }
 
     @Override

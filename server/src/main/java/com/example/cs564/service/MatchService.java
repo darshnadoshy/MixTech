@@ -14,7 +14,7 @@ public interface MatchService {
     void create(MatchEntity matchEntity);
     void create(CreateMatchRequest createMatchRequest, Long uid);
     void remove(Long mid);
-    void addSong(String spotifyUri2);
+    void addSong(String spotifyUri2, Long mid);
     MatchEntity getByMid(Long mid);
     List<DisplayMatchResponse> displayMatchByUid(Long uid);
     List<DisplayMatchResponse> displayCompleteMatchByUid(Long uid);
