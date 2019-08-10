@@ -16,6 +16,8 @@ public class SongEntity {
     private String sname;
     @Column(name = "album_name")
     private String albumName;
+    @Column(name = "artist_name")
+    private String artistName;
     private Float danceability;
     private Float energy;
     private Integer skey;
@@ -39,7 +41,7 @@ public class SongEntity {
         this.spotifyID = spotifyID;
     }
 
-    public SongEntity(String spotifyID, String sname, String albumName, String mname,
+    public SongEntity(String spotifyID, String sname, String albumName, String artistName,
                       Float danceability, Float energy, Integer skey,
                       Float loudness, Integer smode, Float speechiness,
                       Float instrumentalness, Float liveness, Float valuence,
@@ -47,6 +49,7 @@ public class SongEntity {
         this.spotifyID = spotifyID;
         this.sname = sname;
         this.albumName = albumName;
+        this.artistName = artistName;
         this.danceability = danceability;
         this.energy = energy;
         this.skey = skey;

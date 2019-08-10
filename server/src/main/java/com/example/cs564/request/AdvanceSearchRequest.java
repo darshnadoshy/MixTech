@@ -6,7 +6,6 @@ import lombok.Data;
 public class AdvanceSearchRequest {
     private Integer skey;
     private Integer smode;
-
     private Float danceability0;
     private Float danceability1;
     private Float energy0;
@@ -25,8 +24,4 @@ public class AdvanceSearchRequest {
     private Float valence1;
     private Float tempo0;
     private Float tempo1;
-    private Long duration_ms0;
-    private Long duration_ms1;
-    private Integer time_signature0;
-    private Integer time_signature1;
 }
