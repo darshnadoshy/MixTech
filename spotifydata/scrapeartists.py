@@ -7,17 +7,17 @@ import pandas as pd
 client_credentials_manager = SpotifyClientCredentials(client_id="ae1c25b01ed94b4cb0b48cd1e679f051", client_secret="8a9d601440204112b46c1d3e4d0d26e4")
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-df = pd.read_csv('./use.csv')
+df = pd.read_csv('./final.csv')
 track_ids = df['spotify_uri']
 artists = []
 
 print(datetime.datetime.now())
 
-for i in range(27104, len(track_ids)):
+for track in track_ids:
     try:
-        a = sp.track(track_ids[i])['artists'][0]['name']
+        a = sp.track(track)['artists'][0]['name']
         if a is None: artists.append(None)
-        else: artists.append(a)
+        else: artists.append(str(a))
     except:
         print(Exception)
         data = {'artists': artists}

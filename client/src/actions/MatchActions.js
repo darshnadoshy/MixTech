@@ -43,5 +43,5 @@ export const incompleteMatches = () => dispatch => {
             payload: results
         })
     })
-    .catch(err => console.log(err))
+    .catch(err => {console.log('yup'); console.log(err)})
 }

@@ -55,9 +55,9 @@ print(sp.track('5P0EYQ86TF7gC2WzZXcAGz')['artists'][0]['name'])
 
 
 
-df1 = pd.read_csv('./failed_artists.csv', dtype='str')['spotify_uri']
+df1 = pd.read_csv('./final.csv')['spotify_uri']
 
-df2 = pd.read_csv('./failed_artists.csv', dtype='str')['artists']
+df2 = pd.read_csv('./failed_artists.csv')['artists']
 frames = [df1, df2]
 pd.concat(frames, axis=1).to_csv('use.csv')
 #print(df2['artists'])
