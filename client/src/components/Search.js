@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ModalWrapper from './ModalWrapper'
 import PropTypes from 'prop-types'
-import { basicResults } from '../actions/SearchActions'
-import { clearResults } from '../actions/SearchActions'
+import { basicResults, clearResults, basicMatches } from '../actions/SearchActions'
 import { connect } from 'react-redux'
 import '../css/Search.css'
 
@@ -25,10 +24,11 @@ class Search extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault()
         const query = {sname: this.state.sname}
-        this.props.basicResults(query)
+        await this.props.basicResults(query)
+        await this.props.basicMatches(query)
     }
 
     onOpenModal = async e => {
@@ -76,6 +76,25 @@ class Search extends Component {
                         </tbody>
                     </table>
                 </div>
+                <div className="container" id="matchResults">
+                    <h4>Complete Matches</h4>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Song 1</th>
+                                <th scope="col">Song 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.props.matches.map((match, i) => 
+                                <tr key={i}>
+                                    <td>{match.song1}</td>
+                                    <td>{match.song2}</td>
+                                </tr>  
+                            )}
+                        </tbody>
+                    </table>
+                </div>
                 <ModalWrapper open={this.state.modalOpen} onClose={this.onCloseModal} song={this.state.selected}/>
             </div>
         );
@@ -103,11 +122,13 @@ const whichKey = (value) => {
 Search.propTypes = {
     basicResults: PropTypes.func.isRequired,
     clearResults: PropTypes.func.isRequired,
+    basicMatches: PropTypes.func.isRequired,
     results: PropTypes.array
 }
 
 const mapStateToProps = state => ({
-    results: state.SearchResults.results
+    results: state.SearchResults.results,
+    matches: state.SearchResults.matches
 })
 
-export default connect(mapStateToProps, { basicResults, clearResults })(Search);
+export default connect(mapStateToProps, { basicResults, clearResults, basicMatches })(Search);

@@ -73,9 +73,7 @@ class ModalWrapper extends Component {
         await this.props.allPlaylists()
         await this.onClosePlaylists()
     }
-
-
-
+    
     render() {
         if (this.props.song == null) {
             return <div></div>
