@@ -1,7 +1,9 @@
 package com.example.cs564.service.impl;
 
+import com.example.cs564.dao.CreatesRepo;
 import com.example.cs564.dao.MatchDao;
 import com.example.cs564.dao.MatchRepo;
+import com.example.cs564.entity.CreatesEntity;
 import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.entity.SongEntity;
 import com.example.cs564.request.CreateMatchRequest;
@@ -24,6 +26,8 @@ public class MatchServiceImpl implements MatchService{
     private MatchRepo matchRepo;
     @Autowired
     private MatchDao matchDao;
+    @Autowired
+    private CreatesRepo createsRepo;
 
     @Override
     public Page<MatchEntity> getAllByPage(int page, int size) {
@@ -43,8 +47,9 @@ public class MatchServiceImpl implements MatchService{
     }
 
     @Override
-    public void create(CreateMatchRequest createMatchRequest, Long uid) {
-        matchRepo.save(new MatchEntity(createMatchRequest.getMname(), createMatchRequest.getSpotifyUri1()));
+    public void create(String spotifyUri1, Long uid) {
+        Long mid = matchRepo.save(new MatchEntity(spotifyUri1)).getMid();
+        createsRepo.save(new CreatesEntity(uid, mid));
     }
 
     @Override

@@ -62,22 +62,21 @@ public class MatchController {
         return matchService.displayCompleteMatchByUid(uid);
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/follow/{uid}", method = RequestMethod.POST)
-    public void create(@RequestBody MatchEntity matchEntity, @PathVariable Long uid) {
-        matchService.create(matchEntity);
-        CreatesEntity createsEntity = new CreatesEntity();
-        createsEntity.setMid(matchEntity.getMid());
-        createsEntity.setUid(uid);
-        createsService.create(createsEntity);
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/follow/{uid}", method = RequestMethod.POST)
+//    public void create(@RequestBody MatchEntity matchEntity, @PathVariable Long uid) {
+//        matchService.create(matchEntity);
+//        CreatesEntity createsEntity = new CreatesEntity();
+//        createsEntity.setMid(matchEntity.getMid());
+//        createsEntity.setUid(uid);
+//        createsService.create(createsEntity);
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
-    public void create(@RequestBody CreateMatchRequest createMatchRequest, @PathVariable Long uid) {
-        matchService.create(createMatchRequest, uid);
+    public void create(@RequestParam String spotifyUri1, @PathVariable Long uid) {
+        matchService.create(spotifyUri1, uid);
     }
-
 
 
     @ResponseBody
