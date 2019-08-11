@@ -7,14 +7,13 @@ import '../css/Matches.css'
 class Matches extends Component {
     componentWillMount() {
         this.props.completeMatches()
-        //this.props.incompleteMatches()
+        this.props.incompleteMatches()
     }
 
-    componentDidMount() {
+    render() {
         console.log(this.props.completeResults)
         console.log(this.props.incompleteResults)
-    }
-    render() {
+
         return (
             <div id="matchesContent">
                 <div id="matchesTitle">
@@ -31,8 +30,8 @@ class Matches extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.completeResults.map(match => 
-                                <tr>
+                            {this.props.completeResults.map((match, i) => 
+                                <tr key={i}>
                                     <td>{match.matchName}</td>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
@@ -52,13 +51,13 @@ class Matches extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {this.props.incompleteResults.map(match => 
+                            {this.props.incompleteResults.map(match => 
                                 <tr>
                                     <td>{match.matchName}</td>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
                                 </tr>  
-                            )} */}
+                            )}
                         </tbody>
                     </table>
                 </div>

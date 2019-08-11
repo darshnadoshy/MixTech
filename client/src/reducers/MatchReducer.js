@@ -8,12 +8,12 @@ export default (state=initialState, action) => {
     switch (action.type) {
         case 'COMPLETE_MATCHES':
             return {
-                state,
+                ...state,
                 completeResults: action.payload,
             };
         case 'INCOMPLETE_MATCHES':
             return {
-                state,
+                ...state,
                 incompleteResults: action.payload
             };
         default:
