@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { completeMatches, incompleteMatches } from '../actions/MatchActions'
+import { completeMatches, incompleteMatches, deleteMatch } from '../actions/MatchActions'
 import '../css/Matches.css'
 
 class Matches extends Component {
     componentWillMount() {
         this.props.completeMatches()
         this.props.incompleteMatches()
+    }
+
+    clickHandler = async e => {
+        await this.props.deleteMatch(e.target.value)
+        this.forceUpdate()
     }
 
     render() {
@@ -24,7 +29,6 @@ class Matches extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Match Name</th>
                                 <th scope="col">Song 1</th>
                                 <th scope="col">Song 2</th>
                             </tr>
@@ -32,7 +36,6 @@ class Matches extends Component {
                         <tbody>
                             {this.props.completeResults.map((match, i) => 
                                 <tr key={i}>
-                                    <td>{match.matchName}</td>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
                                 </tr>  
@@ -45,17 +48,17 @@ class Matches extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Match Name</th>
                                 <th scope="col">Song 1</th>
                                 <th scope="col">Song 2</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.incompleteResults.map(match => 
-                                <tr>
-                                    <td>{match.matchName}</td>
+                            {this.props.incompleteResults.map((match, i) => 
+                                <tr key={i}>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
+                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>Delete</button></td>
                                 </tr>  
                             )}
                         </tbody>
@@ -69,6 +72,7 @@ class Matches extends Component {
 Matches.propType = {
     completeMatches: PropTypes.func.isRequired,
     incompleteMatches: PropTypes.func.isRequired,
+    deleteMatch: PropTypes.func.isRequired,
     completeResults: PropTypes.array,
     incompleteResults: PropTypes.array
 };
@@ -79,4 +83,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, { completeMatches, incompleteMatches })(Matches);
+export default connect(mapStateToProps, { completeMatches, incompleteMatches, deleteMatch })(Matches);

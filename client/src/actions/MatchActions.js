@@ -47,20 +47,28 @@ export const incompleteMatches = () => dispatch => {
 }
 
 export const addNewMatch = (song) => dispatch => {
-    fetch(`http://localhost:8080/match/create/${localStorage.getItem('uid')}`, {
-        method: 'GET',
+    fetch(`http://localhost:8080/match/create/${localStorage.getItem('uid')}?spotifyUri1=${song.id}`, {
+            method: 'POST',
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(dispatch({ type: 'ADD_NEW_MATCH' }))
+        .catch(err => console.log(err))
+}
+
+export const addToExistingMatch = () => dispatch => {
+
+}
+
+export const deleteMatch = (matchID) => {
+    fetch(`http://localhost:8080/match/delete/${matchID}/${localStorage.getItem('uid')}`, {
+        method: 'DELETE',
         crossDomain: true,
-        body: JSON.stringify(song),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(res => res.json())
-    .then(res => {
-        console.log(res)
-        
-    }).catch(err => console.log(err))
-}
-
-export const addToExistingMatch = {
+    }).then(res => console.log(res))
+    .catch(err => console.log(err))
 
 }
