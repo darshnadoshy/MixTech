@@ -2,6 +2,8 @@ package com.example.cs564.controller;
 
 import com.example.cs564.entity.SongEntity;
 import com.example.cs564.request.AdvanceSearchRequest;
+import com.example.cs564.response.DisplayMatchResponse;
+import com.example.cs564.service.MatchService;
 import com.example.cs564.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,13 +22,24 @@ import java.util.List;
 public class SearchController {
     @Autowired
     private SongService songService;
+    @Autowired
+    private MatchService matchService;
 
+    @ResponseBody
     @RequestMapping(value = "/basic_page", method = RequestMethod.GET)
     public List<SongEntity> getAllSongsInPage(String name,
                                               @RequestParam(value = "page", defaultValue = "0") int page,
                                               @RequestParam(value = "size", defaultValue = "10") int size) {
         return songService.getAllByNameInPage(name, page, size);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/basic_matches", method = RequestMethod.GET)
+    public List<DisplayMatchResponse> getAllMatchByName(@RequestParam String sname) {
+        return matchService.displayMatchBySnmae(sname);
+    }
+
+
 
     @ResponseBody
     @CrossOrigin(origins="http://localhost:3000")

@@ -55,6 +55,15 @@ public class MatchDaoImpl implements MatchDao {
     }
 
     @Override
+    public List<DisplayMatchResponse> displayAllMatchBySname(String sname) {
+        return em.createQuery("select distinct New com.example.cs564.response.DisplayMatchResponse(s1.sname, s2.sname)" +
+                " from MatchEntity m, SongEntity s1, SongEntity s2 " +
+                "where (s1.sname like ?1 or s2.sname like ?1) " +
+                "and m.spotifyUri1 = s1.spotifyID and m.spotifyUri2 = s2.spotifyID ", DisplayMatchResponse.class)
+                .setParameter(1, sname).getResultList();
+    }
+
+    @Override
     public MatchEntity getMatchBySongs(String spotifyUri1, String sporifyUri2, Long uid) {
         Query query = em.createNativeQuery("select m.* from matches m, creates c " +
                 "where c.mid = m.mid and m.spotify_uri1 = ?1 and m.spotify_uri2 = ?2 " +

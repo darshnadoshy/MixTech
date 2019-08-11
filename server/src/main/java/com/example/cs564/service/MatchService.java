@@ -19,5 +19,5 @@ public interface MatchService {
     List<DisplayMatchResponse> displayMatchByUid(Long uid);
     List<DisplayMatchResponse> displayCompleteMatchByUid(Long uid);
     List<DisplayMatchResponse> displayIncompleteMatchByUid(Long uid);
-
+    List<DisplayMatchResponse> displayMatchBySnmae(String sname);
 }
