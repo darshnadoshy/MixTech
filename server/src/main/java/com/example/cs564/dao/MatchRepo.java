@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatchRepo extends JpaRepository<MatchEntity, Long> {
-
+    MatchEntity findBySpotifyUri1AndSpotifyUri2(String spotify_uri1, String spotify_uri2);
     MatchEntity findByMid(Long mid);
 }

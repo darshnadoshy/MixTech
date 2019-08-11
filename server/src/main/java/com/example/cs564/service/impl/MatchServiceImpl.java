@@ -4,8 +4,10 @@ import com.example.cs564.dao.MatchDao;
 import com.example.cs564.dao.MatchRepo;
 import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.entity.SongEntity;
+import com.example.cs564.request.CreateMatchRequest;
 import com.example.cs564.response.DisplayMatchResponse;
 import com.example.cs564.service.MatchService;
+import com.example.cs564.utils.SystemConstant;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,14 +43,26 @@ public class MatchServiceImpl implements MatchService{
     }
 
     @Override
+    public void create(CreateMatchRequest createMatchRequest, Long uid) {
+        matchRepo.save(new MatchEntity(createMatchRequest.getMname(), createMatchRequest.getSpotifyUri1()));
+    }
+
+    @Override
     public void remove(Long mid) {
         matchRepo.deleteById(mid);
     }
 
     @Override
-    public void addSong(String spotifyUri2, Long mid)
+    public int addSong(String spotifyUri2, Long mid, Long uid)
     {
+        String spotifyUri1 = matchRepo.findByMid(mid).getSpotifyUri1();
+        if (spotifyUri1.equals(spotifyUri2)) { return SystemConstant.RET_ERR_DUPSONG; }
+        if (matchDao.getMatchBySongs(spotifyUri1, spotifyUri2, uid)!=null
+                || matchDao.getMatchBySongs(spotifyUri2, spotifyUri1, uid)!=null ) {
+            return SystemConstant.RET_ERR_DUPMATCH;
+        }
         matchDao.addSongTwo(spotifyUri2, mid);
+        return SystemConstant.RET_SUC;
     }
 
     @Override

@@ -1,12 +1,15 @@
 package com.example.cs564.dao.Impl;
 
 import com.example.cs564.dao.MatchDao;
+import com.example.cs564.entity.MatchEntity;
 import com.example.cs564.response.DisplayMatchResponse;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -49,5 +52,22 @@ public class MatchDaoImpl implements MatchDao {
                 "where m.spotifyUri1 = s.spotifyID and m.spotifyUri2 IS NULL " +
                 "and m.mid = c.mid and c.uid = ?1", DisplayMatchResponse.class)
                 .setParameter(1, uid).getResultList();
+    }
+
+    @Override
+    public MatchEntity getMatchBySongs(String spotifyUri1, String sporifyUri2, Long uid) {
+        Query query = em.createNativeQuery("select m.* from matches m, creates c " +
+                "where c.mid = m.mid and m.spotify_uri1 = ?1 and m.spotify_uri2 = ?2 " +
+                "and c.uid = ?3", MatchEntity.class)
+                .setParameter(1, spotifyUri1)
+                .setParameter(2, sporifyUri2)
+                .setParameter(3, uid);
+        try {
+            MatchEntity matchEntity = (MatchEntity) query.getSingleResult();
+            return matchEntity;
+        } catch (NoResultException e) {
+            return null;
+        }
+
     }
 }

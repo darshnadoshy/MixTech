@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f776fb0-666b-42b8-b969-b05806371590" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/controller/MatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/Impl/MatchDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/Impl/MatchDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/MatchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/MatchDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/MatchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/impl/MatchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/impl/MatchServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/utils/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/utils/SystemConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/controller/MatchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/controller/MatchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/Impl/MatchDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/Impl/MatchDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/MatchDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/MatchDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/entity/SongEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/entity/SongEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/request/AdvanceSearchRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/request/AdvanceSearchRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/MatchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/MatchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/impl/MatchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/impl/MatchServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/utils/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/utils/SystemConstant.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,12 +38,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="13" />
+          <entry key="js" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="13" />
+          <entry key="JavaScript" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -52,20 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/PlaylistActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="17" column="36" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Playlists.js">
+        <entry file="file://$PROJECT_DIR$/src/components/AdvancedSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="276">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -106,6 +110,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -195,12 +202,12 @@
       <option name="presentableId" value="Default" />
       <updated>1565300380391</updated>
       <workItem from="1565300381967" duration="6219000" />
-      <workItem from="1565378762727" duration="5535000" />
+      <workItem from="1565378762727" duration="6959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11754000" />
+    <option name="totallyTimeSpent" value="13178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
@@ -212,7 +219,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -220,7 +227,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32846716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -233,9 +240,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/actions/SearchActions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/UserAuthReducer.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -256,26 +260,6 @@
     <entry file="file://$PROJECT_DIR$/src/actions/UserActions.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3312">
-          <caret line="149" column="35" lean-forward="true" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AdvancedSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-437">
-          <caret line="72" column="47" lean-forward="true" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/rootReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -293,10 +277,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/SearchActions.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Playlists.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="184">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="112" column="35" lean-forward="true" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AdvancedSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
