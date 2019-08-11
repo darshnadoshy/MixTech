@@ -45,7 +45,6 @@ export const register = (creds) => dispatch => {
             }
         }).then(res => res.json())
         .then(res => {
-            console.log(res)
             if (res.ret === 1) {
                 localStorage.setItem('uname', res.uname)
                 localStorage.setItem('uid', res.uid)

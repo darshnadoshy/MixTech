@@ -7,7 +7,6 @@ export const basicResults = (query) => dispatch => {
             }
         }).then(res => res.json())
         .then(res => {
-            console.log(res)
             const results = res.map(song => ({
                 id: song.spotifyID,
                 name: song.sname,
@@ -28,7 +27,6 @@ export const basicResults = (query) => dispatch => {
                 timesignature: song.timeSignature,
                 popularity: song.popularity
             }))
-
             dispatch({
                 type: 'BASIC_SEARCH',
                 payload: results
@@ -46,7 +44,6 @@ export const basicMatches = (query) => dispatch => {
 
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
         const matches = res.map(match => ({
             matchID: match.mid,
             matchName: match.mname,
@@ -72,7 +69,6 @@ export const advancedResults = (query) => dispath => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
         const results = res.map(song => ({
             id: song.spotifyID,
             name: song.sname,

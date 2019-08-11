@@ -7,7 +7,6 @@ export const allPlaylists = () => dispatch => {
         }
     }).then(res => res.json())
         .then(res => {
-            console.log(res)
             const results = res.map(playlist => ({
                 pid: playlist.pid,
                 pname: playlist.pname,
@@ -31,7 +30,6 @@ export const getAllSongsInPlaylist = (pid) => dispatch => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
         const songs = res.map(song => ({
             id: song.spotifyID,
             name: song.sname,
