@@ -40,6 +40,12 @@ public class PlaylistController {
 //    }
 
     @ResponseBody
+    @RequestMapping(value = "/display/{pid}", method = RequestMethod.GET)
+    public PlaylistEntity getPlaylistByPid(@PathVariable Long pid) {
+        return playlistService.getByPid(pid);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/all/following/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllFollowingPlaylists(@PathVariable Long uid) {
         return followsService.getAllByUid(uid);

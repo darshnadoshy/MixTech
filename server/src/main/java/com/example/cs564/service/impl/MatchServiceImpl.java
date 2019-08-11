@@ -90,5 +90,10 @@ public class MatchServiceImpl implements MatchService{
         return matchDao.displayIncompleteMatch(uid);
     }
 
+    @Override
+    public List<DisplayMatchResponse> displayMatchBySnmae(String sname) {
+        return matchDao.displayAllMatchBySname("%" + sname + "%");
+    }
+
 
 }

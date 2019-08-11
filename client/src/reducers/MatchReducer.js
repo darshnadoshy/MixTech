@@ -16,6 +16,14 @@ export default (state=initialState, action) => {
                 ...state,
                 incompleteResults: action.payload
             };
+        case 'ADD_NEW_MATCH':
+            return {
+                ...state
+            }
+        case 'DELETE_MATCH':
+            return {
+                ...state
+            }
         default:
             return state
     }

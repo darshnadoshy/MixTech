@@ -12,5 +12,6 @@ public interface MatchDao {
     void addSongTwo(String spotifyUri2, Long mid);
     List<DisplayMatchResponse> displayCompleteMatch(Long uid);
     List<DisplayMatchResponse> displayIncompleteMatch(Long uid);
+    List<DisplayMatchResponse> displayAllMatchBySname(String sname);
     MatchEntity getMatchBySongs(String spotifyUri1, String sporifyUri2, Long uid);
 }
