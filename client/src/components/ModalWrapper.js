@@ -1,9 +1,54 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { incompleteMatches } from '../actions/MatchActions'
+import Matches from './Matches';
+
 
 class ModalWrapper extends Component {
+    state = {
+        openAddMatches: false,
+        openAddPlaylists: false
+    }
+
+
     componentWillMount() {
+        this.props.incompleteMatches()
+    }
+
+    onOpenMatches = async e => {
+        this.setState({ openAddMatches: true});
+    }
+
+    onCloseMatches = () => {
+        this.setState({ openAddMatches: false });
+    }
+
+    onOpenPlaylists = async e => {
+        this.setState({ openAddPlaylists: true});
+    }
+
+    onClosePlaylists = () => {
+        this.setState({ openAddPlaylists: false });
+    }
+
+    handleNewMatch = async () => {
+        await fetch(`http://localhost:8080/match/create/${localStorage.getItem('uid')}`, {
+            method: 'POST',
+            crossDomain: true,
+            body: JSON.stringify(this.props.song.id),
+            headers: {
+                "Content-Type": "application/json"
+            }
+            }).then(res => res.json())
+            .then(res => {
+                console.log(res)
+            
+            }).catch(err => console.log(err))
         
+        this.onCloseMatches()
+
     }
 
     render() {
@@ -77,12 +122,34 @@ class ModalWrapper extends Component {
                             </tbody>
                         </table>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary">Add to Matches</button>
+                            <button type="button" className="btn btn-secondary" onClick={this.onOpenMatches}>Add to Matches</button>
                             <button type="button" className="btn btn-primary">Add to Playlists</button>
                         </div>
                     </Modal>
-                    <Modal>
-
+                    <Modal open={this.state.openAddMatches} onClose={this.onCloseMatches}>
+                        <h4>Incomplete Matches</h4>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Match Name</th>
+                                    <th scope="col">Song 1</th>
+                                    <th scope="col">Song 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.props.incompleteResults.map(match => 
+                                    <tr>
+                                        <td>{match.matchName}</td>
+                                        <td>{match.song1}</td>
+                                        <td>{match.song2}</td>
+                                    </tr>  
+                                )}
+                            </tbody>
+                        </table>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" onClick={this.handleNewMatch}>Add New Match</button>
+                            <button type="button" className="btn btn-primary">Add to Selected Match</button>
+                        </div>
                     </Modal>
                 </div>
             );
@@ -91,4 +158,13 @@ class ModalWrapper extends Component {
     
 }
 
-export default ModalWrapper;
+Matches.propTypes = {
+    incompleteMatches: PropTypes.func.isRequired,
+    //addNewMatch: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    incompleteResults: state.matches.incompleteResults
+})
+
+export default connect(mapStateToProps, { incompleteMatches })(ModalWrapper);
