@@ -45,3 +45,22 @@ export const incompleteMatches = () => dispatch => {
     })
     .catch(err => {console.log('yup'); console.log(err)})
 }
+
+export const addNewMatch = (song) => dispatch => {
+    fetch(`http://localhost:8080/match/create/${localStorage.getItem('uid')}`, {
+        method: 'GET',
+        crossDomain: true,
+        body: JSON.stringify(song),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+    .then(res => {
+        console.log(res)
+        
+    }).catch(err => console.log(err))
+}
+
+export const addToExistingMatch = {
+
+}
