@@ -5,20 +5,17 @@ import { completeMatches, incompleteMatches, deleteMatch } from '../actions/Matc
 import '../css/Matches.css'
 
 class Matches extends Component {
-    componentWillMount() {
-        this.props.completeMatches()
-        this.props.incompleteMatches()
+    async componentWillMount() {
+        await this.props.completeMatches()
+        await this.props.incompleteMatches()
     }
 
     clickHandler = async e => {
         await this.props.deleteMatch(e.target.value)
-        this.forceUpdate()
+        window.location.reload()
     }
 
     render() {
-        console.log(this.props.completeResults)
-        console.log(this.props.incompleteResults)
-
         return (
             <div id="matchesContent">
                 <div id="matchesTitle">
@@ -31,6 +28,7 @@ class Matches extends Component {
                             <tr>
                                 <th scope="col">Song 1</th>
                                 <th scope="col">Song 2</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +36,7 @@ class Matches extends Component {
                                 <tr key={i}>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
+                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>Delete</button></td>
                                 </tr>  
                             )}
                         </tbody>
@@ -57,7 +56,7 @@ class Matches extends Component {
                             {this.props.incompleteResults.map((match, i) => 
                                 <tr key={i}>
                                     <td>{match.song1}</td>
-                                    <td>{match.song2}</td>
+                                    <td>...</td>
                                     <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>Delete</button></td>
                                 </tr>  
                             )}

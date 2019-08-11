@@ -7,7 +7,7 @@ export const completeMatches = () => dispatch => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
+        console.log(res, "hi")
         const results = res.map(match => ({
             matchID: match.mid,
             matchName: match.mname,
@@ -57,18 +57,25 @@ export const addNewMatch = (song) => dispatch => {
         .catch(err => console.log(err))
 }
 
-export const addToExistingMatch = () => dispatch => {
-
+export const addToExistingMatch = (req) => dispatch => {
+    fetch(`http://localhost:8080/match/addsong/${localStorage.getItem('uid')}/${req.matchID}?spotifyUri2=${req.songID}`, {
+            method: 'POST',
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(dispatch({ type: 'ADD_TO_EXISTING_MATCH' }))
+        .catch(err => console.log(err))
 }
 
-export const deleteMatch = (matchID) => {
+export const deleteMatch = (matchID) => dispatch => {
     fetch(`http://localhost:8080/match/delete/${matchID}/${localStorage.getItem('uid')}`, {
         method: 'DELETE',
         crossDomain: true,
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(res => console.log(res))
+    }).then(dispatch({ type: 'DELETE_MATCH'}))
     .catch(err => console.log(err))
 
 }

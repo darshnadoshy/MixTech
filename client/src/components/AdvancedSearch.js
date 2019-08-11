@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ModalWrapper from './ModalWrapper'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux' 
 import { advancedResults } from '../actions/SearchActions'
@@ -52,7 +53,9 @@ class AdvancedSearch extends Component {
           duration_ms: {
               min: 1,
               max: 5000
-          }
+          },
+          modalOpen: false,
+          selected: null
         }
     }
     
@@ -87,6 +90,16 @@ class AdvancedSearch extends Component {
             duration_ms1: this.state.duration_ms.max
         }
         this.props.advancedResults(query)
+    }
+
+    onOpenModal = async e => {
+        await this.setState({ selected: e.target.selected })
+        this.setState({modalOpen: true})
+        console.log(this.state.selected)
+    }
+
+    onCloseModal = () => {
+        this.setState({ modalOpen: false });
     }
     render() {
         return (
@@ -229,18 +242,19 @@ class AdvancedSearch extends Component {
                                 <th scope="col">Popularity</th>
                             </tr>
                         </thead>
-                        {this.props.results.map(song =>
-                            <tbody>
-                                <tr>
-                                    <td><button className="btn btn-light btn-lg" data-toggle="modal" data-target="#songmodal">{song.name}</button></td>
-                                    <td>{whichKey(song.key)}</td>
-                                    <td>{song.tempo}</td>
-                                    <td>{song.popularity}</td>
-                                </tr>
-                            </tbody>
+                        <tbody>
+                        {this.props.results.map((song, i) =>
+                            <tr key={i}>
+                                <td><button className="btn btn-light btn-lg" selected={song} onClick={(e) => this.onOpenModal(e)}>{song.name}</button></td>
+                                <td>{whichKey(song.key)}</td>
+                                <td>{song.tempo}</td>
+                                <td>{song.popularity}</td>
+                            </tr>
                         )}
+                        </tbody>
                     </table>
                 </div>
+                <ModalWrapper open={this.state.modalOpen} onClose={this.onCloseModal} song={this.state.selected}/>
             </div>
         );
     }

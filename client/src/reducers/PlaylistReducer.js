@@ -11,11 +11,18 @@ export default (state=initialState, action) => {
                 state,
                 results: action.payload
             };
-        case 'CLEAR':
+        case 'ADD_PLAYLIST':
             return {
-                state,
-                results: []
-            };
+                ...state
+            }
+        case 'ADD_TO_EXISTING_PLAYLIST':
+            return {
+                state
+            }
+        case 'DELETE_PLAYLIST':
+            return {
+                state
+            }
         default:
             return state
     }

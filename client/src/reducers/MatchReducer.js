@@ -20,6 +20,10 @@ export default (state=initialState, action) => {
             return {
                 ...state
             }
+        case 'ADD_TO_EXISTING_MATCH':
+            return {
+                ...state
+            }
         case 'DELETE_MATCH':
             return {
                 ...state
