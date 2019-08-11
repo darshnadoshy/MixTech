@@ -12,7 +12,7 @@ public interface MatchService {
     Page<MatchEntity> getAllByPage(int page, int size);
     List<MatchEntity> getAll();
     void create(MatchEntity matchEntity);
-    void create(CreateMatchRequest createMatchRequest, Long uid);
+    void create(String spotifyUri2, Long uid);
     void remove(Long mid);
     int addSong(String spotifyUri2, Long mid, Long uid);
     MatchEntity getByMid(Long mid);

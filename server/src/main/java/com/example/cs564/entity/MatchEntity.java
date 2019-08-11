@@ -20,6 +20,10 @@ public class MatchEntity {
 
     public MatchEntity() {}
 
+    public MatchEntity(String spotifyUri1) {
+        this.spotifyUri1 = spotifyUri1;
+    }
+
     public MatchEntity(String mname, String spotifyUri1) {
         this.mname = mname;
         this.spotifyUri1 = spotifyUri1;

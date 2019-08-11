@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7f776fb0-666b-42b8-b969-b05806371590" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/controller/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/Impl/MatchDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/Impl/MatchDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/MatchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/dao/MatchDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/MatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/impl/MatchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/service/impl/MatchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/utils/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/example/cs564/utils/SystemConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/controller/MatchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/controller/MatchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/Impl/MatchDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/Impl/MatchDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/MatchDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/dao/MatchDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/entity/SongEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/entity/SongEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/request/AdvanceSearchRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/request/AdvanceSearchRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/MatchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/MatchService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/impl/MatchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/service/impl/MatchServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/utils/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/example/cs564/utils/SystemConstant.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,7 +55,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/AdvancedSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
+            <state relative-caret-position="100">
               <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -119,7 +106,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="20" />
     <option name="y" value="40" />
     <option name="width" value="2520" />
@@ -202,24 +189,23 @@
       <option name="presentableId" value="Default" />
       <updated>1565300380391</updated>
       <workItem from="1565300381967" duration="6219000" />
-      <workItem from="1565378762727" duration="6959000" />
+      <workItem from="1565378762727" duration="7668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13178000" />
+    <option name="totallyTimeSpent" value="13887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18456642" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18456642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -302,7 +288,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/AdvancedSearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="100">
           <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />

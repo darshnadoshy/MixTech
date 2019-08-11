@@ -17,4 +17,11 @@ public class CreatesEntity {
     private Long uid;
     @Id
     private Long mid;
+
+    public CreatesEntity() {}
+
+    public CreatesEntity(Long uid, Long mid) {
+        this.uid = uid;
+        this.mid = mid;
+    }
 }
