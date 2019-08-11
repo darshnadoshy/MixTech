@@ -5,10 +5,12 @@ import com.example.cs564.entity.SongEntity;
 import com.example.cs564.entity.key.CreatesKey;
 import com.example.cs564.request.CreateMatchRequest;
 import com.example.cs564.response.DisplayMatchResponse;
+import com.example.cs564.response.StandardResponse;
 import com.example.cs564.service.CreatesService;
 import com.example.cs564.entity.CreatesEntity;
 import com.example.cs564.service.MatchService;
 import com.example.cs564.service.SongService;
+import com.example.cs564.utils.SystemConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,9 +82,23 @@ public class MatchController {
 
     @ResponseBody
     @RequestMapping(value = "/addsong/{uid}/{mid}", method = RequestMethod.POST)
-    public void addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
-        matchService.addSong(spotifyUri2, mid);
-
+    public StandardResponse addSong(@PathVariable Long uid, @PathVariable Long mid, @RequestParam String spotifyUri2) {
+        StandardResponse response = new StandardResponse();
+        int ret = matchService.addSong(spotifyUri2, mid, uid);
+        if (ret == SystemConstant.RET_ERR_DUPSONG) {
+            response.setRet(SystemConstant.RET_ERR);
+            response.setMsg(SystemConstant.MSG_MATCH_DUPSONG);
+        } else if (ret == SystemConstant.RET_ERR_DUPMATCH) {
+            response.setRet(SystemConstant.RET_ERR);
+            response.setMsg(SystemConstant.MSG_MATCH_DUPMATCH);
+        } else if (ret == SystemConstant.RET_SUC){
+            response.setRet(SystemConstant.RET_SUC);
+            response.setMsg(SystemConstant.MSG_SUCCESS);
+        } else {
+            response.setRet(SystemConstant.RET_ERR);
+            response.setMsg(SystemConstant.MSG_UNKNOWN_ERR);
+        }
+        return response;
     }
 
     //Delete a match by ID
