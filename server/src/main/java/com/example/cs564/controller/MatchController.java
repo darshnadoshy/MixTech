@@ -34,6 +34,11 @@ public class MatchController {
 //        return createsService.getAllByUid(uid);
 //    }
 
+    /**
+     * Get the actual song objects (Not just SpotifyIDs) in a match
+     * @param mid The Match ID to retrieve songs from
+     * @return The songs entities of the match (JSON objects to request)
+     */
     @ResponseBody
     @RequestMapping(value = "/getsongs/{mid}", method = RequestMethod.GET)
     public List<SongEntity> getAllByMid(@PathVariable Long mid) {
