@@ -13,17 +13,17 @@ artists = []
 
 print(datetime.datetime.now())
 
-for track in track_ids:
+for i in range(204570, len(track_ids)):
     try:
-        a = sp.track(track)['artists'][0]['name']
+        a = sp.track(track_ids[i])['artists'][0]['name']
         if a is None: artists.append(None)
         else: artists.append(str(a))
-    except:
-        print(Exception)
+    except Exception as e:
+        print(e)
         data = {'artists': artists}
         df2 = pd.DataFrame(data)
         frames = [df, df2]
-        pd.concat(frames, axis=1).to_csv('hopefully.csv')
+        pd.concat(frames, axis=1).to_csv('hopefully2.csv')
 
 
 

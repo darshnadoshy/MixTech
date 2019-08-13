@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import Modal from 'react-responsive-modal'
-import { allPlaylists, addPlaylist, deletePlaylist } from '../actions/PlaylistActions'
+import PlaylistSongs from '../components/PlaylistSongs'
+import { allPlaylists, addPlaylist, deletePlaylist, getAllSongsInPlaylist } from '../actions/PlaylistActions'
 import { connect } from 'react-redux'
 import '../css/Playlists.css'
 
 class Playlist extends Component {
     state = {
         openModal: false,
+        songsModal: false,
+        playlist: null,
         pname: '',
         description: ''
     }
@@ -26,7 +29,6 @@ class Playlist extends Component {
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state)
     }
 
     handleSubmit = (e) => {
@@ -39,6 +41,17 @@ class Playlist extends Component {
         this.props.addPlaylist(data)
         window.location.reload()
     }
+
+    onOpenPlaylist = async (e) => {
+        await this.setState({ playlist: e.target.selected })
+        await this.props.getAllSongsInPlaylist(this.state.playlist.pid)
+        this.setState({ songsModal: true })
+    }
+
+    onClosePlaylist = () => {
+        this.setState({ songsModal: false })
+    }
+
 
     clickHandler = async e => {
         await this.props.deletePlaylist(e.target.value)
@@ -63,9 +76,9 @@ class Playlist extends Component {
                         <tbody>
                             {this.props.results.map((playlist, i) => 
                                 <tr key={i}>
-                                    <td>{playlist.pname}</td>
+                                    <td><button className="btn btn-light btn-lg" selected={playlist} onClick={(e) => this.onOpenPlaylist(e)}>{playlist.pname}</button></td>
                                     <td>{playlist.description}</td>
-                                    <td><button className="btn btn-outline-danger btn-sm" value={playlist.pid} onClick={this.clickHandler}>Delete</button></td>
+                                    <td><button className="btn btn-outline-danger btn-sm" value={playlist.pid} onClick={this.clickHandler}>X</button></td>
                                 </tr>     
                             )}
                         </tbody>
@@ -86,6 +99,7 @@ class Playlist extends Component {
                         </form>
                     </div>
                 </Modal>
+                <PlaylistSongs open={this.state.songsModal} onClose={this.onClosePlaylist} playlist={this.state.playlist} songs={this.props.songs}/>
             </div>
         );
     }
@@ -95,11 +109,13 @@ Playlist.propType = {
     allPlaylists: PropTypes.func.isRequired,
     addPlaylist: PropTypes.func,
     deletePlaylist: PropTypes.func,
-    results: PropTypes.array
+    results: PropTypes.array,
+    songs: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-    results: state.playlists.results
+    results: state.playlists.results,
+    songs: state.playlists.songs
 });
 
-export default connect(mapStateToProps, { allPlaylists, addPlaylist, deletePlaylist })(Playlist);
+export default connect(mapStateToProps, { allPlaylists, addPlaylist, deletePlaylist, getAllSongsInPlaylist })(Playlist);

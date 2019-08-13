@@ -7,7 +7,6 @@ export const basicResults = (query) => dispatch => {
             }
         }).then(res => res.json())
         .then(res => {
-            console.log(res)
             const results = res.map(song => ({
                 id: song.spotifyID,
                 name: song.sname,
@@ -28,12 +27,35 @@ export const basicResults = (query) => dispatch => {
                 timesignature: song.timeSignature,
                 popularity: song.popularity
             }))
-
             dispatch({
                 type: 'BASIC_SEARCH',
                 payload: results
             })
         }).catch(err => {console.log(err)})
+}
+
+export const basicMatches = (query) => dispatch => {
+    fetch(`http://localhost:8080/search/basic_matches?sname=${query.sname}`, {
+        method: 'GET',
+        crossDomain: true,
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+    }).then(res => res.json())
+    .then(res => {
+        const matches = res.map(match => ({
+            matchID: match.mid,
+            matchName: match.mname,
+            song1: match.sname1,
+            song2: match.sname2
+        }))
+        dispatch({
+            type: 'MATCH_SEARCH',
+            payload: matches
+        })
+    })
+    .catch(err => {console.log(err)})
 }
 
 
@@ -47,7 +69,6 @@ export const advancedResults = (query) => dispath => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
         const results = res.map(song => ({
             id: song.spotifyID,
             name: song.sname,

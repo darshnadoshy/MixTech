@@ -36,7 +36,7 @@ class Matches extends Component {
                                 <tr key={i}>
                                     <td>{match.song1}</td>
                                     <td>{match.song2}</td>
-                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>Delete</button></td>
+                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>X</button></td>
                                 </tr>  
                             )}
                         </tbody>
@@ -57,7 +57,7 @@ class Matches extends Component {
                                 <tr key={i}>
                                     <td>{match.song1}</td>
                                     <td>...</td>
-                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>Delete</button></td>
+                                    <td><button className="btn btn-outline-danger btn-sm" value={match.matchID} onClick={this.clickHandler}>X</button></td>
                                 </tr>  
                             )}
                         </tbody>

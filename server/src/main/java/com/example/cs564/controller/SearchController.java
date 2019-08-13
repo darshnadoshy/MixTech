@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping(value = "/search")
 public class SearchController {
@@ -42,14 +43,12 @@ public class SearchController {
 
 
     @ResponseBody
-    @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
     public List<SongEntity> getAllByName(@RequestParam String sname) {
         return songService.getAllByName(sname);
     }
 
     @ResponseBody
-    @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(value = "/advance", method = RequestMethod.POST)
     public List<SongEntity> getAllByAudioFeatures(@RequestBody AdvanceSearchRequest request) {
         return songService.getAllByAudioFeatures(request);

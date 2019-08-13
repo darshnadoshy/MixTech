@@ -95,7 +95,6 @@ class AdvancedSearch extends Component {
     onOpenModal = async e => {
         await this.setState({ selected: e.target.selected })
         this.setState({modalOpen: true})
-        console.log(this.state.selected)
     }
 
     onCloseModal = () => {

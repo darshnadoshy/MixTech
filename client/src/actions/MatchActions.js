@@ -7,7 +7,6 @@ export const completeMatches = () => dispatch => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res, "hi")
         const results = res.map(match => ({
             matchID: match.mid,
             matchName: match.mname,
@@ -31,7 +30,6 @@ export const incompleteMatches = () => dispatch => {
         }
     }).then(res => res.json())
     .then(res => {
-        console.log(res)
         const results = res.map(match => ({
             matchID: match.mid,
             matchName: match.mname,

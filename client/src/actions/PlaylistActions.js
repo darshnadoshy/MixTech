@@ -7,7 +7,6 @@ export const allPlaylists = () => dispatch => {
         }
     }).then(res => res.json())
         .then(res => {
-            console.log(res)
             const results = res.map(playlist => ({
                 pid: playlist.pid,
                 pname: playlist.pname,
@@ -22,6 +21,42 @@ export const allPlaylists = () => dispatch => {
 
 };
 
+export const getAllSongsInPlaylist = (pid) => dispatch => {
+    fetch(`http://localhost:8080/playlist_song/all/${pid}`, {
+        method: 'GET',
+        crossDomain: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+    .then(res => {
+        const songs = res.map(song => ({
+            id: song.spotifyID,
+            name: song.sname,
+            album_name: song.albumName,
+            artist: song.mname,
+            danceability: song.danceability,
+            energy: song.energy,
+            key: song.skey,
+            loudness: song.loudness,
+            mode: song.smode,
+            speechiness: song.speechiness,
+            acousticness: song.acousticness,
+            instrumentalness: song.instrumentalness,
+            liveness: song.liveness,
+            valence: song.valence,
+            tempo: song.tempo,
+            duration: song.durationMs,
+            timesignature: song.timeSignature,
+            popularity: song.popularity
+         }))
+         dispatch({ 
+            type: 'GET_ALL_SONGS_IN_PLAYLIST',
+            payload: songs
+        })
+    }).catch(err => console.log(err))
+}
+
 export const addPlaylist = (data) => dispatch => {
     fetch(`http://localhost:8080/playlist/create/${localStorage.getItem('uid')}`, {
         method: 'POST',
@@ -35,14 +70,14 @@ export const addPlaylist = (data) => dispatch => {
 }
 
 export const addToExistingPlaylist = (req) => dispatch => {
-    fetch(`http://localhost:8080/playlist/addsong/${localStorage.getItem('uid')}/${req.matchID}?spotifyUri2=${req.songID}`, {
-            method: 'POST',
+    fetch(`http://localhost:8080/playlist_song/add/${req.playlistID}?spotify_uri=${req.songID}`, {
+            method: 'PUT',
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json"
             }
         }).then(res => console.log(res))
-        .then(dispatch({ type: 'ADD_TO_EXISTING_MATCH' }))
+        .then(dispatch({ type: 'ADD_TO_EXISTING_PLAYLIST' }))
         .catch(err => console.log(err))
 }
 

@@ -1,7 +1,8 @@
 
 
 const initialState = {
-  results: []
+  results: [],
+  matches: []
 }
 
 
@@ -9,25 +10,31 @@ export default (state=initialState, action) => {
     switch (action.type) {
       case 'BASIC_SEARCH':
         return {
-          state,
+          ...state,
           results: action.payload
         }
       case 'ADVANCED_SEARCH':
         return {
-          state,
+          ...state,
           results: action.payload
+        }
+      case 'MATCH_SEARCH':
+        return {
+          ...state,
+          matches: action.payload
         }
       case 'PROCESSING':
         return {
-          state,
+          ...state,
           message: 'Loading...'
         }
       case 'CLEAR':
         return {
-          state,
-          results: []
+          ...state,
+          results: [],
+          matches: []
         }
       default:
-        return state
+        return {...state}
     }
 }

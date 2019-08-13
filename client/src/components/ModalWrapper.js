@@ -44,7 +44,6 @@ class ModalWrapper extends Component {
 
     handleMatchChange = async (e) => {
         await this.setState({ selectedMatch: e.target.selected })
-        console.log(this.state.selectedMatch)
     }
 
     handleMatchSubmit = async (e) => {
@@ -60,7 +59,6 @@ class ModalWrapper extends Component {
 
     handlePlaylistChange = async (e) => {
         await this.setState({ selectedPlaylist: e.target.selected })
-        console.log(this.state.selectedPlaylist)
     }
 
     handlePlaylistSubmit = async (e) => {
@@ -73,9 +71,7 @@ class ModalWrapper extends Component {
         await this.props.allPlaylists()
         await this.onClosePlaylists()
     }
-
-
-
+    
     render() {
         if (this.props.song == null) {
             return <div></div>
