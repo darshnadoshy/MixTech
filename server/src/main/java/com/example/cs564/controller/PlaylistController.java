@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ * This class handles all requests related to playlists. Each method takes some
+ * form of input and passes it to a corresponding service class which
+ * performs the necessary actions. This class handles the general creation/deletion
+ * of playlists and following/un methods while the playListSongController handles
+ * operations on the actual songs belonging to a playlist.
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/playlist")
@@ -23,7 +31,11 @@ public class PlaylistController {
     @Autowired
     private FollowsService followsService;
 
-    // get all songs from a playlist
+    /** Get all the playlists belonging to a user
+     *
+     * @param uid User ID to get playlists from
+     * @return List of playlist entities belonging to the UID
+     */
     @ResponseBody
     @RequestMapping(value = "/all/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllPlaylists(@PathVariable Long uid) {
@@ -39,23 +51,44 @@ public class PlaylistController {
 //        return playlistService.getAllByPage(uid, page, size);
 //    }
 
+    /** Get a playlist by its ID
+     *
+     * @param pid ID of the playlist to retrieve
+     * @return PlaylistEntity
+     */
     @ResponseBody
     @RequestMapping(value = "/display/{pid}", method = RequestMethod.GET)
     public PlaylistEntity getPlaylistByPid(@PathVariable Long pid) {
         return playlistService.getByPid(pid);
     }
 
+    /** Get all the playlists a user is following
+     *
+     * @param uid User ID to retrieve following playlists from
+     * @return List of playList Entities a user follows
+     */
     @ResponseBody
     @RequestMapping(value = "/all/following/{uid}", method = RequestMethod.GET)
     public List<PlaylistEntity> getAllFollowingPlaylists(@PathVariable Long uid) {
         return followsService.getAllByUid(uid);
     }
 
+    /** Create a new playlist
+     *
+     * @param uid UserID the playlist will belong to
+     * @param playlistEntity Info to create playlist from
+     */
     @RequestMapping(value = "/create/{uid}", method = RequestMethod.POST)
     public void create (@PathVariable Long uid, @RequestBody PlaylistEntity playlistEntity) {
         playlistService.create(uid, playlistEntity);
     }
 
+    /** Delete a playlist
+     *
+     * @param uid User the playlist to delete belongs to
+     * @param pid playlist ID to delete
+     * @return A response detailing success or failure
+     */
     @ResponseBody
     @RequestMapping(value = "/delete/{uid}/{pid}", method = RequestMethod.DELETE)
     public StandardResponse remove(@PathVariable Long uid, @PathVariable Long pid) {
@@ -70,6 +103,13 @@ public class PlaylistController {
         return response;
     }
 
+    /** Set a playlist's privacy
+     *
+     * @param uid UserId to which the playlist belongs
+     * @param pid Playlist ID of which to adjust privacy
+     * @param privacy
+     * @return Response detailing method success/failure
+     */
     @ResponseBody
     @RequestMapping(value = "/privacy/{uid}/{pid}", method = RequestMethod.PUT)
     public StandardResponse privacy(@PathVariable Long uid, @PathVariable Long pid, @RequestParam int privacy) {
@@ -84,6 +124,12 @@ public class PlaylistController {
         return response;
     }
 
+    /** Follow a playlist
+     *
+     * @param uid UserID to follow a playlist
+     * @param pid ID of playlist to follow
+     * @return Info on method success/failure
+     */
     @ResponseBody
     @RequestMapping(value = "/follow/{uid}/{pid}", method = RequestMethod.POST)
     public StandardResponse follow(@PathVariable Long uid, @PathVariable Long pid) {
@@ -98,6 +144,12 @@ public class PlaylistController {
         return response;
     }
 
+    /** Unfollow a playlist
+     *
+     * @param uid ID of user to stop following playlist
+     * @param pid ID of playlist to stop following.
+     * @return Response detailing method success/failure
+     */
     @ResponseBody
     @RequestMapping(value = "/unfollow/{uid}/{pid}", method = RequestMethod.DELETE)
     public StandardResponse unfollow(@PathVariable Long uid, @PathVariable Long pid) {
