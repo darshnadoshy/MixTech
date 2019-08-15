@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.Base64;
 
-
+/**
+ * This class handles all requests related to users/getting authentication.
+ * The userService is called upon to handle some work, but responses are formed
+ * in this class.
+ */
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -20,7 +24,13 @@ public class UserController {
     private UserService userService;
 //    @Autowired
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
+
+    /** Login with a user's credentials
+     *
+     * @param email User's email
+     * @param password
+     * @return Repose detailing success/failure and a Validation token
+     */
     @CrossOrigin(origins = "http://localhost:3000")
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -48,6 +58,11 @@ public class UserController {
         return loginResponse;
     }
 
+    /** Register a new user
+     *
+     * @param userEntity Details of the new user (Email, username, password)
+     * @return Repose detailing success/failure and a Validation token
+     */
     @CrossOrigin(origins = "http://localhost:3000")
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)
