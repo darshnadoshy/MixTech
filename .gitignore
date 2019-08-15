@@ -1,1 +1,7 @@
 application.properties
+
+.ideas
+.metadata
+.vscode
+.DS_STORE
+.project
