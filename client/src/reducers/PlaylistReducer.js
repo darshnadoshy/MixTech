@@ -1,10 +1,19 @@
+/**
+ * Reducer changing state of playlists, responds to actions from PlaylistActions.js
+ */
 
+
+/**
+ * State of playlists and songs in playlists.
+ */
 const initialState = {
-    results: [],
-    songs: []
+    results: [], // playlists
+    songs: [] // songs in a given playlist
 };
 
-
+/**
+ * Pure function, responds to corresponding action.
+ */
 export default (state=initialState, action) => {
     switch (action.type) {
         case 'ALL_PLAYLISTS':

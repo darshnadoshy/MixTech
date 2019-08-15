@@ -4,12 +4,22 @@ import { connect } from 'react-redux'
 import { completeMatches, incompleteMatches, deleteMatch } from '../actions/MatchActions'
 import '../css/Matches.css'
 
+/**
+ * Component rendering complete and incomplete matches.
+ */
 class Matches extends Component {
+    /**
+     * Load all of users' matches before rendering.
+     * Checkout MatchActions.js
+     */
     async componentWillMount() {
         await this.props.completeMatches()
         await this.props.incompleteMatches()
     }
 
+    /**
+     * Delete match event handler.
+     */
     clickHandler = async e => {
         await this.props.deleteMatch(e.target.value)
         window.location.reload()

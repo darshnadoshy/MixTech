@@ -6,7 +6,16 @@ import { allPlaylists, addPlaylist, deletePlaylist, getAllSongsInPlaylist } from
 import { connect } from 'react-redux'
 import '../css/Playlists.css'
 
+/**
+ * Component rendering all of the users playlists.
+ * Opens a modal containing songs in playlist upon selection.
+ * Delete a playlist or create a new playlist.
+ */
 class Playlist extends Component {
+    /**
+     * State for playlists. Handles opening up a modal, and form body
+     * to create a new playlist
+     */
     state = {
         openModal: false,
         songsModal: false,
@@ -15,24 +24,41 @@ class Playlist extends Component {
         description: ''
     }
 
+    /**
+     * Load all of users' playlists before rendering.
+     */
     componentWillMount() {
         this.props.allPlaylists();
     };
 
+    /**
+     * Opens the modal containing playlist song data.
+     */
     onOpenModal = () => {
         this.setState({ openModal: true })
     }
 
+    /**
+     * Closes the modal.
+     */
     onCloseModal = () => {
         this.setState({ openModal: false })
     }
 
+    /**
+     * Updates corresponding form field for a new playlist.
+     */
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
     }
-
+    
+    /**
+     * Submits the form to create a new playlist.
+     * Checkout PlaylistActions.js
+     */
     handleSubmit = (e) => {
         e.preventDefault()
+        // current states for new playlist
         const data = {
             pname: this.state.pname,
             privacy: 0,
@@ -42,17 +68,26 @@ class Playlist extends Component {
         window.location.reload()
     }
 
+    /**
+     * Sets proper playlist upon selection and waits.
+     * Opens modal containing playlist songs.
+     */
     onOpenPlaylist = async (e) => {
         await this.setState({ playlist: e.target.selected })
         await this.props.getAllSongsInPlaylist(this.state.playlist.pid)
         this.setState({ songsModal: true })
     }
 
+    /**
+     * Closes the modal.
+     */
     onClosePlaylist = () => {
         this.setState({ songsModal: false })
     }
 
-
+    /**
+     * Deletes corresponding playlist.
+     */
     clickHandler = async e => {
         await this.props.deletePlaylist(e.target.value)
         window.location.reload()

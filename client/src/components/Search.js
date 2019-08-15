@@ -5,41 +5,70 @@ import { basicResults, clearResults, basicMatches } from '../actions/SearchActio
 import { connect } from 'react-redux'
 import '../css/Search.css'
 
+/**
+ * Component for the Basic Search functionality. State
+ * consists of song name, and the ModalWrapper which holds
+ * data about the results.
+ */
 
 class Search extends Component {
+    /**
+     * Initialize component state.
+     */
     constructor() {
         super()
         this.state = {
-            sname: "",
-            modalOpen: false,
-            selected: null
+            sname: "", // song name to query
+            modalOpen: false, // current state of modal
+            selected: null // the selected song for modal data
         }
     }
 
+    /**
+     * Clear results after leaving search component
+     */
     componentWillUnmount() {
         this.props.clearResults()
     }
 
+    /**
+     * Updates song name query.
+     */
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    /**
+     * Submits the form, requesting search to the backend via
+     * searchActions.
+     */
     handleSubmit = async e => {
+        // use awaits for getting data in proper
         e.preventDefault()
         const query = {sname: this.state.sname}
         await this.props.basicResults(query)
         await this.props.basicMatches(query)
     }
 
+    /**
+     * Change state of selected and modalOpen. Opens the modal
+     * to show data.
+     */
     onOpenModal = async e => {
         await this.setState({ selected: e.target.selected })
         this.setState({modalOpen: true})
     }
 
+    /**
+     * Closes the modal.
+     */
     onCloseModal = () => {
         this.setState({ modalOpen: false });
     }
 
+    /**
+     * HTML and CSS to display.
+     */
     render() {
         return (
             <div id="searchContent">
@@ -100,6 +129,10 @@ class Search extends Component {
     }
 }
 
+/**
+ * Helper function for readability of keys.
+ * @param value - key value
+ */
 const whichKey = (value) => {
     switch(value) {
         case 0: return 'C'

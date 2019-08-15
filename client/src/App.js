@@ -8,6 +8,11 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Home from './pages/Home'
 
+/**
+ * Starting point of MixTech. Defines browser routes through React Router.
+ * Each route redirects the user to the corresponding component upon navigating to it.
+ */
+
 function App() {
   return (
     <Router>

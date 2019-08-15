@@ -5,7 +5,10 @@ import PlaylistReducer from './PlaylistReducer'
 import MatchReducer from './MatchReducer'
 
 
-
+/**
+ * Combines all reducers and their individual states into the
+ * redux store.
+ */
 export default combineReducers({
  SearchResults: SearchReducer,
  userAuth: UserAuthReducer,

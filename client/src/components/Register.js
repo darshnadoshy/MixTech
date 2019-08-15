@@ -3,7 +3,15 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { register } from '../actions/UserActions'
 import { Link, Redirect } from 'react-router-dom'
+
+/**
+ * Component to register a new user.
+ */
 class Register extends Component {
+    /**
+     * State for necessary credentials for
+     * registering the user in the backend.
+     */
     constructor () {
         super()
         this.state = {
@@ -13,10 +21,16 @@ class Register extends Component {
         }
     }
 
+    /**
+     * Updates corresponding form field.
+     */
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value}) // event is a hashmap
     }
 
+    /**
+     * Submits the form and registers a new user.
+     */
     handleSubmit = e => {
         e.preventDefault()
         const creds = {
@@ -27,6 +41,11 @@ class Register extends Component {
         this.props.register(creds)
     }
 
+    /**
+     * HTML and CSS to display. If authenticated (check UserActions),
+     * then redirect to home page, if not display fail message and
+     * rerender register page.
+     */
     render() {
             if (this.props.isAuthenticated) {
                 return <Redirect to={'/home'}></Redirect>
@@ -50,10 +69,6 @@ class Register extends Component {
                                     <label htmlFor="password">Password</label>
                                     <input type="password" className="form-control" name="password" placeholder="Enter Password" onChange={this.handleChange.bind(this)}></input>
                                 </div>
-                                {/* <div className="form-group">
-                                    <label for="password">Confirm Password</label>
-                                    <input type="text" className="form-control" id="password" placeholder="Enter Password"></input>
-                                </div> */}
                                 <button type="submit" className="btn btn-primary">Register</button>
                                 <h2>{this.props.errorMessage}</h2>
                             </form>

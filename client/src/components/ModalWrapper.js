@@ -7,45 +7,78 @@ import { allPlaylists, addToExistingPlaylist } from '../actions/PlaylistActions'
 import Matches from './Matches';
 
 
+/**
+ * Component displaying all audio feature values of selected song. Data
+ * passed down from Search.js or AdvancedSearch.js.
+ * Can add new match, add to incomplete match or add to a new playlist.
+ */
 class ModalWrapper extends Component {
+    /**
+     * State keeping track of which modal to open.
+     */
     state = {
-        openAddMatches: false,
+        openAddMatches: false, 
         openAddPlaylists: false,
-        selectedMatch: -1,
-        selectedPlaylist: -1
+        selectedMatch: -1, // the match to add to
+        selectedPlaylist: -1 // the playlist to add to
     }
     
+    /**
+     * Load all incomplete matches and playlist before rendering.
+     */
     componentWillMount() {
         this.props.incompleteMatches()
         this.props.allPlaylists()
     }
 
+    /**
+     * Opens the match modal.
+     */
     onOpenMatches = async e => {
         this.setState({ openAddMatches: true});
     }
 
+    /**
+     * Closes the match modal.
+     */
     onCloseMatches = () => {
         this.setState({ openAddMatches: false });
     }
 
+    /**
+     * Opens the playlist modal.
+     */
     onOpenPlaylists = async e => {
         this.setState({ openAddPlaylists: true});
     }
 
+    /**
+     * Closes the playlist modal.
+     */
     onClosePlaylists = () => {
         this.setState({ openAddPlaylists: false });
     }
 
+    /**
+     * Adds this song to a new match connects to MatchActions
+     */
     handleNewMatch = async () => {
         await this.props.addNewMatch(this.props.song)
         await this.props.incompleteMatches()
         await this.onCloseMatches()
     }
 
+    /**
+     * Handles radio buttons for list of matches.
+     */
     handleMatchChange = async (e) => {
         await this.setState({ selectedMatch: e.target.selected })
     }
 
+    /**
+     * Adds this song to the selected incomplete match.
+     * Connects to MatchActions.
+     */
     handleMatchSubmit = async (e) => {
         e.preventDefault()
         const req = {
@@ -57,10 +90,17 @@ class ModalWrapper extends Component {
         await this.onCloseMatches()
     }
 
+    /**
+     * Handles radio buttons for list of playlists.
+     */
     handlePlaylistChange = async (e) => {
         await this.setState({ selectedPlaylist: e.target.selected })
     }
 
+    /**
+     * Adds this song to the selected playlist.
+     * Connects to PlaylistActions.
+     */
     handlePlaylistSubmit = async (e) => {
         e.preventDefault()
         const req = {
@@ -219,6 +259,11 @@ class ModalWrapper extends Component {
     
 }
 
+/**
+ * Helper function for which mode,
+ * Major or Minor.
+ * @param {*} value 
+ */
 const whichMode = (value) => {
     switch(value) {
         case 0: return 'Minor'
@@ -226,6 +271,11 @@ const whichMode = (value) => {
         default: return ''
     }
 }
+
+/**
+ * Helper function for readability of keys.
+ * @param value - key value
+ */
 const whichKey = (value) => {
     switch(value) {
         case 0: return 'C'

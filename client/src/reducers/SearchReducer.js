@@ -1,11 +1,15 @@
-
+/**
+ * Reducer changing state of search results, responds to actions from SearchActions.js
+ */
 
 const initialState = {
-  results: [],
-  matches: []
+  results: [], // current results basic/advanced
+  matches: [] // matches from basic search
 }
 
-
+/**
+ * Pure function, responds to corresponding action.
+ */
 export default (state=initialState, action) => {
     switch (action.type) {
       case 'BASIC_SEARCH':

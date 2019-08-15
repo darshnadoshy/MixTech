@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { getAllSongsInPlaylist } from '../actions/PlaylistActions'
 import PropTypes from 'prop-types'
 
+/**
+ * Modal containing all playlist songs. Data passed down from Playlist.js component.
+ */
 class PlaylistSongs extends Component {
     render() {
         if (this.props.playlist == null) {

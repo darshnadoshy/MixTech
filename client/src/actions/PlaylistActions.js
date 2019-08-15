@@ -1,3 +1,13 @@
+
+/**
+ * Actions mapping to the playlist route and calling various functionalities.
+ * Dispatches to PlaylistReducer.js to change playlist state.
+ */
+
+
+/**
+ * Gets a list of all playlists.
+ */
 export const allPlaylists = () => dispatch => {
     fetch(`http://localhost:8080/playlist/all/${localStorage.getItem('uid')}`, {
         method: 'GET',
@@ -21,6 +31,10 @@ export const allPlaylists = () => dispatch => {
 
 };
 
+/**
+ * Gets all the songs in a given playlist.
+ * @param {*} pid 
+ */
 export const getAllSongsInPlaylist = (pid) => dispatch => {
     fetch(`http://localhost:8080/playlist_song/all/${pid}`, {
         method: 'GET',
@@ -57,6 +71,10 @@ export const getAllSongsInPlaylist = (pid) => dispatch => {
     }).catch(err => console.log(err))
 }
 
+/**
+ * Creates new playlist given appropriate data.
+ * @param {*} data 
+ */
 export const addPlaylist = (data) => dispatch => {
     fetch(`http://localhost:8080/playlist/create/${localStorage.getItem('uid')}`, {
         method: 'POST',
@@ -69,6 +87,11 @@ export const addPlaylist = (data) => dispatch => {
     .catch(err => console.log(err))
 }
 
+
+/**
+ * Adds a song to a given playlist id and song id.
+ * @param {*} req 
+ */
 export const addToExistingPlaylist = (req) => dispatch => {
     fetch(`http://localhost:8080/playlist_song/add/${req.playlistID}?spotify_uri=${req.songID}`, {
             method: 'PUT',
@@ -81,6 +104,10 @@ export const addToExistingPlaylist = (req) => dispatch => {
         .catch(err => console.log(err))
 }
 
+/**
+ * Deletes the given playlist id.
+ * @param {*} pid 
+ */
 export const deletePlaylist = (pid) => dispatch => {
     fetch(`http://localhost:8080/playlist/delete/${localStorage.getItem('uid')}/${pid}`, {
             method: 'DELETE',

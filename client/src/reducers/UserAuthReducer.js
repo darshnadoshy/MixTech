@@ -1,9 +1,19 @@
+/**
+ * Reducer changing state of user authentication, responds to actions from UserActions.js
+ */
 
+
+/**
+ * State of authentication and status waiting for backend.
+ */
 const initialState = {
-    isFetching: false,
+    isFetching: false, // currently waiting for backend
     isAuthenticated: localStorage.getItem('token') ? true : false
 }
 
+/**
+ * Pure function, responds to corresponding action.
+ */
 export default (state=initialState, action) => {
     switch (action.type) {
         case 'REGISTER_SUCCESS':

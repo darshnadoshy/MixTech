@@ -8,6 +8,14 @@ import AdvancedSearch from '../components/AdvancedSearch'
 import {Route, Switch} from "react-router-dom"
 import '../css/Home.css'
 
+
+/**
+ * The authenticated user will be redirected to this home page.
+ * Defines a sidebar as the navigation bar for MixTech and defines several
+ * browser routes for the user each with their corresponding
+ * component and functionality.
+ */
+
 const Home = () => {
     return (
         <div id="home">

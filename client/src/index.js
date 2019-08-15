@@ -11,6 +11,11 @@ import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+/**
+ * Main entry point of react app. Provider wrapper gives App access to the Redux store.
+ * The React DOM renders App.js in the beginning.
+ */
+
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
 

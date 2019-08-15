@@ -1,3 +1,14 @@
+/**
+ * Actions mapping to the search route and calling various functionalities,
+ * including both basic search and advanced search.
+ * Dispatches to SearchReducer.js to change result state.
+ */
+
+
+/**
+ * Get basic search results given a song name.
+ * @param {*} query - the song name
+ */
 export const basicResults = (query) => dispatch => {
     fetch(`http://localhost:8080/search/basic?sname=${query.sname}`, {
             method: 'GET',
@@ -34,6 +45,11 @@ export const basicResults = (query) => dispatch => {
         }).catch(err => {console.log(err)})
 }
 
+/**
+ * Get a list of all complete matches in the database
+ * containing the current query's song name.
+ * @param {*} query 
+ */
 export const basicMatches = (query) => dispatch => {
     fetch(`http://localhost:8080/search/basic_matches?sname=${query.sname}`, {
         method: 'GET',
@@ -58,7 +74,11 @@ export const basicMatches = (query) => dispatch => {
     .catch(err => {console.log(err)})
 }
 
-
+/**
+ * Get a list of advanced search results given a query
+ * containing all audio features values/ranges.
+ * @param {*} query 
+ */
 export const advancedResults = (query) => dispath => {
     fetch('http://localhost:8080/search/advance', {
         method: 'POST',
@@ -96,6 +116,9 @@ export const advancedResults = (query) => dispath => {
     }).catch(err => console.log(err))
 }
 
+/**
+ * Clears results after leaving a search page.
+ */
 export const clearResults = () => dispath => {
     dispath({
         type: 'CLEAR',

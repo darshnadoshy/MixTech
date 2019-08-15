@@ -3,7 +3,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-
+/**
+ * The front page of MixTech. 
+ * Gives user the option to login or register.
+ */
 const Front = () => {
     return (
         <div className="container" style={parentStyle}>

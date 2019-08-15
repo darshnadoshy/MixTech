@@ -7,7 +7,18 @@ import { clearResults } from '../actions/SearchActions'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
 import '../css/AdvancedSearch.css'
+
+/**
+ * Component implementing Advanced Search functionality.
+ * State contains min and max values for every audio feature except key and mode,
+ * which are distinct.
+ */
 class AdvancedSearch extends Component {
+    /**
+     * States for every audio feature corresponding to the respective
+     * InputRange component.
+     * @param {*} props 
+     */
     constructor(props) {
         super(props);
     
@@ -54,15 +65,23 @@ class AdvancedSearch extends Component {
               min: 1,
               max: 5000
           },
-          modalOpen: false,
-          selected: null
+          modalOpen: false, // modal containing song data
+          selected: null // the selected song to show
         }
     }
     
+    /**
+     * Clear advanced search results after leaving
+     * component.
+     */
     componentWillUnmount() {
         this.props.clearResults()
     }
 
+    /**
+     * Submits form with every current state of the InputRange
+     * into the query body connecting to SearchActions.
+     */
     handleSubmit = e => {
         e.preventDefault()
         const query = {
@@ -92,14 +111,25 @@ class AdvancedSearch extends Component {
         this.props.advancedResults(query)
     }
 
+    /**
+     * Sets the selected song to the one user just clicked,
+     * opens modal containing data of that song.
+     */
     onOpenModal = async e => {
         await this.setState({ selected: e.target.selected })
         this.setState({modalOpen: true})
     }
 
+    /**
+     * Closes the modal.
+     */
     onCloseModal = () => {
         this.setState({ modalOpen: false });
     }
+    
+    /**
+     * HTML and CSS to display.
+     */
     render() {
         return (
             <div id="asearchContent">
@@ -259,6 +289,10 @@ class AdvancedSearch extends Component {
     }
 }
 
+/**
+ * Helper function for readability of keys.
+ * @param value - key value
+ */
 const whichKey = (value) => {
     switch(value) {
         case 0: return 'C'

@@ -1,5 +1,14 @@
+/**
+ * Actions mapping to the user route and calling various functionalities.
+ * Dispatches to UserAuthReducer.js to change user state.
+ */
 
-
+/**
+ * Logs in a user given proper credentials.
+ * Returns error message if not. Stores
+ * JWT token in local storage in order to persist
+ * user info.
+ */
 export const login = (creds) => dispatch => {
     dispatch({type: 'LOGIN_REQUEST'})
     fetch(`http://localhost:8080/user/login?email=${creds.email}&password=${creds.password}`, {
@@ -26,6 +35,9 @@ export const login = (creds) => dispatch => {
         }).catch(err => {console.log(err)})
 }
 
+/**
+ * Logs current user out.
+ */
 export const logout = () => dispatch => {
     console.log('logging out...')
     localStorage.removeItem('uname')
@@ -34,6 +46,10 @@ export const logout = () => dispatch => {
     dispatch({type: 'LOGOUT'})
 }
 
+/**
+ * Registers a new user, returns error message if failed.
+ * @param {*} creds 
+ */
 export const register = (creds) => dispatch => {
     dispatch({type: 'REGISTER_REQUEST'})
     fetch('http://localhost:8080/user/register', {

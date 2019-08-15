@@ -5,16 +5,28 @@ import PropTypes from 'prop-types'
 import { login } from '../actions/UserActions'
 import { connect } from 'react-redux'
 
+/**
+ * Component to login an existing user.
+ */
 class Login extends Component {
+    /**
+     * State for credentials of existing user.
+     */
     state = {
         email: "",
         password: "",
     }
 
+    /**
+     * Updates corresponding form field.
+     */
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value}) 
     }
 
+    /**
+     * Submits the form and logins an existing user.
+     */
     handleSubmit = e => {
         e.preventDefault()
         const creds = {
@@ -23,6 +35,12 @@ class Login extends Component {
         }
         this.props.login(creds)
     }
+
+    /**
+     * HTML and CSS to display. If authenticated (check UserActions),
+     * then redirect to home page, if not display fail message and
+     * rerender login page.
+     */
     render() {
         if (this.props.isAuthenticated) {
             return <Redirect to='/home'/>

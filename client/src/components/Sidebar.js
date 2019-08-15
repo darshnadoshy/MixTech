@@ -6,6 +6,12 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import '../css/Sidebar.css'
 
+
+/**
+ * The navigation bar for the user. Each navigation item
+ * links and redirects the user to the specified route.
+ */
+
 class Sidebar extends Component {
     render() {
         return (
