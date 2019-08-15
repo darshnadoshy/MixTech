@@ -9,11 +9,21 @@ import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
 
+/**
+ * store procedure call implementation
+ */
+
 @Repository
 public class StoredProcedureDaoImpl implements StoredProcedureDao {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * call create_playlist stored procedure
+     *
+     * @param uid user id
+     * @param playlistEntity playlist info
+     */
     @Override
     public void createPlaylist(Long uid, PlaylistEntity playlistEntity) {
         StoredProcedureQuery  storedProcedureQuery = em.createStoredProcedureQuery("create_playlist");
@@ -30,6 +40,12 @@ public class StoredProcedureDaoImpl implements StoredProcedureDao {
         storedProcedureQuery.execute();
     }
 
+    /**
+     * call remove_playlist stored procedure
+     *
+     * @param uid user id
+     * @param pid playlist id
+     */
     @Override
     public void removePlaylist(Long uid, Long pid) {
         StoredProcedureQuery storedProcedureQuery = em.createStoredProcedureQuery("remove_playlist");
@@ -42,6 +58,12 @@ public class StoredProcedureDaoImpl implements StoredProcedureDao {
         storedProcedureQuery.execute();
     }
 
+    /**
+     * call change_privacy stored procedure
+     *
+     * @param pid playlist id
+     * @param privacy pulibc:1; private:0
+     */
     @Override
     public void updatePlaylistPrivacy(Long pid, Integer privacy) {
         StoredProcedureQuery storedProcedureQuery = em.createStoredProcedureQuery("change_privacy");

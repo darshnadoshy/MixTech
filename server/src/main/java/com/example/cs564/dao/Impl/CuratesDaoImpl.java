@@ -9,11 +9,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+/**
+ * curates table DAO implementation
+ */
+
 @Repository
 public class CuratesDaoImpl implements CuratesDao {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * find all playlists by user id
+     *
+     * @param uid user id
+     * @return list of playlists a user created
+     */
     @Override
     public List<PlaylistEntity> findAllByUid(Long uid) {
         return em.createNativeQuery("SELECT p.* FROM curates c, playlists p " +

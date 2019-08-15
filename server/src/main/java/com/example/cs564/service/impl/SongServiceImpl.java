@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import javax.persistence.criteria.*;
 import java.util.List;
 
+/**
+ * song service implementation
+ */
 @Service("SongService")
 public class SongServiceImpl implements SongService {
     @Autowired
@@ -22,16 +25,34 @@ public class SongServiceImpl implements SongService {
     @Autowired
     private SongDao songDao;
 
+    /**
+     * get a single song by its id
+     * @param spotifyID song id
+     * @return the song info
+     */
     @Override
     public SongEntity getByID(String spotifyID) {
         return songRepo.findBySpotifyID(spotifyID);
     }
+
+    /**
+     * basic search;: get songs with name like sname
+     * @param sname search key word
+     * @return lists of basic search results
+     */
     @Override
     public List<SongEntity> getAllByName(String sname) {
         Sort sort = new Sort(Sort.Direction.DESC, "popularity");
         return songRepo.findBySnameLike("%" + sname + "%",sort);
     }
 
+    /**
+     * similar to getAllByName(), but return a page
+     * @param name search key word
+     * @param page page number
+     * @param size size of a page
+     * @return lists of basic search results in that page
+     */
     @Override
     public List<SongEntity> getAllByNameInPage(String name, int page, int size) {
         Sort sort = new Sort(Sort.Direction.DESC, "popularity");
@@ -39,6 +60,11 @@ public class SongServiceImpl implements SongService {
         return songRepo.findBySnameLike("%" + name + "%", pageable);
     }
 
+    /**
+     * advance search
+     * @param request advance search criterion
+     * @return advance search results
+     */
     @Override
     public List<SongEntity> getAllByAudioFeatures(AdvanceSearchRequest request) {
         StringBuilder stringBuilder = new StringBuilder();

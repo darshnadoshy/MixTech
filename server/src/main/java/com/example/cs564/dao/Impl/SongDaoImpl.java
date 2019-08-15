@@ -12,11 +12,21 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
 
+/**
+ * song table DAO implementation
+ */
+
 @Repository
 public class SongDaoImpl implements SongDao {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * advanced search
+     *
+     * @param query advanced search query
+     * @return list of songs satisfy the query criterion
+     */
     @Override
     public List<SongEntity> findAllByAudioFeatures(String query) {
         System.out.println(query);

@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Direct Access Object to creates table
+ * implement manually
+ */
+
 @Repository
 public interface CreatesDao {
 

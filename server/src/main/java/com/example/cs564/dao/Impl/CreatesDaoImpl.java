@@ -9,10 +9,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+/**
+ * creates table DAO implementation
+ */
+
 @Repository
 public class CreatesDaoImpl implements CreatesDao{
     @PersistenceContext EntityManager em;
 
+    /**
+     * find all matches by user id
+     *
+     * @param uid user id
+     * @return list of matches a user has
+     */
     @Override
     public List<MatchEntity> findAllById(Long uid) {
         return em.createNativeQuery("SELECT m.* FROM creates c, matches m " +

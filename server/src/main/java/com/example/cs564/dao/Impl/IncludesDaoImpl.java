@@ -8,11 +8,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+/**
+ * includes table DAO implementation
+ */
+
 @Repository
 public class IncludesDaoImpl implements IncludesDao {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * find all songs in a playlist
+     *
+     * @param pid playlist id
+     * @return list of songs included in a playlist
+     */
     @Override
     public List<SongEntity> findAllByPid(Long pid) {
         return em.createNativeQuery("select s.* from song s, include i " +

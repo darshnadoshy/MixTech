@@ -6,6 +6,10 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * playlists table
+ */
+
 @Entity
 @Table(name = "playlists")
 @Data // lombok plug-in; generate getter and setter

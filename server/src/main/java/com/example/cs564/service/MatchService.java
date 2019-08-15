@@ -8,6 +8,10 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
+/**
+ * services related to matches
+ */
+
 public interface MatchService {
     Page<MatchEntity> getAllByPage(int page, int size);
     List<MatchEntity> getAll();

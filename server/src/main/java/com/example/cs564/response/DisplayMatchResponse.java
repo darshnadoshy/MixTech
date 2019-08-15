@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
+/**
+ * used to return the frontend to display match
+ */
+
 @Data
 public class DisplayMatchResponse {
     private Long mid;

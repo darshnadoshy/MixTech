@@ -5,6 +5,10 @@ import com.example.cs564.request.AdvanceSearchRequest;
 
 import java.util.List;
 
+/**
+ * services operate on the song table
+ */
+
 public interface SongService {
     List<SongEntity> getAllByName(String name);
     List<SongEntity> getAllByNameInPage(String name, int page, int size);

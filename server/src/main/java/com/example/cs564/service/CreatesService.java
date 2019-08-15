@@ -7,6 +7,10 @@ import com.example.cs564.entity.key.CreatesKey;
 
 import java.util.List;
 
+/**
+ * services related to creation of matches
+ */
+
 public interface CreatesService {
     public void create(CreatesEntity createsEntity);
     public void remove(CreatesKey key);

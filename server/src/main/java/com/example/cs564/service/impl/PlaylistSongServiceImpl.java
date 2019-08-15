@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * services related to songs in a playlist
+ */
+
 @Service("PlaylistSongService")
 public class PlaylistSongServiceImpl implements PlaylistSongService {
     @Autowired
@@ -18,19 +22,36 @@ public class PlaylistSongServiceImpl implements PlaylistSongService {
     @Autowired
     private IncludesRepo includesRepo;
 
+    /**
+     * display all the songs in the given playlist
+     * @param pid playlist id
+     * @return list of songs in that playlist
+     */
     @Override
     public List<SongEntity> getAllByPid(Long pid) {
         return includesDao.findAllByPid(pid);
     }
 
+    /**
+     * add a song to the playlist
+     * no policy to handle duplicate for now
+     *
+     * @param spotifyUri song id
+     * @param pid playlist id
+     */
     @Override
     public void add(String spotifyUri, Long pid) {
         if (includesRepo.findBySpotifyUriAndPid(spotifyUri, pid) != null) {
-//            // TODO: If already exist...
+//            // If already exist...
         }
         includesRepo.save(new IncludesEntity(spotifyUri, pid));
     }
 
+    /**
+     * remove a song from the playlist
+     * @param spotifyUri song id
+     * @param pid playlist id
+     */
     @Override
     public void remove(String spotifyUri, Long pid) {
         includesRepo.deleteById(new IncludesKey(spotifyUri, pid));

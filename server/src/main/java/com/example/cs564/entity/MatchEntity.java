@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * matches table
+ */
+
 @Entity
 @Table(name = "matches")
 @Data
