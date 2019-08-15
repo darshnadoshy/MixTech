@@ -2,6 +2,10 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
 
+"""
+Script to scrape all songs from list of albums retrieved from billboard top 200's (scrapebillboard.py)
+"""
+
 # set up spotipy wrapper
 client_credentials_manager = SpotifyClientCredentials(client_id="ae1c25b01ed94b4cb0b48cd1e679f051", client_secret="8a9d601440204112b46c1d3e4d0d26e4")
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
@@ -31,7 +35,6 @@ while i < len(album_ids):
         popularity.extend(list(map(lambda x: x['popularity'], sp.tracks(album_tracks)['tracks'])))
     except Exception as err:
         print(album_names)
-        print("IDONTKNOWWHATTOPUTHERE")
         print(track_names)
         print(err)
 

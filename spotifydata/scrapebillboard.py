@@ -1,6 +1,10 @@
 import billboard
 import pandas as pd
 
+"""
+Script to scrape every existing album in billboard top 200 albums.
+Removes duplicates.
+"""
 artist = []
 album_name = []
 
