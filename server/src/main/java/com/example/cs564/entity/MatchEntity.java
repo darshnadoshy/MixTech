@@ -12,7 +12,7 @@ public class MatchEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mid;
 
-    private String mname;
+    //private String mname;
     @Column(name = "spotify_uri1")
     private String spotifyUri1;
     @Column(name = "spotify_uri2")
@@ -25,12 +25,12 @@ public class MatchEntity {
     }
 
     public MatchEntity(String mname, String spotifyUri1) {
-        this.mname = mname;
+        //this.mname = mname;
         this.spotifyUri1 = spotifyUri1;
     }
 
     public MatchEntity(String mname, String spotify_uri1, String spotify_uri2) {
-        this.mname = mname;
+        //this.mname = mname;
         this.spotifyUri1 = spotify_uri1;
         this.spotifyUri2 = spotify_uri2;
     }
