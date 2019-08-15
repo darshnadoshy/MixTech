@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+/**
+ * creates table
+ */
+
 @Entity
 @IdClass(CreatesKey.class)
 @Table(name = "creates")

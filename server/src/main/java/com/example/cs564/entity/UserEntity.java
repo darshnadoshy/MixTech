@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * users table
+ */
+
 @Entity
 @Table(name = "users")
 @Data

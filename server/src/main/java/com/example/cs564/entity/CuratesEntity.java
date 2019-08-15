@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+/**
+ * curates table
+ */
+
 @Entity
 @IdClass(CuratesKey.class)
 @Table(name = "curates")

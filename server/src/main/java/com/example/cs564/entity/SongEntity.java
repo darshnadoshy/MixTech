@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * song table
+ */
+
 @Entity
 @Table(name = "song")
 @Data

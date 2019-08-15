@@ -10,6 +10,11 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * Direct Access Object to follows table
+ * utilize Spring JPA's built-in functionalities
+ */
+
 public interface FollowsRepo extends JpaRepository<FollowsEntity, FollowsKey> {
     FollowsEntity findByPidAndUid(Long pid, Long uid);
     List<FollowsEntity> findAllByPid(Long pid);

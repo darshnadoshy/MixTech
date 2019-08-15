@@ -8,11 +8,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+/**
+ * curates table DAO implementation
+ */
+
 @Repository
 public class FollowsDaoImpl implements FollowsDao {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * find all playlists followed by a user
+     *
+     * @param uid user id
+     * @return list of playlists a user follows
+     */
     @Override
     public List<PlaylistEntity> getAllByUid(Long uid) {
         return em.createNativeQuery("select p.* from follows f, playlists p " +

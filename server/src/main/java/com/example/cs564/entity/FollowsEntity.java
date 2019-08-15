@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+/**
+ * follows table
+ */
+
 @Entity
 @IdClass(FollowsKey.class)
 @Table(name = "follows")

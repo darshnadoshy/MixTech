@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Direct Access Object to matches table
+ * implement manually
+ */
+
 public interface MatchDao {
 
     List<DisplayMatchResponse> displayMatch(Long uid);

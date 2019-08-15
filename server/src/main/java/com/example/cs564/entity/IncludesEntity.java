@@ -5,6 +5,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * curates table
+ */
+
 @Entity
 @IdClass(IncludesKey.class)
 @Table(name = "include")

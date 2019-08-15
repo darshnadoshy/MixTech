@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Direct Access Object to playlists table
+ * utilize Spring JPA's built-in functionalities
+ */
+
 @Repository
 public interface PlaylistRepo extends JpaRepository<PlaylistEntity, Long> {
     PlaylistEntity findByPid(Long pid);

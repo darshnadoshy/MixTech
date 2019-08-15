@@ -2,6 +2,9 @@ package com.example.cs564.request;
 
 import lombok.Data;
 
+/**
+ * used to receive criterion for advanced search from the frontend
+ */
 @Data
 public class AdvanceSearchRequest {
     private Integer skey;

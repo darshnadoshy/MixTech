@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Direct Access Object to song table
+ * utilize Spring JPA's built-in functionalities
+ */
+
 @Repository
 public interface SongRepo extends JpaRepository<SongEntity, String> {
     List<SongEntity> findBySnameLike(String sname, Sort sort);

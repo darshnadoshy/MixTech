@@ -1,3 +1,11 @@
+
+/**
+ * This is a class for future user authentication implementation. Currently,
+ * the program authenticates user through route interceptor. In the future, we
+ * will use this class, configuring Spring Security for user authentication.
+ */
+
+
 //package com.example.cs564.config;
 //
 //import org.springframework.context.annotation.Bean;
@@ -8,6 +16,8 @@
 //import org.springframework.security.config.annotation.web.builders.WebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//
+//
 //
 //@Configuration
 //@EnableWebSecurity
