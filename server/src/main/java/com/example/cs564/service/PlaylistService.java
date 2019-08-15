@@ -5,6 +5,9 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
+/**
+ * services related to playlists
+ */
 
 public interface PlaylistService {
 //    List<PlaylistEntity> getAllByPage(Long uid, int page, int size);

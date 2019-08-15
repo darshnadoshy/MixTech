@@ -1,5 +1,8 @@
 package com.example.cs564.utils;
 
+/**
+ * configure global constants for the program
+ */
 public class SystemConstant {
 
     // token

@@ -11,10 +11,22 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * set up interceptor for ser authentication
+ * will be replaced by spring security in the future
+ */
 public class SysInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(SysInterceptor.class);
 
-    // executed before actual handler is executed
+    /**
+     * executed before actual handler is executed
+     *
+     * @param request http request
+     * @param response http response
+     * @param handler how to handle
+     * @return succeeds or not
+     * @throws Exception general
+     */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         if (handler instanceof HandlerMethod) {
@@ -42,14 +54,24 @@ public class SysInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    // executed after handler is executed
+    /**
+     * executed after handler is executed
+     *
+      * @param request http request
+     * @param response http response
+     * @param handler how to handle
+     * @param modelAndView error
+     * @throws Exception general
+     */
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        System.out.println(response == null);
-        if(response.getStatus()==500){
-            modelAndView.setViewName("/error/500");
-        }else if(response.getStatus()==404){
-            modelAndView.setViewName("/error/404");
+//        if(response.getStatus()==500){
+//            modelAndView.setViewName("/error/500");
+//        }else if(response.getStatus()==404){
+//            modelAndView.setViewName("/error/404");
+//        }
+        if (response.getStatus() != 200) {
+            modelAndView.setViewName("/error/" + response.getStatus());
         }
     }
 }

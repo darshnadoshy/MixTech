@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * creates
+ * service related to match creation
  */
 
 @Service("CreatesService")
@@ -22,16 +22,30 @@ public class CreatesServiceImpl implements CreatesService {
     @Autowired
     private CreatesDao createsDao;
 
+    /**
+     * create a match
+     * @param createsEntity info for match creation
+     */
     @Override
     public void create(CreatesEntity createsEntity) {
         createsRepo.save(createsEntity);
     }
 
+    /**
+     * remove a match
+     * @param key of match to remove
+     */
     @Override
     public void remove(CreatesKey key) {
         createsRepo.deleteById(key);
     }
 
+    /**
+     * get all matches of a user
+     *
+     * @param uid user id
+     * @return list of matches
+     */
     @Override
     public List<MatchEntity> getAllByUid(Long uid) {
         return createsDao.findAllById(uid);
