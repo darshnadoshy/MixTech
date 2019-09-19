@@ -1,7 +1,5 @@
 # MixTech
 
-Group project for CS564.
-
 Run MixTechApplication.java in server to start up backend
 and npm start in client to start up frontend.
 
