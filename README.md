@@ -18,6 +18,6 @@ Check application.properties in server/resources/
 
 Folder containing various scripts to scrape data from billboard and spotify.
 
-#Demo
+# Demo
 
 Watch the demo here - https://bit.ly/37kHlYT
