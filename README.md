@@ -17,3 +17,7 @@ Check application.properties in server/resources/
 # spotifydata
 
 Folder containing various scripts to scrape data from billboard and spotify.
+
+#Demo
+
+Watch the demo here - https://bit.ly/37kHlYT
